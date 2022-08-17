@@ -7,40 +7,48 @@ function photographerFactory(data) {
         const article = document.createElement( 'article' );
 
         const anchor = document.createElement( 'a' );
-        anchor.setAttribute("href", `./photographer.html`);
+        anchor.setAttribute("href", `./photographer.html?id=${id}`);
 
         const imgContainer = document.createElement( 'div' );
         imgContainer.setAttribute("class", 'imgContainer');
 
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture);
-        img.setAttribute("alt", name);
+        img.setAttribute("alt", ""); //empty alt to avoid repetition of name
         img.setAttribute("width", img.width);
         img.setAttribute("height", img.height);
 
-        const h2 = document.createElement( 'h2' );
-        h2.textContent = name;
+        const photographerName = document.createElement( 'h2' );
+        photographerName.textContent = name;
+        photographerName.setAttribute("class", 'photographerName');
 
-        const h3 = document.createElement( 'h3' );
-        h3.textContent = `${city}, ${country}`;
+        const textContainer = document.createElement( 'div' );
+        textContainer.setAttribute("class", 'textContainer');
 
-        const h4 = document.createElement( 'h4' );
-        h4.textContent = tagline;
+        const photographerLocation = document.createElement( 'p' );
+        photographerLocation.textContent = `${city}, ${country}`;
+        photographerLocation.setAttribute("class", 'photographerLocation');
 
-        const p = document.createElement( 'p' );
-        p.textContent = `${price}€/jour`;
+        const photographerTagline = document.createElement( 'p' );
+        photographerTagline.textContent = tagline;
+        photographerTagline.setAttribute("class", 'photographerTagline');
+
+        const photographerPrice = document.createElement( 'p' );
+        photographerPrice.textContent = `${price}€/jour`;
+        photographerPrice.setAttribute("class", 'photographerPrice');
 
         article.appendChild(anchor);
 
         anchor.appendChild(imgContainer);
-
         imgContainer.appendChild(img);
         
-        anchor.appendChild(h2);
+        anchor.appendChild(photographerName);
 
-        article.appendChild(h3);
-        article.appendChild(h4);
-        article.appendChild(p);
+        article.appendChild(textContainer);
+
+        textContainer.appendChild(photographerLocation);
+        textContainer.appendChild(photographerTagline);
+        textContainer.appendChild(photographerPrice);
 
         console.log(article);
         return (article);
