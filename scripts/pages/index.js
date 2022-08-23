@@ -21,12 +21,12 @@ async function displayData(photographers) {
 };
 
 
-async function init() {
-    //Function to retrieve and display the photographer data for the index.html page
+async function main() {
+    //Main function to retrieve and display the photographer data for the index.html page
     const {photographers} = await getPhotographers();
     //{photographers} is an object containing the array photographers[] from the .json 
     displayData(photographers);
     //Call the function to display all photographers' data
 };
 
-init();
+main();
