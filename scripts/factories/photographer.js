@@ -1,7 +1,12 @@
 function photographerFactory(data) {
     const { name, id, city, country, tagline, price, portrait } = data;
+    //console.log(data);
 
-    const picture = `assets/photographers/${portrait}`;
+    const profilePicture = `assets/images/photographers/${portrait}`;
+    const profileAlt = `Portrait de ${name}`;
+
+    //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
+    //https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Strings#concatenation_using_
 
     function getUserCardDOM() {
         const article = document.createElement( 'article' );
@@ -13,25 +18,24 @@ function photographerFactory(data) {
         imgContainer.setAttribute("class", 'imgContainer');
 
         const img = document.createElement( 'img' );
-        img.setAttribute("src", picture);
-        img.setAttribute("alt", ""); //empty alt to avoid repetition of name
-        img.setAttribute("width", img.width);
-        img.setAttribute("height", img.height);
+        img.setAttribute("src", profilePicture);
+        img.setAttribute("alt", profileAlt);
 
         const photographerName = document.createElement( 'h2' );
         photographerName.textContent = name;
-        photographerName.setAttribute("class", 'photographerName');
+        photographerName.setAttribute("class", 'photographerName photographerName--homepage');
 
         const textContainer = document.createElement( 'div' );
         textContainer.setAttribute("class", 'textContainer');
 
         const photographerLocation = document.createElement( 'p' );
         photographerLocation.textContent = `${city}, ${country}`;
-        photographerLocation.setAttribute("class", 'photographerLocation');
-
+        photographerLocation.setAttribute("class", 'photographerLocation photographerLocation--homepage');
+        
+    
         const photographerTagline = document.createElement( 'p' );
         photographerTagline.textContent = tagline;
-        photographerTagline.setAttribute("class", 'photographerTagline');
+        photographerTagline.setAttribute("class", 'photographerTagline photographerTagline--homepage');
 
         const photographerPrice = document.createElement( 'p' );
         photographerPrice.textContent = `${price}€/jour`;
@@ -50,11 +54,63 @@ function photographerFactory(data) {
         textContainer.appendChild(photographerTagline);
         textContainer.appendChild(photographerPrice);
 
-        console.log(article);
         return (article);
     }
 
-    return { 
-        name, id, city, country, tagline, price, picture, getUserCardDOM 
+    function getPageDOM() {
+
+        const article = document.createElement( 'article' );
+        article.setAttribute("class", 'photographerBanner');
+
+        const photographerName = document.createElement( 'h1' );
+        photographerName.textContent = name;
+        photographerName.setAttribute("class", 'photographerName photographerName--profile');
+
+        const textContainer = document.createElement( 'div' );
+        textContainer.setAttribute("class", 'textContainer');
+        textContainer.style.display = "flex";
+        textContainer.style.alignItems = "start";
+        textContainer.style.justifyContent = "center";
+
+        const photographerLocation = document.createElement( 'p' );
+        photographerLocation.textContent = `${city}, ${country}`;
+        photographerLocation.setAttribute("class", 'photographerLocation photographerLocation--profile');
+
+        const photographerTagline = document.createElement( 'p' );
+        photographerTagline.textContent = tagline;
+        photographerTagline.setAttribute("class", 'photographerTagline photographerTagline--profile');
+        
+        const imgContainer = document.createElement( 'div' );
+        imgContainer.setAttribute("class", 'imgContainer');
+        
+        const img = document.createElement( 'img' );
+        img.setAttribute("src", profilePicture);
+        img.setAttribute("alt", profileAlt); //corrected duplication
+        img.setAttribute("width", img.width);
+        img.setAttribute("height", img.height);
+        
+        article.appendChild(textContainer);
+
+        const contactButton = document.createElement( 'button' );
+        contactButton.setAttribute("class", 'button button--contact');
+        contactButton.textContent = `Contactez-moi`;
+        contactButton.addEventListener("click", displayModal);
+
+        article.appendChild(contactButton);
+
+        article.appendChild(imgContainer);
+
+        textContainer.appendChild(photographerName);
+        textContainer.appendChild(photographerLocation);
+        textContainer.appendChild(photographerTagline);
+
+        imgContainer.appendChild(img);
+        
+        return (article);
     }
+   
+    return { 
+        data, getUserCardDOM, getPageDOM
+    }
+    
 }
