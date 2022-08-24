@@ -23,9 +23,23 @@ async function displayData(photographer) {
         //photographerModel is the photographer data... 
         //...and factory functions getUserCardDOM() and getPageDOM()
         const pageDOM = photographerModel.getPageDOM();
-        console.log(pageDOM);
         //pageDOM is the <article> in the banner of photographer.html
         photographBanner.appendChild(pageDOM);
+};
+
+async function displayMedia(mediaAssets) {
+    //Function to display the unique photographer's media in their gallery section
+    const gallerySection = document.querySelector(".gallerySection");
+    mediaAssets.forEach((asset) => {
+        //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
+        //mediaAssets is the array of the unique photographer's media (from the json media array )
+        //asset is each media object in the mediaAssets array
+        const mediaModel = mediaFactory(asset);
+        //mediaModel is the object returned by the function mediaFactory() in media.js
+        const mediaDOM = mediaModel.getMediaDOM();
+        //mediaDOM is the <article> elements displayed in the .gallerySection of photographer.html
+        gallerySection.appendChild(mediaDOM);
+    });
 };
 
 async function main() {
@@ -37,6 +51,11 @@ async function main() {
     displayData(photographer);
     //Call the function to display this specific photographer's personal data
 
+    let mediaAssets = media.filter(media => media.photographerId === identity);
+    //media is the array of every photographers' media assets
+    //mediaAssets is the array of this specfic photographer's media assets
+    displayMedia(mediaAssets); 
+    //Call the function to display this specific photographer's media assets
 };
 
 main();
