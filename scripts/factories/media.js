@@ -44,12 +44,13 @@ function mediaFactory(data) {
             video.appendChild(source);
         };
 
-        //need to update this to display video assets correctly
-        if (galleryImage == undefined) {
+        if (galleryVideo !== `assets/images/${photographerId}/undefined`) {
             createVideo();
-        } else {
-            createImage();
         };
+        
+        if (galleryImage !== `assets/images/${photographerId}/undefined`) {
+            createImage(); 
+        }; 
 
         const infoContainer = document.createElement( 'div' );
         infoContainer.setAttribute("class", 'infoContainer');
