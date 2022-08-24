@@ -60,7 +60,7 @@ function photographerFactory(data) {
     function getPageDOM() {
 
         const article = document.createElement( 'article' );
-        article.setAttribute("class", 'photographerBanner');
+        article.setAttribute("class", 'photographBanner__article');
 
         const photographerName = document.createElement( 'h1' );
         photographerName.textContent = name;
