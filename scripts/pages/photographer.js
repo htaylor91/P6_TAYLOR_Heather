@@ -17,7 +17,7 @@ async function getPhotographers() {
 };
 
 async function displayData(photographer) {
-    //Function to display the unique photographer's personal data in their page banner
+    //Function to display the specific photographer's personal data in their page banner
     const photographBanner = document.querySelector(".photographBanner");
         const photographerModel = photographerFactory(photographer);
         //photographerModel is the photographer data... 
@@ -28,7 +28,7 @@ async function displayData(photographer) {
 };
 
 async function displayMedia(mediaAssets) {
-    //Function to display the unique photographer's media in their gallery section
+    //Function to display the specific photographer's media in their gallery section
     const gallerySection = document.querySelector(".gallerySection");
     mediaAssets.forEach((asset) => {
         //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
@@ -41,6 +41,14 @@ async function displayMedia(mediaAssets) {
         gallerySection.appendChild(mediaDOM);
     });
 };
+
+async function customModal(photographer) {
+    //Function to display the specific photographer's name in their contact form
+    const modalHeaderText = document.querySelector(".modal__header__text");
+    const photographerModel = photographerFactory(photographer);
+    const modalDOM = photographerModel.getModalDOM();
+    modalHeaderText.appendChild(modalDOM);
+}
 
 async function main() {
     //Main function to retrieve and display the data for the unique photographer.html page
@@ -56,6 +64,8 @@ async function main() {
     //mediaAssets is the array of this specfic photographer's media assets
     displayMedia(mediaAssets); 
     //Call the function to display this specific photographer's media assets
+    customModal(photographer);
+    //Call the function to display this specific photographer's name in the contact form
 };
 
 main();
