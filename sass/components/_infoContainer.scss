@@ -1,0 +1,31 @@
+@use "../abstracts" as *;
+
+.infoContainer {
+    display: flex;
+    justify-content: space-between;
+    color: #901C1C;
+    padding-top: 10px;
+    &__textContainer {
+        display: flex;
+        &__title {
+            font-size: 24px;
+            line-height: 31.25px;
+        }
+        &__date {
+            visibility: hidden;
+            font-size: 0px;
+        }
+    }
+    &__likesContainer {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        &__likes {
+            font-weight: 500;
+            line-height: 31.25px;
+        }
+        &__button {
+            margin-right: 1.75px;
+        }
+    }
+}
