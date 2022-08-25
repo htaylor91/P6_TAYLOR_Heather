@@ -1,0 +1,19 @@
+@use "../abstracts" as *;
+
+.mediaContainer {
+    width: 350px;
+    height: 300px;
+    border-radius: 5px;
+    &__image {
+        object-fit: cover;
+        width: 350px;
+        height: 300px;
+        border-radius: 5px;
+    }
+    &__video {
+        object-fit: cover;
+        width: 350px;
+        height: 300px;
+        border-radius: 5px;
+    }
+}
