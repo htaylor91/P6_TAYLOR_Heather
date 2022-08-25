@@ -1,18 +1,5 @@
 @use "../abstracts" as *;
 
-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    height: 90px;
-}
-
-.logo {
-    height: 50px;
-    margin-left: 100px;
-}
-
 .photographer_section {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
