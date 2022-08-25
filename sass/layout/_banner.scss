@@ -1,0 +1,15 @@
+@use "../abstracts" as *;
+
+.photographBanner {
+    background-color: #FAFAFA;
+    height: 300px;
+    margin: 0 100px;
+    display: flex;
+    align-items: center;
+    &__article {
+        display: flex;
+        padding: 0px 20px;
+        width: 100%;
+        justify-content: space-between;
+    }
+}
