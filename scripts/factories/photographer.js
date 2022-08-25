@@ -5,11 +5,13 @@ function photographerFactory(data) {
     const profilePicture = `assets/images/photographers/${portrait}`;
     const profileAlt = `Portrait de ${name}`;
     const heartIcon = `assets/icons/heart.svg`;
+    const profileName = `${name}`;
 
     //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
     //https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Strings#concatenation_using_
 
     function getUserCardDOM() {
+        
         const article = document.createElement( 'article' );
 
         const anchor = document.createElement( 'a' );
@@ -129,8 +131,19 @@ function photographerFactory(data) {
         return (article);
     }
 
+    function getModalDOM() {
+        
+        const contactName = document.createElement ('h2');
+        contactName.textContent = profileName;
+
+        const closeModalButton = document.querySelector(".modal__header__img");
+        closeModalButton.addEventListener("click", closeModal);
+        
+        return(contactName);
+    }
+
     return { 
-        data, getUserCardDOM, getPageDOM
+        data, getUserCardDOM, getPageDOM, getModalDOM
     }
     
 }
