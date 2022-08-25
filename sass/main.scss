@@ -1,13 +1,22 @@
 // Main.scss uses the files below
 
 @use "abstracts/index";
+
 @use "base/base";
 @use "base/typography";
-@use "components/cards";
+
+@use "components/media";
 @use "components/buttons";
-@use "layout/home";
+@use "components/infoContainer";
+
+@use "layout/header";
+@use "layout/banner";
+@use "layout/gallery";
+@use "layout/footer";
+@use "layout/modal";
 @use "layout/form";
-@use "pages/photographer";
+
+@use "pages/home";
 
 /* Google Font */
 @import url('https://fonts.googleapis.com/css?family=DM+Sans&display=swap');
