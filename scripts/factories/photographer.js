@@ -4,6 +4,7 @@ function photographerFactory(data) {
 
     const profilePicture = `assets/images/photographers/${portrait}`;
     const profileAlt = `Portrait de ${name}`;
+    const heartIcon = `assets/icons/heart.svg`;
 
     //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
     //https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Strings#concatenation_using_
@@ -39,7 +40,7 @@ function photographerFactory(data) {
 
         const photographerPrice = document.createElement( 'p' );
         photographerPrice.textContent = `${price}€/jour`;
-        photographerPrice.setAttribute("class", 'photographerPrice');
+        photographerPrice.setAttribute("class", 'photographerPrice photographerPrice--homepage');
 
         article.appendChild(anchor);
 
@@ -80,6 +81,11 @@ function photographerFactory(data) {
         photographerTagline.textContent = tagline;
         photographerTagline.setAttribute("class", 'photographerTagline photographerTagline--profile');
         
+        const contactButton = document.createElement( 'button' );
+        contactButton.setAttribute("class", 'button button--contact');
+        contactButton.textContent = `Contactez-moi`;
+        contactButton.addEventListener("click", displayModal);
+
         const imgContainer = document.createElement( 'div' );
         imgContainer.setAttribute("class", 'imgContainer');
         
@@ -88,27 +94,41 @@ function photographerFactory(data) {
         img.setAttribute("alt", profileAlt); //corrected duplication
         img.setAttribute("width", img.width);
         img.setAttribute("height", img.height);
+
+        const photographerFooter = document.createElement( 'div' );
+        photographerFooter.setAttribute("class", 'photographerFooter');
+
+        const photographerFooterLikes = document.createElement( 'p' );
+        photographerFooterLikes.textContent = `123456`;
+        photographerFooterLikes.setAttribute("class", 'photographerFooter__likes');
+
+        const photographerFooterIcon = document.createElement('img');
+        photographerFooterIcon.setAttribute("src", heartIcon);
+        photographerFooterIcon.setAttribute("alt", 'heart icon');
+        photographerFooterIcon.setAttribute("class", 'photographerFooter__icon');
+
+        const photographerFooterPrice = document.createElement( 'p' );
+        photographerFooterPrice.textContent = `${price}€ / jour`;
+        photographerFooterPrice.setAttribute("class", 'photographerPrice--profile photographerFooter__price');
         
         article.appendChild(textContainer);
-
-        const contactButton = document.createElement( 'button' );
-        contactButton.setAttribute("class", 'button button--contact');
-        contactButton.textContent = `Contactez-moi`;
-        contactButton.addEventListener("click", displayModal);
-
         article.appendChild(contactButton);
-
         article.appendChild(imgContainer);
+        article.appendChild(photographerFooter);
 
         textContainer.appendChild(photographerName);
         textContainer.appendChild(photographerLocation);
         textContainer.appendChild(photographerTagline);
 
         imgContainer.appendChild(img);
+
+        photographerFooter.appendChild(photographerFooterLikes);
+        photographerFooter.appendChild(photographerFooterIcon);
+        photographerFooter.appendChild(photographerFooterPrice);
         
         return (article);
     }
-   
+
     return { 
         data, getUserCardDOM, getPageDOM
     }
