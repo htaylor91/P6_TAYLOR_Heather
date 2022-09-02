@@ -1,0 +1,66 @@
+@use "../abstracts" as *;
+
+#lightbox {
+    display: none;
+    position: fixed;
+    z-index: 5;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(196, 196, 196, 0.4);
+}
+
+.lightbox {
+    width: 90%;
+    height: 100%;
+    display: flex;
+   // flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 35px;
+    margin: auto;
+    margin-top: 50px;
+    background-color: black;
+    border-radius: 5px;
+    color: white;
+    position: relative;
+}
+
+#lightboxFrame {
+    width: 525px;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.lightboxFrame {
+    background-color: blue;
+    display: flex;
+    width: 100%;
+    //flex-direction: column;
+    //align-items: flex-start;
+    //margin-top: 75px;
+    
+}
+
+
+/* Lightbox Navigation */
+#closeLightbox {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+  
+.next {
+    right: 0;
+}
+
+.previous {
+    left: 0;
+}
+
+.active {
+    display: flex;
+}
