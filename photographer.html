@@ -67,9 +67,25 @@
 				</form>
 			</div>
 		</div>
+    <div id="lightbox" role="dialog" aria-label="Lightbox" aria-hidden="true" tabindex="-1" aria-describedby="">
+      <div class="lightbox">
+        <button id="closeLightbox" class="button">
+          <img class="closeLightbox__img" src="assets/icons/close.svg" alt="Fermez la lightbox"/>
+        </button>
+        <a href="" class="previous button">
+          <img src="assets/icons/arrow-left.svg" alt="Previous"/>
+        </a>
+        <img id="lightboxFrame" class="lightboxFrame" src="">
+        </img>
+        <a href="" class="next button">
+          <img src="assets/icons/arrow-right.svg" alt="Next"/>
+        </a>
+      </div>
+    </div>
     <script src="scripts/factories/photographer.js"></script>
     <script src="scripts/factories/media.js"></script>
     <script src="scripts/pages/photographer.js"></script>
     <script src="scripts/utils/contactForm.js"></script>
+    <script src="scripts/utils/lightbox.js"></script>
   </body>
 </html>
