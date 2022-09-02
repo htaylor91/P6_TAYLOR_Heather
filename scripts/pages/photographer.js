@@ -42,12 +42,28 @@ async function displayMedia(mediaAssets) {
     });
 };
 
+async function customLikes(photographer) {
+    const photographerFooterLikes = document.querySelector(".photographerFooter__likes");
+    const photographerModel = photographerFactory(photographer);
+    const likesDOM = photographerModel.getLikesDOM();
+    photographerFooterLikes.appendChild(likesDOM);
+};
+    
 async function customModal(photographer) {
     //Function to display the specific photographer's name in their contact form
     const modalHeaderText = document.querySelector(".modal__header__text");
     const photographerModel = photographerFactory(photographer);
     const modalDOM = photographerModel.getModalDOM();
     modalHeaderText.appendChild(modalDOM);
+}
+
+async function footer(totalLikes) {
+    const photographerFooterLikes = document.querySelector(".photographerFooter__likes");
+    const photographerFooterLikesTotal = document.createElement ('p');
+    photographerFooterLikesTotal.setAttribute('id', 'totalLikes');
+    photographerFooterLikesTotal.textContent = totalLikes;
+    photographerFooterLikes.appendChild(photographerFooterLikesTotal);
+    return totalLikes;
 }
 
 async function main() {
@@ -62,10 +78,21 @@ async function main() {
     let mediaAssets = media.filter(media => media.photographerId === identity);
     //media is the array of every photographers' media assets
     //mediaAssets is the array of this specfic photographer's media assets
+   
     displayMedia(mediaAssets); 
     //Call the function to display this specific photographer's media assets
+    
     customModal(photographer);
     //Call the function to display this specific photographer's name in the contact form
+
+    //Add each photographer's total number of liked media assets to the footer
+    const photographerMediaAssets = mediaAssets;
+    let totalLikes = photographerMediaAssets.reduce(function(total, mediaAssets) {
+        return total + mediaAssets.likes;
+    }, 0);
+
+    footer(totalLikes);
+
 };
 
 main();
