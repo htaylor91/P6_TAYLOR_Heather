@@ -6,36 +6,64 @@
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <title>Fisheye - photographe </title>
   </head>
-  <body>
+  <body id="body">
     <header>
-      <a href="index.html" target="_parent" role="navigation"><img src="assets/images/logo.png" class="logo" alt="Fisheye Home page"/></a>
+      <nav aria-label="Main">
+        <a href="index.html" target="_parent"><img src="assets/images/logo.png" class="logo" alt="Fisheye Home page"/></a>
+      </nav>
     </header>
-    <main id="main">
+    <main id="mainSection" aria-hidden="false">
       <section class="photographBanner">
-        </section>
-        <section class="gallerySection">
-        </section>
+      </section>
+      <section class="gallerySection">
+      </section>
     </main>
-    <div id="contact_modal">
+    <div id="contact_modal" role="dialog" aria-label="Formulaire de contact" aria-hidden="true" tabindex="-1" aria-describedby="modalTitle">
 			<div class="modal">
-        <header class="modal__header">
+        <header class="modal__header" aria-labelledby="modalTitle">
           <div class="modal__header__text">
-            <h1>Contactez-moi</h1>
+            <h2 id="modalTitle" class="modal__header__text__heading">Contactez-moi</h2>
           </div>
-          <img class="modal__header__img" src="assets/icons/close.svg"/>
+          <button id="closeModal" class="button">
+            <img class="modal__header__img" src="assets/icons/close.svg" alt="Fermez la formulaire"/>
+          </button>
         </header>
-				<form>
+				<form
+          id="form"
+          name="contact"
+          action="photographer.html"
+          method="get"
+          onsubmit="return validate();">
 					<div>
-						<label>Prénom</label>
-						<input />
-            <label>Nom</label>
-            <input />
-            <label>Email</label>
-            <input />
-            <label>Votre Message</label>
-            <textarea></textarea>
+						<label for="first">Prénom</label>
+						<input 
+              type="text"
+              id="first"
+              name="first"
+              minlength="2"
+              required/>
+            <label for="last">Nom</label>
+            <input 
+              type="text"
+              id="last"
+              name="last"
+              minlength="2"
+              required/>
+            <label for="email">Email</label>
+            <input 
+              type="email"
+              id="email"
+              name="email"
+              required/>
+            <label for="textarea">Votre Message</label>
+            <textarea
+              type="text"
+              id="textarea"
+              name="textarea"
+              required>
+            </textarea>
 					</div>
-          <button class="button">Envoyer</button>
+          <button class="button button--form">Envoyer</button>
 				</form>
 			</div>
 		</div>
