@@ -3,6 +3,14 @@
 
 #contact_modal {
     display: none;
+    position: fixed;
+    z-index: 5;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(196, 196, 196, 0.4);
 }
 
 .modal {
@@ -15,6 +23,7 @@
     justify-content: space-between;
     padding: 35px;
     margin: auto;
+    margin-top: 50px;
     &__header {
         display: flex;
         justify-content: space-between;
@@ -24,6 +33,11 @@
             display: flex;
             flex-direction: column;
             padding-top: 35px;
+            &__heading {
+                font-size: 64px;
+                line-height: 83.33px;
+                text-align: left;
+            }
         }
         &__img {
             cursor: pointer;
@@ -32,8 +46,3 @@
     }
 }
 
-.modal__header__text h1, .modal__header__text h2 {
-    font-size: 64px;
-    line-height: 83.33px;
-    text-align: left;
-}
