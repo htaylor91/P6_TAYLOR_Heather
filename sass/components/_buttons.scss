@@ -1,21 +1,27 @@
 @use "../abstracts" as *;
 
 .button {
-    font-size: 18px;
-    font-weight: bold;
-    color: white;
-    padding: 11px;
-    width: 170px;
-    height: 69px;
     border: none;
-    background-color: #901C1C;
-    border-radius: 5px;
+    background: none;
     cursor: pointer;
-    &--contact {
-        align-self: center;
-        &:hover, &:focus {
-            color: black;
-            background-color: #DB8876;
+    &--form {
+        font-size: 18px;
+        font-weight: bold;
+        color: white;
+        padding: 11px;
+        width: 170px;
+        height: 69px;
+        background-color: #901C1C;
+        border-radius: 5px;
+        &--contact {
+            align-self: center;
+            &:hover, &:focus {
+                color: black;
+                background-color: #DB8876;
+            }
         }
     }
+    /*&--like {
+        
+    }*/
 }
