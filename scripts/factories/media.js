@@ -24,15 +24,15 @@ function mediaFactory(data) {
             const img = document.createElement( 'img' );
             img.setAttribute("src", galleryImage);
             img.setAttribute("alt", galleryAlt);
-            img.setAttribute("class", 'mediaContainer__image');
+            img.setAttribute("class", 'mediaContainer__image mediaAsset');
             img.setAttribute("id", mediaIdentifier);
             anchor.appendChild(img);
         };
 
         function createVideo() {
             const video = document.createElement( 'video' );
-            video.setAttribute("alt", galleryAlt);
-            video.setAttribute("class", 'mediaContainer__video');
+            video.setAttribute("src", galleryVideo + '#t=0.01');
+            video.setAttribute("class", 'mediaContainer__video mediaAsset');
             video.setAttribute("controls", 'controls');
             video.setAttribute("preload", "metadata");
             video.setAttribute("aria-label", galleryAlt);
@@ -40,6 +40,7 @@ function mediaFactory(data) {
 
             const source = document.createElement('source');
             source.setAttribute("src", galleryVideo + '#t=0.01');
+            source.setAttribute("alt", galleryAlt);
             source.setAttribute("type", 'video/mp4');
 
             anchor.appendChild(video);
