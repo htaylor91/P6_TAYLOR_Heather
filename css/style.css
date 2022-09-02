@@ -285,6 +285,7 @@ header {
 .modal__header__img {
   cursor: pointer;
   align-self: flex-start;
+  filter: brightness(100);
 }
 
 #lightbox {
@@ -308,23 +309,37 @@ header {
   padding: 35px;
   margin: auto;
   margin-top: 50px;
-  background-color: black;
+  background-color: white;
   border-radius: 5px;
-  color: white;
   position: relative;
 }
 
 #lightboxFrame {
+  display: flex;
+}
+
+.lightboxFrame {
+  background-color: white;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+.lightboxFrame__image {
   width: 525px;
   height: 450px;
   object-fit: cover;
   border-radius: 5px;
 }
-
-.lightboxFrame {
-  background-color: blue;
-  display: flex;
-  width: 100%;
+.lightboxFrame__video {
+  width: 525px;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.lightboxFrame__text {
+  color: #901C1C;
+  font-weight: 700;
+  height: 30px;
 }
 
 /* Lightbox Navigation */
