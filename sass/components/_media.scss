@@ -1,9 +1,10 @@
 @use "../abstracts" as *;
 
 .mediaContainer {
-    width: 350px;
-    height: 300px;
-    border-radius: 5px;
+    &__anchor {
+        width: 100%;
+        height: 100%;
+    }
     &__image {
         object-fit: cover;
         width: 350px;
