@@ -11,11 +11,11 @@ function mediaFactory(data) {
     function getMediaDOM() {
         
         const article = document.createElement( 'article' );
-        article.setAttribute("class", 'articleMedia');
+        article.setAttribute("class", 'mediaArticle');
 
         const anchor = document.createElement( 'a' );
         //anchor.setAttribute("href", `./photographer.html?id=${photographerId}/${id}`);
-        anchor.setAttribute("class", 'articleMedia__anchor');
+        anchor.setAttribute("class", 'mediaContainer');
         anchor.setAttribute("target", '_parent');
 
         anchor.addEventListener("click", displayLightbox);
