@@ -1,6 +1,5 @@
 function photographerFactory(data) {
-    const { name, id, city, country, tagline, price, portrait } = data;
-    //console.log(data);
+    const { name, id, city, country, tagline, price, portrait} = data;
 
     const profilePicture = `assets/images/photographers/${portrait}`;
     const profileAlt = `Portrait de ${name}`;
@@ -17,19 +16,17 @@ function photographerFactory(data) {
         const anchor = document.createElement( 'a' );
         anchor.setAttribute("href", `./photographer.html?id=${id}`);
 
-        const imgContainer = document.createElement( 'div' );
-        imgContainer.setAttribute("class", 'imgContainer');
-
         const img = document.createElement( 'img' );
         img.setAttribute("src", profilePicture);
         img.setAttribute("alt", profileAlt);
+        img.setAttribute("class", 'img--profile');
 
         const photographerName = document.createElement( 'h2' );
         photographerName.textContent = name;
         photographerName.setAttribute("class", 'photographerName photographerName--homepage');
 
         const textContainer = document.createElement( 'div' );
-        textContainer.setAttribute("class", 'textContainer');
+        textContainer.setAttribute("class", 'textContainer--homepage');
 
         const photographerLocation = document.createElement( 'p' );
         photographerLocation.textContent = `${city}, ${country}`;
@@ -44,18 +41,14 @@ function photographerFactory(data) {
         photographerPrice.textContent = `${price}€/jour`;
         photographerPrice.setAttribute("class", 'photographerPrice photographerPrice--homepage');
 
-        article.appendChild(anchor);
+        article.append(anchor, textContainer);
 
-        anchor.appendChild(imgContainer);
-        imgContainer.appendChild(img);
+        //anchor.append(imgContainer, photographerName);
+        anchor.append(img, photographerName);
         
-        anchor.appendChild(photographerName);
+        //imgContainer.append(img);
 
-        article.appendChild(textContainer);
-
-        textContainer.appendChild(photographerLocation);
-        textContainer.appendChild(photographerTagline);
-        textContainer.appendChild(photographerPrice);
+        textContainer.append(photographerLocation, photographerTagline, photographerPrice);
 
         return (article);
     }
@@ -70,10 +63,7 @@ function photographerFactory(data) {
         photographerName.setAttribute("class", 'photographerName photographerName--profile');
 
         const textContainer = document.createElement( 'div' );
-        textContainer.setAttribute("class", 'textContainer');
-        textContainer.style.display = "flex";
-        textContainer.style.alignItems = "start";
-        textContainer.style.justifyContent = "center";
+        textContainer.setAttribute("class", 'textContainer--profile');
 
         const photographerLocation = document.createElement( 'p' );
         photographerLocation.textContent = `${city}, ${country}`;
@@ -84,24 +74,23 @@ function photographerFactory(data) {
         photographerTagline.setAttribute("class", 'photographerTagline photographerTagline--profile');
         
         const contactButton = document.createElement( 'button' );
-        contactButton.setAttribute("class", 'button button--contact');
+        contactButton.setAttribute("class", 'button button--form button--form--contact');
+        contactButton.setAttribute("id", 'displayModal');
         contactButton.textContent = `Contactez-moi`;
         contactButton.addEventListener("click", displayModal);
-
-        const imgContainer = document.createElement( 'div' );
-        imgContainer.setAttribute("class", 'imgContainer');
         
         const img = document.createElement( 'img' );
         img.setAttribute("src", profilePicture);
         img.setAttribute("alt", profileAlt); //corrected duplication
         img.setAttribute("width", img.width);
         img.setAttribute("height", img.height);
+        img.setAttribute("class", 'img--profile');
 
         const photographerFooter = document.createElement( 'div' );
         photographerFooter.setAttribute("class", 'photographerFooter');
 
-        const photographerFooterLikes = document.createElement( 'p' );
-        photographerFooterLikes.textContent = `123456`;
+        const photographerFooterLikes = document.createElement( 'div' );
+        
         photographerFooterLikes.setAttribute("class", 'photographerFooter__likes');
 
         const photographerFooterIcon = document.createElement('img');
@@ -113,20 +102,11 @@ function photographerFactory(data) {
         photographerFooterPrice.textContent = `${price}€ / jour`;
         photographerFooterPrice.setAttribute("class", 'photographerPrice--profile photographerFooter__price');
         
-        article.appendChild(textContainer);
-        article.appendChild(contactButton);
-        article.appendChild(imgContainer);
-        article.appendChild(photographerFooter);
+        article.append(textContainer, contactButton, img, photographerFooter);
 
-        textContainer.appendChild(photographerName);
-        textContainer.appendChild(photographerLocation);
-        textContainer.appendChild(photographerTagline);
+        textContainer.append(photographerName, photographerLocation, photographerTagline);
 
-        imgContainer.appendChild(img);
-
-        photographerFooter.appendChild(photographerFooterLikes);
-        photographerFooter.appendChild(photographerFooterIcon);
-        photographerFooter.appendChild(photographerFooterPrice);
+        photographerFooter.append(photographerFooterLikes, photographerFooterIcon, photographerFooterPrice);
         
         return (article);
     }
@@ -135,8 +115,9 @@ function photographerFactory(data) {
         
         const contactName = document.createElement ('h2');
         contactName.textContent = profileName;
+        contactName.setAttribute("class", "modal__header__text__heading");
 
-        const closeModalButton = document.querySelector(".modal__header__img");
+        const closeModalButton = document.getElementById("closeModal");
         closeModalButton.addEventListener("click", closeModal);
         
         return(contactName);
