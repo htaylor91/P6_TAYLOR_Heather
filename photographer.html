@@ -15,6 +15,27 @@
     <main id="mainSection" aria-hidden="false">
       <section class="photographBanner">
       </section>
+      <section class="filterSection">
+        <h2 id="listboxlabel" role="label" class="filterSection__label">Trier par</h2>
+        <ul role="listbox" tabindex="0" id="listbox1" aria-labelledby="listboxlabel"
+          aria-expanded="false"
+          aria-activedescendant="listbox-1"
+          class="filterSection__select">
+          <li role="option" id="listbox-1" class="selected filterSection__select__option show" aria-selected="true">
+            <button id="popularityBtn" class="button filterSection__select__option show">Popularité
+              <button class="button" id="filterArrow">
+                <img src="assets/icons/arrow-down.svg" id="toggleArrow"/>
+              </button>
+            </button>
+          </li>
+          <li role="option" id="listbox-2" class="filterSection__select__option hide">
+            <button id="dateBtn" class="button filterSection__select__option hide">Date</button>
+          </li>
+          <li role="option" id="listbox-3" class="filterSection__select__option hide">
+            <button id="titleBtn" class="button filterSection__select__option hide">Titre</button>
+          </li>
+        </ul>
+      </section>
       <section class="gallerySection">
       </section>
     </main>
@@ -86,6 +107,7 @@
     <script src="scripts/factories/media.js"></script>
     <script src="scripts/pages/photographer.js"></script>
     <script src="scripts/utils/contactForm.js"></script>
+    <script src="scripts/utils/filter.js"></script>
     <script src="scripts/utils/lightbox.js"></script>
   </body>
 </html>
