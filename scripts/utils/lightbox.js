@@ -13,15 +13,38 @@ const closeLightboxBtn = document.getElementById('closeLightbox');
 
 
 function displayLightbox(element) {
-    //need to consider videos
+    //console.dir(element.target);
     lightboxFrame.src = element.target.src;
-    console.log(lightboxFrame);
+    lightboxFrame.alt = element.target.alt;
+    //console.log(lightboxFrame.src);
     lightboxDialog.style.display = "block";
     lightboxDialog.setAttribute("aria-hidden", 'false');
     mainSection.setAttribute("aria-hidden", 'true');
     mainSection.setAttribute("tab-index", '-1');
     body.setAttribute("class", 'noScroll');
+
+    let lightboxImageSource = lightboxFrame.src;
+    //console.log(lightboxImageSource);
+    let lightboxVideoSource = lightboxFrame.src;
+    //console.log(lightboxVideoSource);
+    let lightboxMediaTitle = lightboxFrame.alt;
+
+
+    function displayLightboxMedia() {
+        let lightboxImage = `<img class="lightboxFrame__image" alt="${lightboxMediaTitle}" src="${lightboxImageSource}"/>`;
+        let lightboxVideo = `<video controls class="lightboxFrame__video"><source src="${lightboxVideoSource}" type="video/mp4"></video>`;
+        let lightboxMedia = (element.target.classList[0] == "mediaContainer__video") ? lightboxVideo : lightboxImage;
+
+        //console.dir(element.target.classList[0]);
+        //console.log(lightboxMedia);
+
+        lightboxFrame.innerHTML = `${lightboxMedia}<div class="lightboxFrame__text"><h3>${lightboxMediaTitle}</h3></div>`;
+    }
+
+    displayLightboxMedia();
     closeLightboxBtn.focus();
+
+   
 }
 
 function closeLightbox() {
