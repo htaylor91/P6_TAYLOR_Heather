@@ -16,6 +16,7 @@ function displayLightbox(element) {
     //console.dir(element.target);
     lightboxFrame.src = element.target.src;
     lightboxFrame.alt = element.target.alt;
+    lightboxFrame.ariaLabel = element.target.ariaLabel;
     //console.log(lightboxFrame.src);
     lightboxDialog.style.display = "block";
     lightboxDialog.setAttribute("aria-hidden", 'false');
@@ -24,19 +25,17 @@ function displayLightbox(element) {
     body.setAttribute("class", 'noScroll');
 
     let lightboxImageSource = lightboxFrame.src;
-    //console.log(lightboxImageSource);
     let lightboxVideoSource = lightboxFrame.src;
-    //console.log(lightboxVideoSource);
-    let lightboxMediaTitle = lightboxFrame.alt;
-
+    let lightboxMediaTitle = lightboxFrame.ariaLabel;
+    console.log(lightboxMediaTitle);
 
     function displayLightboxMedia() {
-        let lightboxImage = `<img class="lightboxFrame__image" alt="${lightboxMediaTitle}" src="${lightboxImageSource}"/>`;
-        let lightboxVideo = `<video controls class="lightboxFrame__video"><source src="${lightboxVideoSource}" type="video/mp4"></video>`;
+        let lightboxImage = `<img class="lightboxFrame__image" alt="${lightboxMediaTitle}" aria-label="${lightboxMediaTitle}" src="${lightboxImageSource}"/>`;
+        let lightboxVideo = `<video controls class="lightboxFrame__video" aria-label="${lightboxMediaTitle}"><source src="${lightboxVideoSource}" type="video/mp4"></video>`;
         let lightboxMedia = (element.target.classList[0] == "mediaContainer__video") ? lightboxVideo : lightboxImage;
 
         //console.dir(element.target.classList[0]);
-        //console.log(lightboxMedia);
+        //console.log(lightboxMediaTitle);
 
         lightboxFrame.innerHTML = `${lightboxMedia}<div class="lightboxFrame__text"><h3>${lightboxMediaTitle}</h3></div>`;
     }
