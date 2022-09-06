@@ -4,7 +4,6 @@ function mediaFactory(data) {
     const galleryImage = `assets/images/${photographerId}/${image}`;
     const galleryVideo = `assets/images/${photographerId}/${video}`;
     const galleryAlt = `${title}`;
-    const mediaIdentifier = `${id}`;
 
     const heartIcon = `assets/icons/heart.svg`;
 
@@ -23,9 +22,10 @@ function mediaFactory(data) {
         function createImage() {
             const img = document.createElement( 'img' );
             img.setAttribute("src", galleryImage);
-            img.setAttribute("alt", galleryAlt);
             img.setAttribute("class", 'mediaContainer__image mediaAsset');
-            img.setAttribute("id", mediaIdentifier);
+            img.setAttribute("alt", galleryAlt);
+            img.setAttribute("aria-label", galleryAlt);
+            
             anchor.appendChild(img);
         };
 
@@ -36,7 +36,6 @@ function mediaFactory(data) {
             video.setAttribute("controls", 'controls');
             video.setAttribute("preload", "metadata");
             video.setAttribute("aria-label", galleryAlt);
-            video.setAttribute("id", mediaIdentifier);
 
             const source = document.createElement('source');
             source.setAttribute("src", galleryVideo + '#t=0.01');
