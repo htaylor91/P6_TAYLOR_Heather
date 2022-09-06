@@ -19,12 +19,12 @@ async function getPhotographers() {
 async function displayData(photographer) {
     //Function to display the specific photographer's personal data in their page banner
     const photographBanner = document.querySelector(".photographBanner");
-        const photographerModel = photographerFactory(photographer);
-        //photographerModel is the photographer data... 
-        //...and factory functions getUserCardDOM() and getPageDOM()
-        const pageDOM = photographerModel.getPageDOM();
-        //pageDOM is the <article> in the banner of photographer.html
-        photographBanner.appendChild(pageDOM);
+    const photographerModel = photographerFactory(photographer);
+    //photographerModel is the photographer data... 
+    //...and factory functions getUserCardDOM() and getPageDOM()
+    const pageDOM = photographerModel.getPageDOM();
+    //pageDOM is the <article> in the banner of photographer.html
+    photographBanner.appendChild(pageDOM);
 };
 
 async function displayMedia(mediaAssets) {
@@ -66,6 +66,16 @@ async function footer(totalLikes) {
     return totalLikes;
 }
 
+async function mainMedia() {
+    const {media} = await getPhotographers();
+
+    let mediaAssets = media.filter(media => media.photographerId === identity);
+    
+    console.log(mediaAssets);
+    return mediaAssets;
+
+};
+
 async function main() {
     //Main function to retrieve and display the data for the unique photographer.html page
     const {photographers, media} = await getPhotographers();
@@ -79,7 +89,7 @@ async function main() {
     //media is the array of every photographers' media assets
     //mediaAssets is the array of this specfic photographer's media assets
    
-    displayMedia(mediaAssets); 
+    displayMedia(mediaAssets);
     //Call the function to display this specific photographer's media assets
     
     customModal(photographer);
@@ -92,7 +102,6 @@ async function main() {
     }, 0);
 
     footer(totalLikes);
-
 };
 
 main();
