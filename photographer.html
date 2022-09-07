@@ -24,7 +24,7 @@
           <li role="option" id="listbox-1" class="selected filterSection__select__option show" aria-selected="true">
             <button id="popularityBtn" class="button filterSection__select__option activeBtn">Popularité
               <button class="button" id="filterArrow">
-                <img src="assets/icons/arrow-down.svg" id="toggleArrow"/>
+                <img src="assets/icons/arrow-down.svg" id="toggleArrow" alt="expand selection options"/>
               </button>
             </button>
           </li>
@@ -36,7 +36,7 @@
           </li>
         </ul>
       </section>
-      <section class="gallerySection">
+      <section class="gallerySection" id="gallerySection">
       </section>
     </main>
     <div id="contact_modal" role="dialog" aria-label="Formulaire de contact" aria-hidden="true" tabindex="-1" aria-describedby="modalTitle">
@@ -93,12 +93,12 @@
         <button id="closeLightbox" class="button">
           <img class="closeLightbox__img" src="assets/icons/close.svg" alt="Fermez la lightbox"/>
         </button>
-        <a href="" class="previous button">
+        <a id="previous" class="previous button">
           <img src="assets/icons/arrow-left.svg" alt="Previous"/>
         </a>
         <div id="lightboxFrame" class="lightboxFrame">
         </div>
-        <a href="" class="next button">
+        <a id="next" class="next button">
           <img src="assets/icons/arrow-right.svg" alt="Next"/>
         </a>
       </div>
