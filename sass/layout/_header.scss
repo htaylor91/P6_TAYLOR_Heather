@@ -8,7 +8,13 @@ header {
     height: 90px;
 }
 
-.logo {
-    height: 50px;
+.nav {
     margin-left: 100px;
+    &__anchor {
+        display: block;
+        height: 100%;
+        &__logo {
+            height: 50px;
+        }
+    }
 }
