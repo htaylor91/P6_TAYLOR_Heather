@@ -35,6 +35,7 @@ async function displayData(photographer) {
 //asset is each media object in the mediaAssets array
 //mediaModel is the object returned by the function mediaFactory() in media.js
 //mediaDOM is the <article> elements displayed in the .gallerySection of photographer.html
+
 async function displayMedia(mediaAssets) {
     const gallerySection = document.querySelector(".gallerySection");
     mediaAssets.forEach((asset) => {
@@ -100,6 +101,7 @@ async function main() {
     
     let mediaAssets = media.filter(media => media.photographerId === identity);
    
+    //console.log(mediaAssets); //array of media assets on page load, before filtering media
     displayMedia(mediaAssets);
     customModal(photographer);
     
