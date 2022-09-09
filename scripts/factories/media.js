@@ -13,11 +13,12 @@ function mediaFactory(data) {
         article.setAttribute("class", 'mediaArticle');
 
         const anchor = document.createElement( 'a' );
-        //anchor.setAttribute("href", `./photographer.html?id=${photographerId}/${id}`);
+
+        //Primary lightbox function
+        anchor.onclick = function () { displayLightboxContent(id, title)};
+
         anchor.setAttribute("class", 'mediaContainer');
         anchor.setAttribute("target", '_parent');
-
-        anchor.addEventListener("click", displayLightbox);
 
         function createImage() {
             const img = document.createElement( 'img' );
@@ -25,6 +26,7 @@ function mediaFactory(data) {
             img.setAttribute("class", 'mediaContainer__image mediaAsset');
             img.setAttribute("alt", galleryAlt);
             img.setAttribute("aria-label", galleryAlt);
+            img.setAttribute("id", id);
             
             anchor.appendChild(img);
         };
@@ -36,6 +38,7 @@ function mediaFactory(data) {
             video.setAttribute("controls", 'controls');
             video.setAttribute("preload", "metadata");
             video.setAttribute("aria-label", galleryAlt);
+            video.setAttribute("id", id);
 
             const source = document.createElement('source');
             source.setAttribute("src", galleryVideo + '#t=0.01');
@@ -119,7 +122,6 @@ function mediaFactory(data) {
 
         mediaLikesButton.addEventListener("click", addLikeToTotal);
 
-        anchor.addEventListener("click", displayLightbox);
         return (article);
     }
 
