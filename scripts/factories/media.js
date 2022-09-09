@@ -12,13 +12,13 @@ function mediaFactory(data) {
         const article = document.createElement( 'article' );
         article.setAttribute("class", 'mediaArticle');
 
-        const anchor = document.createElement( 'a' );
+        const mediaAssetButton = document.createElement( 'button' );
 
         //Primary lightbox function
-        anchor.onclick = function () { displayLightboxContent(id, title)};
+        mediaAssetButton.onclick = function () { displayLightboxContent(id, title)};
 
-        anchor.setAttribute("class", 'mediaContainer');
-        anchor.setAttribute("target", '_parent');
+        mediaAssetButton.setAttribute("class", 'mediaContainer');
+        mediaAssetButton.setAttribute("class", 'button');
 
         function createImage() {
             const img = document.createElement( 'img' );
@@ -28,7 +28,7 @@ function mediaFactory(data) {
             img.setAttribute("aria-label", galleryAlt);
             img.setAttribute("id", id);
             
-            anchor.appendChild(img);
+            mediaAssetButton.appendChild(img);
         };
 
         function createVideo() {
@@ -45,7 +45,7 @@ function mediaFactory(data) {
             source.setAttribute("alt", galleryAlt);
             source.setAttribute("type", 'video/mp4');
 
-            anchor.appendChild(video);
+            mediaAssetButton.appendChild(video);
             video.appendChild(source);
         };
 
@@ -87,7 +87,7 @@ function mediaFactory(data) {
         mediaLikesButtonImage.setAttribute("alt", 'likes');
         mediaLikesButtonImage.setAttribute("class", 'infoContainer__likesContainer__button__image');
 
-        article.append(anchor, infoContainer);
+        article.append(mediaAssetButton, infoContainer);
 
         
         infoContainer.append(mediaTextContainer, mediaLikesContainer);
