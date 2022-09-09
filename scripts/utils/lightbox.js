@@ -11,8 +11,8 @@ const previous = document.getElementById("previous");
 const gallerySection = document.getElementById("gallerySection");
 //const mediaArticles = gallerySection.children; 
 //console.log(mediaArticles); //HTML Collection containing all articles
-//const mediaArticlesAnchors = document.getElementsByClassName("mediaContainer");
-//console.log(mediaArticlesAnchors); //HTML Collection containing all anchors
+//const mediaArticlesButtons = document.getElementsByClassName("mediaContainer");
+//console.log(mediaArticlesButtons); //HTML Collection containing all media article buttons
 
 const mediaAssets = document.getElementsByClassName("mediaAsset");
 //console.log(mediaAssets); //HTML Collection containing all img and video tags
@@ -33,7 +33,7 @@ const clearLightbox = () => {
 //Display lightbox content by clicking on a media object
 //Function is called inside of getMediaDOM() inside of mediaFactory(data)
 //See factories/media.js
-//anchor.onclick = function () { displayLightboxContent(id, title)};
+//mediaAssetButton.onclick = function () { displayLightboxContent(id, title)};
 function displayLightboxContent(id, title) {
   displayLightbox();
   mediaIdentity = id;
