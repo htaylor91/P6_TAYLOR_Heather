@@ -288,7 +288,7 @@ header {
   filter: brightness(100);
 }
 
-#lightbox {
+#lightboxModal {
   display: none;
   position: fixed;
   z-index: 5;
@@ -302,7 +302,7 @@ header {
 
 .lightbox {
   width: 90%;
-  height: 100%;
+  height: 90%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -314,25 +314,24 @@ header {
   position: relative;
 }
 
-#lightboxFrame {
-  display: flex;
-}
-
 .lightboxFrame {
   background-color: white;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  height: 100%;
 }
-.lightboxFrame__image {
-  width: 525px;
-  height: 450px;
-  object-fit: cover;
+.lightboxFrame__media {
   border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 90%;
 }
-.lightboxFrame__video {
-  width: 525px;
-  height: 450px;
+.lightboxFrame__media__asset {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   border-radius: 5px;
 }
@@ -340,6 +339,7 @@ header {
   color: #901C1C;
   font-weight: 700;
   height: 30px;
+  padding-top: 1.5rem;
 }
 
 /* Lightbox Navigation */
@@ -351,10 +351,12 @@ header {
 
 .next {
   right: 0;
+  margin-left: 3%;
 }
 
 .previous {
   left: 0;
+  margin-right: 3%;
 }
 
 .active {
