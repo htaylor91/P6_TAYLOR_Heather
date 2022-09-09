@@ -83,12 +83,14 @@ a {
   height: 100%;
 }
 .mediaContainer__image {
+  display: block;
   object-fit: cover;
   width: 350px;
   height: 300px;
   border-radius: 5px;
 }
 .mediaContainer__video {
+  display: block;
   object-fit: cover;
   width: 350px;
   height: 300px;
@@ -184,9 +186,15 @@ header {
   height: 90px;
 }
 
-.logo {
-  height: 50px;
+.nav {
   margin-left: 100px;
+}
+.nav__anchor {
+  display: block;
+  height: 100%;
+}
+.nav__anchor__logo {
+  height: 50px;
 }
 
 .photographBanner {
