@@ -45,6 +45,7 @@ filterArrow.addEventListener("click", function() {
     }
 });
 
+//Delete media assets from the gallery section
 const clearGallery = () => {
   const gallerySection = document.querySelector(".gallerySection");
   function removeAllChildNodes(parent) {
@@ -64,7 +65,8 @@ async function sortByLikes() {
       return b.likes - a.likes;
   });
   
-  console.table(sortedLikes);
+  //console.log(sortedLikes);
+  //console.table(sortedLikes);
   displayMedia(sortedLikes);
 }
 
@@ -80,7 +82,8 @@ async function sortByTitle() {
     return 0;
   });
  
-  console.table(sortedTitles);
+  //console.log(sortedTitles);
+  //console.table(sortedTitles);
   displayMedia(sortedTitles);
 }
 
@@ -92,7 +95,8 @@ async function sortByDate() {
     return new Date(b.date) - new Date(a.date);
   });
 
-  console.table(sortedDates);
+  //console.log(sortedDates);
+  //console.table(sortedDates);
   displayMedia(sortedDates);
 }
 
