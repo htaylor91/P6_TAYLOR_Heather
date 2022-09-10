@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Fisheye photographe">
+    <meta name="description" content="Fisheye photographer">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Fisheye - photographe</title>
+    <title>Fisheye Photographer</title>
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="css/style.css" rel="stylesheet" type="text/css"/>
   </head>
@@ -21,37 +21,37 @@
       <section class="photographBanner">
       </section>
       <section class="filterSection">
-        <h2 id="listboxlabel" role="label" class="filterSection__label">Trier par</h2>
+        <h2 id="listboxlabel" role="label" class="filterSection__label" lang="fr">Trier par</h2>
         <ul role="listbox" tabindex="0" id="listbox" aria-labelledby="listboxlabel"
           aria-expanded="false"
           aria-activedescendant="listbox-1"
           class="filterSection__select">
           <li role="option" id="listbox-1" class="selected filterSection__select__option show" aria-selected="true">
-            <button id="popularityBtn" class="button filterSection__select__option activeBtn">Popularité
+            <button id="popularityBtn" class="button filterSection__select__option activeBtn" lang="fr">Popularité
               <button class="button" id="filterArrow">
                 <img src="assets/icons/arrow-down.svg" id="toggleArrow" alt="expand selection options"/>
               </button>
             </button>
           </li>
           <li role="option" id="listbox-2" class="filterSection__select__option hide">
-            <button id="dateBtn" class="button filterSection__select__option hide">Date</button>
+            <button id="dateBtn" class="button filterSection__select__option hide" lang="fr">Date</button>
           </li>
           <li role="option" id="listbox-3" class="filterSection__select__option hide">
-            <button id="titleBtn" class="button filterSection__select__option hide">Titre</button>
+            <button id="titleBtn" class="button filterSection__select__option hide" lang="fr">Titre</button>
           </li>
         </ul>
       </section>
       <section class="gallerySection" id="gallerySection">
       </section>
     </main>
-    <div id="contact_modal" role="dialog" aria-label="Formulaire de contact" aria-hidden="true" tabindex="-1" aria-describedby="modalTitle">
+    <div id="contact_modal" role="dialog" aria-label="Contact form" aria-hidden="true" tabindex="-1" aria-describedby="modalTitle">
 			<div class="modal">
         <header class="modal__header" aria-labelledby="modalTitle">
           <div class="modal__header__text">
-            <h2 id="modalTitle" class="modal__header__text__heading">Contactez-moi</h2>
+            <h2 id="modalTitle" class="modal__header__text__heading" lang="fr">Contactez-moi</h2>
           </div>
           <button id="closeModal" class="button">
-            <img class="modal__header__img" src="assets/icons/close.svg" alt="Fermez la formulaire"/>
+            <img class="modal__header__img" src="assets/icons/close.svg" alt="Close the form modal"/>
           </button>
         </header>
 				<form
@@ -61,14 +61,14 @@
           method="get"
           onsubmit="return validate();">
 					<div>
-						<label for="first">Prénom</label>
+						<label for="first" lang="fr">Prénom</label>
 						<input 
               type="text"
               id="first"
               name="first"
               minlength="2"
               required/>
-            <label for="last">Nom</label>
+            <label for="last" lang="fr">Nom</label>
             <input 
               type="text"
               id="last"
@@ -81,7 +81,7 @@
               id="email"
               name="email"
               required/>
-            <label for="textarea">Votre Message</label>
+            <label for="textarea" lang="fr">Votre Message</label>
             <textarea
               type="text"
               id="textarea"
@@ -89,14 +89,14 @@
               required>
             </textarea>
 					</div>
-          <button class="button button--form">Envoyer</button>
+          <button class="button button--form" lang="fr">Envoyer</button>
 				</form>
 			</div>
 		</div>
     <div id="lightboxModal" role="dialog" aria-label="Lightbox" aria-hidden="true" tabindex="-1">
       <div class="lightbox">
         <button id="closeLightbox" class="button">
-          <img class="closeLightbox__img" src="assets/icons/close.svg" alt="Fermez la lightbox"/>
+          <img class="closeLightbox__img" src="assets/icons/close.svg" alt="Close the lightbox"/>
         </button>
         <button id="previous" class="previous button">
           <img src="assets/icons/arrow-left.svg" alt="Previous"/>

@@ -36,10 +36,12 @@ function photographerFactory(data) {
         const photographerTagline = document.createElement( 'p' );
         photographerTagline.textContent = tagline;
         photographerTagline.setAttribute("class", 'photographerTagline photographerTagline--homepage');
+        photographerTagline.setAttribute("lang", 'fr');
 
         const photographerPrice = document.createElement( 'p' );
         photographerPrice.textContent = `${price}€/jour`;
         photographerPrice.setAttribute("class", 'photographerPrice photographerPrice--homepage');
+        photographerPrice.setAttribute("lang", 'fr');
 
         article.append(anchor, textContainer);
 
