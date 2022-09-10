@@ -96,8 +96,8 @@ function displayLightboxContent(id, title) {
 
         lightboxMediaClone.setAttribute("id", lightboxMediaCloneNewIdentity);
 
-        //Set the title of the lightbox media element to its aria label
-        let lightboxMediaCloneTitle = lightboxMediaClone.ariaLabel;
+        //Set the title of the lightbox media element to its data-title attribute
+        let lightboxMediaCloneTitle = lightboxMediaClone.dataset.title;
       
         console.log(lightboxMediaClone);
         console.log(lightboxMediaCloneTitle);
