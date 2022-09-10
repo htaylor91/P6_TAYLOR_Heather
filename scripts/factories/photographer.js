@@ -24,6 +24,7 @@ function photographerFactory(data) {
         const photographerName = document.createElement( 'h2' );
         photographerName.textContent = name;
         photographerName.setAttribute("class", 'photographerName photographerName--homepage');
+        photographerName.setAttribute("translate", 'no');
 
         const textContainer = document.createElement( 'div' );
         textContainer.setAttribute("class", 'textContainer--homepage');
@@ -63,6 +64,7 @@ function photographerFactory(data) {
         const photographerName = document.createElement( 'h1' );
         photographerName.textContent = name;
         photographerName.setAttribute("class", 'photographerName photographerName--profile');
+        photographerName.setAttribute("translate", 'no');
 
         const textContainer = document.createElement( 'div' );
         textContainer.setAttribute("class", 'textContainer--profile');
@@ -74,11 +76,13 @@ function photographerFactory(data) {
         const photographerTagline = document.createElement( 'p' );
         photographerTagline.textContent = tagline;
         photographerTagline.setAttribute("class", 'photographerTagline photographerTagline--profile');
+        photographerTagline.setAttribute("lang", 'fr');
         
         const contactButton = document.createElement( 'button' );
         contactButton.setAttribute("class", 'button button--form button--form--contact');
         contactButton.setAttribute("id", 'displayModal');
         contactButton.textContent = `Contactez-moi`;
+        contactButton.setAttribute("lang", 'fr');
         contactButton.addEventListener("click", displayModal);
         
         const img = document.createElement( 'img' );
@@ -103,6 +107,7 @@ function photographerFactory(data) {
         const photographerFooterPrice = document.createElement( 'p' );
         photographerFooterPrice.textContent = `${price}€ / jour`;
         photographerFooterPrice.setAttribute("class", 'photographerPrice--profile photographerFooter__price');
+        photographerFooterPrice.setAttribute("lang", 'fr');
         
         article.append(textContainer, contactButton, img, photographerFooter);
 
