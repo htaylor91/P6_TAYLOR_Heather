@@ -26,6 +26,7 @@ function mediaFactory(data) {
             img.setAttribute("class", 'mediaContainer__image mediaAsset');
             img.setAttribute("alt", galleryAlt);
             img.setAttribute("aria-label", galleryAlt);
+            img.setAttribute("data-title", galleryAlt);
             img.setAttribute("id", id);
             
             mediaAssetButton.appendChild(img);
@@ -38,6 +39,7 @@ function mediaFactory(data) {
             video.setAttribute("controls", 'controls');
             video.setAttribute("preload", "metadata");
             video.setAttribute("aria-label", galleryAlt);
+            video.setAttribute("data-title", galleryAlt);
             video.setAttribute("id", id);
 
             const source = document.createElement('source');
