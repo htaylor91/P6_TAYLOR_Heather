@@ -82,8 +82,8 @@ function displayLightboxContent(id, title) {
         //https://developer.mozilla.org/en-US/docs/Web/API/Node/cloneNode
         let lightboxMediaClone = lightboxMedia.cloneNode(true);
 
-        console.dir(lightboxMedia.cloneNode(true));
-        console.dir(lightboxMedia.cloneNode());
+        //console.log(lightboxMedia.cloneNode(true));
+        //console.dir(lightboxMedia.cloneNode());
 
         lightboxMediaClone.classList.replace("mediaContainer__image", "lightboxFrame__media__asset");
         lightboxMediaClone.classList.replace("mediaContainer__video", "lightboxFrame__media__asset");
@@ -99,7 +99,8 @@ function displayLightboxContent(id, title) {
         //Set the title of the lightbox media element to its aria label
         let lightboxMediaCloneTitle = lightboxMediaClone.ariaLabel;
       
-        //console.log(lightboxMediaClone);
+        console.log(lightboxMediaClone);
+        console.log(lightboxMediaCloneTitle);
 
         //Append the cloned element and its title into their parent containers
         lightboxFrameMedia.append(lightboxMediaClone);
