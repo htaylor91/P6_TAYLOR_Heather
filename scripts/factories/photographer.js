@@ -1,8 +1,10 @@
+// eslint-disable-next-line no-unused-vars
 function photographerFactory(data) {
     const { name, id, city, country, tagline, price, portrait} = data;
 
     const profilePicture = `assets/images/photographers/${portrait}`;
     const profileAlt = `Portrait de ${name}`;
+    //eslint-disable-next-line quotes
     const heartIcon = `assets/icons/heart.svg`;
     const profileName = `${name}`;
 
@@ -11,38 +13,38 @@ function photographerFactory(data) {
 
     function getUserCardDOM() {
         
-        const article = document.createElement( 'article' );
+        const article = document.createElement( "article" );
 
-        const anchor = document.createElement( 'a' );
+        const anchor = document.createElement( "a" );
         anchor.setAttribute("href", `./photographer.html?id=${id}`);
 
-        const img = document.createElement( 'img' );
+        const img = document.createElement( "img" );
         img.setAttribute("src", profilePicture);
         img.setAttribute("alt", profileAlt);
-        img.setAttribute("class", 'img--profile');
+        img.setAttribute("class", "img--profile");
 
-        const photographerName = document.createElement( 'h2' );
+        const photographerName = document.createElement( "h2" );
         photographerName.textContent = name;
-        photographerName.setAttribute("class", 'photographerName photographerName--homepage');
-        photographerName.setAttribute("translate", 'no');
+        photographerName.setAttribute("class", "photographerName photographerName--homepage");
+        photographerName.setAttribute("translate", "no");
 
-        const textContainer = document.createElement( 'div' );
-        textContainer.setAttribute("class", 'textContainer--homepage');
+        const textContainer = document.createElement( "div" );
+        textContainer.setAttribute("class", "textContainer--homepage");
 
-        const photographerLocation = document.createElement( 'p' );
+        const photographerLocation = document.createElement( "p" );
         photographerLocation.textContent = `${city}, ${country}`;
-        photographerLocation.setAttribute("class", 'photographerLocation photographerLocation--homepage');
+        photographerLocation.setAttribute("class", "photographerLocation photographerLocation--homepage");
         
     
-        const photographerTagline = document.createElement( 'p' );
+        const photographerTagline = document.createElement( "p" );
         photographerTagline.textContent = tagline;
-        photographerTagline.setAttribute("class", 'photographerTagline photographerTagline--homepage');
-        photographerTagline.setAttribute("lang", 'fr');
+        photographerTagline.setAttribute("class", "photographerTagline photographerTagline--homepage");
+        photographerTagline.setAttribute("lang", "fr");
 
-        const photographerPrice = document.createElement( 'p' );
+        const photographerPrice = document.createElement( "p" );
         photographerPrice.textContent = `${price}€/jour`;
-        photographerPrice.setAttribute("class", 'photographerPrice photographerPrice--homepage');
-        photographerPrice.setAttribute("lang", 'fr');
+        photographerPrice.setAttribute("class", "photographerPrice photographerPrice--homepage");
+        photographerPrice.setAttribute("lang", "fr");
 
         article.append(anchor, textContainer);
 
@@ -58,56 +60,57 @@ function photographerFactory(data) {
 
     function getPageDOM() {
 
-        const article = document.createElement( 'article' );
-        article.setAttribute("class", 'photographBanner__article');
+        const article = document.createElement( "article" );
+        article.setAttribute("class", "photographBanner__article");
 
-        const photographerName = document.createElement( 'h1' );
+        const photographerName = document.createElement( "h1" );
         photographerName.textContent = name;
-        photographerName.setAttribute("class", 'photographerName photographerName--profile');
-        photographerName.setAttribute("translate", 'no');
+        photographerName.setAttribute("class", "photographerName photographerName--profile");
+        photographerName.setAttribute("translate", "no");
 
-        const textContainer = document.createElement( 'div' );
-        textContainer.setAttribute("class", 'textContainer--profile');
+        const textContainer = document.createElement( "div" );
+        textContainer.setAttribute("class", "textContainer--profile");
 
-        const photographerLocation = document.createElement( 'p' );
+        const photographerLocation = document.createElement( "p" );
         photographerLocation.textContent = `${city}, ${country}`;
-        photographerLocation.setAttribute("class", 'photographerLocation photographerLocation--profile');
+        photographerLocation.setAttribute("class", "photographerLocation photographerLocation--profile");
 
-        const photographerTagline = document.createElement( 'p' );
+        const photographerTagline = document.createElement( "p" );
         photographerTagline.textContent = tagline;
-        photographerTagline.setAttribute("class", 'photographerTagline photographerTagline--profile');
-        photographerTagline.setAttribute("lang", 'fr');
+        photographerTagline.setAttribute("class", "photographerTagline photographerTagline--profile");
+        photographerTagline.setAttribute("lang", "fr");
         
-        const contactButton = document.createElement( 'button' );
-        contactButton.setAttribute("class", 'button button--form button--form--contact');
-        contactButton.setAttribute("id", 'displayModal');
-        contactButton.textContent = `Contactez-moi`;
-        contactButton.setAttribute("lang", 'fr');
+        const contactButton = document.createElement( "button" );
+        contactButton.setAttribute("class", "button button--form button--form--contact");
+        contactButton.setAttribute("id", "displayModal");
+        contactButton.textContent = "Contactez-moi";
+        contactButton.setAttribute("lang", "fr");
+        // eslint-disable-next-line no-undef
         contactButton.addEventListener("click", displayModal);
         
-        const img = document.createElement( 'img' );
+        const img = document.createElement( "img" );
         img.setAttribute("src", profilePicture);
-        img.setAttribute("alt", profileAlt); //corrected duplication
+        img.setAttribute("alt", profileAlt);
         img.setAttribute("width", img.width);
         img.setAttribute("height", img.height);
-        img.setAttribute("class", 'img--profile');
+        img.setAttribute("class", "img--profile");
 
-        const photographerFooter = document.createElement( 'div' );
-        photographerFooter.setAttribute("class", 'photographerFooter');
+        const photographerFooter = document.createElement( "div" );
+        photographerFooter.setAttribute("class", "photographerFooter");
 
-        const photographerFooterLikes = document.createElement( 'div' );
+        const photographerFooterLikes = document.createElement( "div" );
         
-        photographerFooterLikes.setAttribute("class", 'photographerFooter__likes');
+        photographerFooterLikes.setAttribute("class", "photographerFooter__likes");
 
-        const photographerFooterIcon = document.createElement('img');
+        const photographerFooterIcon = document.createElement("img");
         photographerFooterIcon.setAttribute("src", heartIcon);
-        photographerFooterIcon.setAttribute("alt", 'heart icon');
-        photographerFooterIcon.setAttribute("class", 'photographerFooter__icon');
+        photographerFooterIcon.setAttribute("alt", "heart icon");
+        photographerFooterIcon.setAttribute("class", "photographerFooter__icon");
 
-        const photographerFooterPrice = document.createElement( 'p' );
+        const photographerFooterPrice = document.createElement( "p" );
         photographerFooterPrice.textContent = `${price}€ / jour`;
-        photographerFooterPrice.setAttribute("class", 'photographerPrice--profile photographerFooter__price');
-        photographerFooterPrice.setAttribute("lang", 'fr');
+        photographerFooterPrice.setAttribute("class", "photographerPrice--profile photographerFooter__price");
+        photographerFooterPrice.setAttribute("lang", "fr");
         
         article.append(textContainer, contactButton, img, photographerFooter);
 
@@ -120,11 +123,12 @@ function photographerFactory(data) {
 
     function getModalDOM() {
         
-        const contactName = document.createElement ('h2');
+        const contactName = document.createElement ("h2");
         contactName.textContent = profileName;
         contactName.setAttribute("class", "modal__header__text__heading");
 
         const closeModalButton = document.getElementById("closeModal");
+        // eslint-disable-next-line no-undef
         closeModalButton.addEventListener("click", closeModal);
         
         return(contactName);
@@ -132,6 +136,6 @@ function photographerFactory(data) {
 
     return { 
         data, getUserCardDOM, getPageDOM, getModalDOM
-    }
+    };
     
 }

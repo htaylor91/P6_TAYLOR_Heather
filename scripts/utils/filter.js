@@ -9,7 +9,7 @@ const popularityBtn = document.getElementById("popularityBtn");
 const dateBtn = document.getElementById("dateBtn");
 const titleBtn = document.getElementById("titleBtn");
 
-const toggleArrow = document.getElementById('toggleArrow');
+const toggleArrow = document.getElementById("toggleArrow");
 
 function displayDropdown() {
     popularityBtn.style.display = "flex";
@@ -37,67 +37,73 @@ filterArrow.addEventListener("click", function() {
     toggle = !toggle;
 
     if(toggle){
-        toggleArrow.src = `assets/icons/arrow-down.svg`;
+        toggleArrow.src = "assets/icons/arrow-down.svg";
         hideDropdown();
     }else {
-        toggleArrow.src = `assets/icons/arrow-up.svg`;
+        toggleArrow.src = "assets/icons/arrow-up.svg";
         displayDropdown();
     }
 });
 
 //Delete media assets from the gallery section
 const clearGallery = () => {
-  const gallerySection = document.querySelector(".gallerySection");
-  function removeAllChildNodes(parent) {
-    while (parent.firstChild) {
-        parent.removeChild(parent.firstChild);
+    const gallerySection = document.querySelector(".gallerySection");
+    function removeAllChildNodes(parent) {
+        while (parent.firstChild) {
+            parent.removeChild(parent.firstChild);
+        }
     }
-  }
 
-  removeAllChildNodes(gallerySection);
-}
+    removeAllChildNodes(gallerySection);
+};
 
 //Sort by Likes
 async function sortByLikes() {
-  clearGallery();
-  const mediaAssets = await mainMedia();
-  const sortedLikes = mediaAssets.sort(function (a, b) {
-      return b.likes - a.likes;
-  });
+    clearGallery();
+    // eslint-disable-next-line no-undef
+    const mediaAssets = await mainMedia();
+    const sortedLikes = mediaAssets.sort(function (a, b) {
+        return b.likes - a.likes;
+    });
   
-  //console.log(sortedLikes);
-  //console.table(sortedLikes);
-  displayMedia(sortedLikes);
+    //console.log(sortedLikes);
+    //console.table(sortedLikes);
+    // eslint-disable-next-line no-undef
+    displayMedia(sortedLikes);
 }
 
 //Sort by Title
 async function sortByTitle() {
-  clearGallery();
-  const mediaAssets = await mainMedia();
-  const sortedTitles = mediaAssets.sort(function(a, b) {
-    let x = a.title.toLowerCase();
-    let y = b.title.toLowerCase();
-    if (x < y) {return -1;}
-    if (x > y) {return 1;}
-    return 0;
-  });
+    clearGallery();
+    // eslint-disable-next-line no-undef
+    const mediaAssets = await mainMedia();
+    const sortedTitles = mediaAssets.sort(function(a, b) {
+        let x = a.title.toLowerCase();
+        let y = b.title.toLowerCase();
+        if (x < y) {return -1;}
+        if (x > y) {return 1;}
+        return 0;
+    });
  
-  //console.log(sortedTitles);
-  //console.table(sortedTitles);
-  displayMedia(sortedTitles);
+    //console.log(sortedTitles);
+    //console.table(sortedTitles);
+    // eslint-disable-next-line no-undef
+    displayMedia(sortedTitles);
 }
 
 //Sort by Date
 async function sortByDate() {
-  clearGallery();
-  const mediaAssets = await mainMedia();
-  const sortedDates= mediaAssets.sort(function(a, b) {
-    return new Date(b.date) - new Date(a.date);
-  });
+    clearGallery();
+    // eslint-disable-next-line no-undef
+    const mediaAssets = await mainMedia();
+    const sortedDates= mediaAssets.sort(function(a, b) {
+        return new Date(b.date) - new Date(a.date);
+    });
 
-  //console.log(sortedDates);
-  //console.table(sortedDates);
-  displayMedia(sortedDates);
+    //console.log(sortedDates);
+    //console.table(sortedDates);
+    // eslint-disable-next-line no-undef
+    displayMedia(sortedDates);
 }
 
 popularityBtn.addEventListener("click", sortByLikes);

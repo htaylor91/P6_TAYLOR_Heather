@@ -1,34 +1,36 @@
 
-const body = document.getElementById('body');
-const displayModalBtn = document.getElementById('displayModal');
-const mainSection = document.getElementById('mainSection');
-const modalDialog = document.getElementById('contact_modal');
-const modalTitle = document.getElementById('modalTitle');
-const closeModalBtn = document.getElementById('closeModal');
+const body = document.getElementById("body");
+////const displayModalBtn = document.getElementById("displayModal");
+const mainSection = document.getElementById("mainSection");
+const modalDialog = document.getElementById("contact_modal");
+////const modalTitle = document.getElementById("modalTitle");
+const closeModalBtn = document.getElementById("closeModal");
+const form = document.getElementById("form");
 
+// eslint-disable-next-line no-unused-vars
 function displayModal() {
     modalDialog.style.display = "block";
-    mainSection.setAttribute("aria-hidden", 'true');
-    mainSection.setAttribute("tab-index", '-1');
-    modalDialog.setAttribute("aria-hidden", 'false');
-    body.setAttribute("class", 'noScroll');
+    mainSection.setAttribute("aria-hidden", "true");
+    mainSection.setAttribute("tab-index", "-1");
+    modalDialog.setAttribute("aria-hidden", "false");
+    body.setAttribute("class", "noScroll");
     closeModalBtn.focus();
 }
 
 function closeModal() {
     modalDialog.style.display = "none";
     mainSection.setAttribute("aria-hidden", "false");
-    modalDialog.setAttribute("aria-hidden", 'true');
-    body.removeAttribute("class", 'noScroll');
-    const displayModalBtn = document.getElementById('displayModal');
+    modalDialog.setAttribute("aria-hidden", "true");
+    body.removeAttribute("class", "noScroll");
+    const displayModalBtn = document.getElementById("displayModal");
     displayModalBtn.focus();
 }
 
- // Close modal when escape key is pressed
-document.addEventListener('keydown', function(event){
-	if(event.key === "Escape"){
+// Close modal when escape key is pressed
+document.addEventListener("keydown", function(event){
+    if(event.key === "Escape"){
         closeModal();
-	}
+    }
 });
 
 const firstName = document.getElementById("first");
@@ -64,36 +66,37 @@ function validEmail() {
 
 function validTextArea() {
     console.log(textArea.value);
-    if(textArea.value.trim() != '') {
+    if(textArea.value.trim() != "") {
         return true;
     }
     return false;
 }
 
+// eslint-disable-next-line no-unused-vars
 function validate(){
     event.preventDefault();
     let valid = false;
-  //The if statement below checks each input validation function to see if it returns true.
-  //If ALL of the input functions from the form return true, then valid = true.
+    //The if statement below checks each input validation function to see if it returns true.
+    //If ALL of the input functions from the form return true, then valid = true.
     if(validFirstName() && 
         validLastName() && 
         validEmail() && 
         validTextArea()){
-      valid = true;
+        valid = true;
     }
-  //If valid = true, then the form is valid, and the form validation function validate() returns true.
+    //If valid = true, then the form is valid, and the form validation function validate() returns true.
     if(valid){
  
-      closeModal();
-      //reset the form input fields if the form is validated
-      form.reset();
-      console.log("The form has been validated!");
-      return true;
+        closeModal();
+        //reset the form input fields if the form is validated
+        form.reset();
+        console.log("The form has been validated!");
+        return true;
     }
-  //If valid does not = true, then valid continues to = false, and the form validation function validate() returns false.
+    //If valid does not = true, then valid continues to = false, and the form validation function validate() returns false.
     else{
-      console.log("The form has NOT passed validation.");
-      return false;
+        console.log("The form has NOT passed validation.");
+        return false;
     }
 }
 

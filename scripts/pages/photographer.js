@@ -5,16 +5,16 @@
 //https://developer.mozilla.org/en-US/docs/Web/API/URL/searchParams
 
 let params = (new URL(document.location)).searchParams;
-let identity = parseInt(params.get('id')); //Parse the photographer's id from the URL
+let identity = parseInt(params.get("id")); //Parse the photographer's id from the URL
 
 //Function to fetch data from the json
 //Wait for the promise to resolve
 //Return an object containing the 2 arrays from the .json - photographers[] and media[]
 async function getPhotographers() { 
-    const response = await fetch('data/photographers.json');      
+    const response = await fetch("data/photographers.json");      
     const photographers = await response.json(); 
-    return photographers 
-};
+    return photographers; 
+}
 
 //Function to display the specific photographer's personal data in their page banner
 //photographerModel is the photographer data... 
@@ -22,11 +22,12 @@ async function getPhotographers() {
 //pageDOM is the <article> in the banner of photographer.html
 async function displayData(photographer) { 
     const photographBanner = document.querySelector(".photographBanner");
+    // eslint-disable-next-line no-undef
     const photographerModel = photographerFactory(photographer);
     const pageDOM = photographerModel.getPageDOM();
     
     photographBanner.appendChild(pageDOM);
-};
+}
 
 
 //Function to display the specific photographer's media in their gallery section
@@ -39,24 +40,26 @@ async function displayData(photographer) {
 async function displayMedia(mediaAssets) {
     const gallerySection = document.querySelector(".gallerySection");
     mediaAssets.forEach((asset) => {
+        // eslint-disable-next-line no-undef
         const mediaModel = mediaFactory(asset);
         const mediaDOM = mediaModel.getMediaDOM();
         
         gallerySection.appendChild(mediaDOM);
     });
-};
+}
 
-async function customLikes(photographer) {
+/*async function customLikes(photographer) {
     const photographerFooterLikes = document.querySelector(".photographerFooter__likes");
     const photographerModel = photographerFactory(photographer);
     const likesDOM = photographerModel.getLikesDOM();
     
     photographerFooterLikes.appendChild(likesDOM);
-};
+}*/
 
 //Function to display the specific photographer's name in their contact form
 async function customModal(photographer) {
     const modalHeaderText = document.querySelector(".modal__header__text");
+    // eslint-disable-next-line no-undef
     const photographerModel = photographerFactory(photographer);
     const modalDOM = photographerModel.getModalDOM();
 
@@ -65,23 +68,23 @@ async function customModal(photographer) {
 
 async function footer(totalLikes) {
     const photographerFooterLikes = document.querySelector(".photographerFooter__likes");
-    const photographerFooterLikesTotal = document.createElement ('p');
+    const photographerFooterLikesTotal = document.createElement ("p");
 
-    photographerFooterLikesTotal.setAttribute('id', 'totalLikes');
+    photographerFooterLikesTotal.setAttribute("id", "totalLikes");
     photographerFooterLikesTotal.textContent = totalLikes;
     photographerFooterLikes.appendChild(photographerFooterLikesTotal);
 
     return totalLikes;
 }
 
-
+// eslint-disable-next-line no-unused-vars
 async function mainMedia() {
     const {media} = await getPhotographers();
 
     let mediaAssets = media.filter(media => media.photographerId === identity);
     
     return mediaAssets;
-};
+}
 
 //Main function to retrieve and display the data for the unique photographer.html page
 //{photographers, media} is an object containing the arrays photographers[] and media[] from the .json 
@@ -111,6 +114,6 @@ async function main() {
     }, 0);
 
     footer(totalLikes);
-};
+}
 
 main();
