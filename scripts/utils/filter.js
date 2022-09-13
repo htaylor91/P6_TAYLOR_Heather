@@ -1,4 +1,6 @@
 
+import {displayMedia, mainMedia} from "../pages/photographer.js";
+
 const filterArrow = document.getElementById("filterArrow");
 
 const popularityLabel = document.getElementById("listbox-1");
