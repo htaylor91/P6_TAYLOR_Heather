@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "description": "Fisheye",
     "main": "index.js",
+    "type": "module",
     "scripts": {
         "sass": "sass --watch ./sass/main.scss:./css/style.css",
         "prefix": "",
