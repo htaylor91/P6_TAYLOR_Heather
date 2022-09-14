@@ -44,25 +44,28 @@
       <section class="gallerySection" id="gallerySection">
       </section>
     </main>
-    <div id="contact_modal" role="dialog" aria-label="Contact form" aria-hidden="true" tabindex="-1" aria-describedby="modalTitle">
-			<div class="modal">
+    <dialog id="contact_modal" aria-label="Contact form" aria-describedby="modalTitle">
+      <div class="modal">
         <header class="modal__header" aria-labelledby="modalTitle">
-          <div class="modal__header__text">
-            <h2 id="modalTitle" class="modal__header__text__heading" lang="fr">Contactez-moi</h2>
+          <div>
+            <div class="modal__header__text">
+              <h2 id="modalTitle" class="modal__header__text__heading" lang="fr">Contactez-moi</h2>
+            </div>
+            <div class="modal__header__text" id="uniqueHeading">
+            </div>
           </div>
-          <button id="closeModal" class="button">
+          <button id="closeModal" class="button button--close">
             <img class="modal__header__img" src="assets/icons/close.svg" alt="Close the form modal"/>
           </button>
         </header>
-				<form
+        <form
           id="form"
           name="contact"
           action="photographer.html"
-          method="get"
-          onsubmit="return validate();">
-					<div>
-						<label for="first" lang="fr">Prénom</label>
-						<input 
+          method="get">
+          <div>
+            <label for="first" lang="fr">Prénom</label>
+            <input 
               type="text"
               id="first"
               name="first"
@@ -88,11 +91,11 @@
               name="textarea"
               required>
             </textarea>
-					</div>
-          <button class="button button--form" lang="fr">Envoyer</button>
-				</form>
-			</div>
-		</div>
+          </div>
+          <button type="submit" class="button button--form" lang="fr">Envoyer</button>
+        </form>
+      </div>
+    </dialog>
     <dialog id="lightboxModal" aria-label="Lightbox">
       <div class="lightbox">
         <button id="closeLightbox" class="button">
