@@ -1,4 +1,7 @@
 //The Javascript code linked to the photographer.html pages
+import getPhotographers from "../utils/getPhotographers.js";
+import photographerFactory from "../factories/photographer.js";
+import mediaFactory from "../factories/media.js";
 
 //"The searchParams readonly property of the URL interface returns a 
 //URLSearchParams object allowing access to the GET decoded query arguments contained in the URL."
@@ -7,28 +10,20 @@
 let params = (new URL(document.location)).searchParams;
 let identity = parseInt(params.get("id")); //Parse the photographer's id from the URL
 
-//Function to fetch data from the json
-//Wait for the promise to resolve
-//Return an object containing the 2 arrays from the .json - photographers[] and media[]
-async function getPhotographers() { 
-    const response = await fetch("data/photographers.json");      
-    const photographers = await response.json(); 
-    return photographers; 
-}
+//Call getPhotographers to obtain the json data
+getPhotographers;
 
 //Function to display the specific photographer's personal data in their page banner
 //photographerModel is the photographer data... 
 //...and factory functions getUserCardDOM() and getPageDOM()
 //pageDOM is the <article> in the banner of photographer.html
-async function displayData(photographer) { 
+const displayData = async (photographer) => { 
     const photographBanner = document.querySelector(".photographBanner");
-    // eslint-disable-next-line no-undef
     const photographerModel = photographerFactory(photographer);
     const pageDOM = photographerModel.getPageDOM();
     
     photographBanner.appendChild(pageDOM);
-}
-
+};
 
 //Function to display the specific photographer's media in their gallery section
 //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
@@ -37,36 +32,26 @@ async function displayData(photographer) {
 //mediaModel is the object returned by the function mediaFactory() in media.js
 //mediaDOM is the <article> elements displayed in the .gallerySection of photographer.html
 
-async function displayMedia(mediaAssets) {
+export const displayMedia = async (mediaAssets) => {
     const gallerySection = document.querySelector(".gallerySection");
     mediaAssets.forEach((asset) => {
-        // eslint-disable-next-line no-undef
         const mediaModel = mediaFactory(asset);
         const mediaDOM = mediaModel.getMediaDOM();
         
         gallerySection.appendChild(mediaDOM);
     });
-}
-
-/*async function customLikes(photographer) {
-    const photographerFooterLikes = document.querySelector(".photographerFooter__likes");
-    const photographerModel = photographerFactory(photographer);
-    const likesDOM = photographerModel.getLikesDOM();
-    
-    photographerFooterLikes.appendChild(likesDOM);
-}*/
+};
 
 //Function to display the specific photographer's name in their contact form
-async function customModal(photographer) {
-    const modalHeaderText = document.querySelector(".modal__header__text");
-    // eslint-disable-next-line no-undef
+const customModal = async (photographer) => {
+    const modalHeaderText = document.getElementById("uniqueHeading");
     const photographerModel = photographerFactory(photographer);
     const modalDOM = photographerModel.getModalDOM();
 
     modalHeaderText.appendChild(modalDOM);
-}
+};
 
-async function footer(totalLikes) {
+const footer = async (totalLikes) => {
     const photographerFooterLikes = document.querySelector(".photographerFooter__likes");
     const photographerFooterLikesTotal = document.createElement ("p");
 
@@ -75,16 +60,15 @@ async function footer(totalLikes) {
     photographerFooterLikes.appendChild(photographerFooterLikesTotal);
 
     return totalLikes;
-}
+};
 
-// eslint-disable-next-line no-unused-vars
-async function mainMedia() {
+export const mainMedia = async () => {
     const {media} = await getPhotographers();
 
     let mediaAssets = media.filter(media => media.photographerId === identity);
     
     return mediaAssets;
-}
+};
 
 //Main function to retrieve and display the data for the unique photographer.html page
 //{photographers, media} is an object containing the arrays photographers[] and media[] from the .json 
@@ -95,7 +79,7 @@ async function mainMedia() {
 //Call the function to display this specific photographer's media assets with displayMedia(mediaAssets)
 //Call the function to display this specific photographer's name in the contact form with customModal(photographer) 
 //Add each photographer's total number of liked media assets to the footer with footer(totalLikes)
-async function main() {
+const main = async () => {
     const {photographers, media} = await getPhotographers();
     
     let photographer = photographers.find(photographer => photographer.id === identity);
@@ -114,6 +98,6 @@ async function main() {
     }, 0);
 
     footer(totalLikes);
-}
+};
 
 main();
