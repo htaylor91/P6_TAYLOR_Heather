@@ -10,7 +10,7 @@
     <link href="css/style.css" rel="stylesheet" type="text/css"/>
   </head>
   <body id="body">
-    <header>
+    <header class="header">
       <nav aria-label="Main" class="nav">
         <a href="index.html" target="_parent" class="nav__anchor">
           <img src="assets/images/logo.png" alt="Fisheye Home page" class="nav__anchor__logo"/>
@@ -93,7 +93,7 @@
 				</form>
 			</div>
 		</div>
-    <div id="lightboxModal" role="dialog" aria-label="Lightbox" aria-hidden="true" tabindex="-1">
+    <dialog id="lightboxModal" aria-label="Lightbox">
       <div class="lightbox">
         <button id="closeLightbox" class="button">
           <img class="closeLightbox__img" src="assets/icons/close.svg" alt="Close the lightbox"/>
@@ -109,7 +109,7 @@
           <img src="assets/icons/arrow-right.svg" alt="Next"/>
         </button>
       </div>
-    </div>
+    </dialog>
     <script type="module" src="scripts/pages/photographer.js"></script>
     <script type="module" src="scripts/utils/displayContactForm.js"></script>
     <script type="module" src="scripts/utils/formValidation.js"></script>
