@@ -183,5 +183,12 @@ function closeLightbox() {
     body.removeAttribute("class", "noScroll");
 }
 
+//Close and clear the lightbox modal when the escape key is pressed
+document.addEventListener("keydown", function(event){
+    if(event.key === "Escape"){
+        closeLightbox();
+    }
+});
+
 //Close the lightbox modal when the close button is clicked
 closeLightboxBtn.addEventListener("click", closeLightbox);
