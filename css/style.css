@@ -77,9 +77,8 @@ a {
   line-height: 31.25px;
 }
 
-.mediaContainer__anchor {
-  width: 100%;
-  height: 100%;
+.mediaContainer {
+  display: flex;
 }
 .mediaContainer__image {
   display: block;
@@ -87,6 +86,7 @@ a {
   width: 350px;
   height: 300px;
   border-radius: 5px;
+  z-index: -1;
 }
 .mediaContainer__video {
   display: block;
@@ -94,15 +94,13 @@ a {
   width: 350px;
   height: 300px;
   border-radius: 5px;
+  z-index: -1;
 }
 
 .button {
   border: none;
   background: none;
   cursor: pointer;
-  /*&--like {
-
-  }*/
 }
 .button--form {
   font-size: 18px;
@@ -120,6 +118,9 @@ a {
 .button--form--contact:hover, .button--form--contact:focus {
   color: black;
   background-color: #DB8876;
+}
+.button--close {
+  align-self: flex-start;
 }
 
 .filterSection {
@@ -178,7 +179,7 @@ a {
   margin-right: 1.75px;
 }
 
-header {
+.header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -251,14 +252,13 @@ header {
 }
 
 #contact_modal {
-  display: none;
-  position: fixed;
-  z-index: 5;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  overflow: auto;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(196, 196, 196, 0.4);
+  border: none;
+}
+
+#contact_modal::backdrop {
   background-color: rgba(196, 196, 196, 0.4);
 }
 
@@ -269,10 +269,10 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 35px;
   margin: auto;
-  margin-top: 50px;
+  margin-top: 10px;
 }
 .modal__header {
   display: flex;
@@ -283,29 +283,25 @@ header {
 .modal__header__text {
   display: flex;
   flex-direction: column;
-  padding-top: 35px;
+  line-height: 83.33px;
 }
 .modal__header__text__heading {
   font-size: 64px;
-  line-height: 83.33px;
   text-align: left;
 }
 .modal__header__img {
   cursor: pointer;
-  align-self: flex-start;
   filter: brightness(100);
 }
 
 #lightboxModal {
-  display: none;
-  position: fixed;
-  z-index: 5;
-  left: 0;
-  top: 0;
   height: 100%;
   width: 100%;
-  overflow: auto;
-  background-color: rgba(196, 196, 196, 0.4);
+  border: none;
+}
+
+#lightboxModal::backdrop {
+  background-color: white;
 }
 
 .lightbox {
@@ -376,7 +372,6 @@ form {
   width: 100%;
   flex-direction: column;
   align-items: flex-start;
-  margin-top: 75px;
 }
 
 form label {
@@ -398,10 +393,6 @@ form input, form textarea {
   border: none;
   border-radius: 5px;
   font-size: 36px;
-}
-
-form textarea {
-  height: 170px;
 }
 
 .photographer_section {
