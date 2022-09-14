@@ -3,7 +3,6 @@ import {body} from "./displayContactForm.js";
 import addGlobalEventListener from "./globalEvent.js";
 
 const lightboxDialog = document.getElementById("lightboxModal");
-//const lightboxFrame = document.getElementById("lightboxFrame");
 const lightboxFrameMedia = document.getElementById("lightboxFrame__media");
 const lightboxFrameTitle = document.getElementById("lightboxFrame__text");
 
@@ -11,7 +10,6 @@ const closeLightboxBtn = document.getElementById("closeLightbox");
 const next = document.getElementById("next");
 const previous = document.getElementById("previous");
 
-const mainSection = document.getElementById("mainSection");
 
 //const gallerySection = document.getElementById("gallerySection");
 //const mediaArticles = gallerySection.children; 
@@ -171,35 +169,19 @@ const displayLightboxContent = (event) => {
     previous.addEventListener("click", previousMediaAsset);
 };
 
-
 //Display the lightbox modal
-//Call closeLightboxBtn.focus() to set focus on the close button
 function displayLightbox() {
-    lightboxDialog.style.display = "block";
-    lightboxDialog.setAttribute("aria-hidden", "false");
-    mainSection.setAttribute("aria-hidden", "true");
-    mainSection.setAttribute("tab-index", "-1");
+    lightboxDialog.showModal();
     body.setAttribute("class", "noScroll");
-    closeLightboxBtn.focus();
 }
 
 //Close the lightbox modal
 //Call clearLightbox() to reset the modal's contents
 function closeLightbox() {
-    lightboxDialog.style.display = "none";
-    lightboxDialog.setAttribute("aria-hidden", "true");
-    mainSection.setAttribute("aria-hidden", "false");
-    body.removeAttribute("class", "noScroll");
+    lightboxDialog.close();
     clearLightbox();
-    //I still need to restore focus to element that was clicked to open the lightbox
+    body.removeAttribute("class", "noScroll");
 }
-
-// Close the lightbox modal when the escape key is pressed
-document.addEventListener("keydown", function(event){
-    if(event.key === "Escape"){
-        closeLightbox();
-    }
-});
 
 //Close the lightbox modal when the close button is clicked
 closeLightboxBtn.addEventListener("click", closeLightbox);
