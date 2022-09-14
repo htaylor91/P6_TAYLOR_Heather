@@ -1,15 +1,13 @@
 @use "../abstracts" as *;
 
-
 #contact_modal {
-    display: none;
-    position: fixed;
-    z-index: 5;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    overflow: auto;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(196, 196, 196, 0.4);
+    border: none;
+}
+
+#contact_modal::backdrop {
     background-color: rgba(196, 196, 196, 0.4);
 }
 
@@ -20,10 +18,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 35px;
     margin: auto;
-    margin-top: 50px;
+    margin-top: 10px;
     &__header {
         display: flex;
         justify-content: space-between;
@@ -32,18 +30,15 @@
         &__text {
             display: flex;
             flex-direction: column;
-            padding-top: 35px;
+            line-height: 83.33px;
             &__heading {
                 font-size: 64px;
-                line-height: 83.33px;
                 text-align: left;
             }
         }
         &__img {
             cursor: pointer;
-            align-self: flex-start;
             filter: brightness(100);
         }
     }
 }
-
