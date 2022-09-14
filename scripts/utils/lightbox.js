@@ -1,4 +1,7 @@
 
+import {body} from "./displayContactForm.js";
+import addGlobalEventListener from "./globalEvent.js";
+
 const lightboxDialog = document.getElementById("lightboxModal");
 //const lightboxFrame = document.getElementById("lightboxFrame");
 const lightboxFrameMedia = document.getElementById("lightboxFrame__media");
@@ -9,8 +12,6 @@ const next = document.getElementById("next");
 const previous = document.getElementById("previous");
 
 const mainSection = document.getElementById("mainSection");
-const body = document.getElementById("body");
-
 
 //const gallerySection = document.getElementById("gallerySection");
 //const mediaArticles = gallerySection.children; 
@@ -34,22 +35,28 @@ const clearLightbox = () => {
     removeAllChildNodes(lightboxFrameTitle);
 };
 
-//Display lightbox content by clicking on a media object
-//Function is called inside of getMediaDOM() inside of mediaFactory(data)
-//See factories/media.js
-//mediaAssetButton.onclick = function () { displayLightboxContent(id, title)};
-// eslint-disable-next-line no-unused-vars
-function displayLightboxContent(id, title) {
-    displayLightbox();
-    // eslint-disable-next-line no-undef
-    mediaIdentity = id;
-    // eslint-disable-next-line no-undef
-    mediaTitle = title;
-    // eslint-disable-next-line no-undef
-    console.dir(mediaIdentity);
-    // eslint-disable-next-line no-undef
-    console.dir(mediaTitle);
+//Add a click event listener to all buttons with the class .mediaContainer
+//Add the callback identifyMedia(event) to find the id of the button's child element
+//Add the callback displayLightboxContent(event) to call the primary lightbox function
+addGlobalEventListener("click", ".mediaContainer", (event) => {
+    identifyMedia(event);
+    displayLightboxContent(event);
+});
 
+//https://developer.mozilla.org/en-US/docs/Web/API/Event/target
+//implement event delegation 
+// evt.target.firstChild refers to the clicked .mediaAsset element
+function identifyMedia(event) {
+    let identity = event.target.firstChild.id;
+    console.log(identity);
+    return identity;
+}
+
+//Display lightbox content by clicking on a button with the class .mediaContainer
+//All video and image elements in the gallery are children of a button with this class
+const displayLightboxContent = (event) => {
+    displayLightbox();
+    let mediaIdentity = identifyMedia(event);
     //Locate(element) is the callback function to be used with the findIndex() method.
     //Returns a truthy value to indicate an element with an id equal to its own has been found.
     //As long as the selected element's id is equal to its own id, 
@@ -162,7 +169,7 @@ function displayLightboxContent(id, title) {
 
     next.addEventListener("click", nextMediaAsset);
     previous.addEventListener("click", previousMediaAsset);
-}
+};
 
 
 //Display the lightbox modal
