@@ -1,7 +1,9 @@
-// eslint-disable-next-line no-unused-vars
-function mediaFactory(asset) {
+
+const mediaFactory = asset => {
+  
     const { id, photographerId, title, image, video, likes, date, price } = asset;
-   
+    
+    
     const galleryImage = `assets/images/${photographerId}/${image}`;
     const galleryVideo = `assets/images/${photographerId}/${video}`;
     const galleryAlt = `${title}`;
@@ -15,13 +17,7 @@ function mediaFactory(asset) {
         article.setAttribute("class", "mediaArticle");
 
         const mediaAssetButton = document.createElement( "button" );
-
-        //Primary lightbox function
-        // eslint-disable-next-line no-undef
-        mediaAssetButton.onclick = function () { displayLightboxContent(id, title);};
-
-        mediaAssetButton.setAttribute("class", "mediaContainer");
-        mediaAssetButton.setAttribute("class", "button");
+        mediaAssetButton.setAttribute("class", "mediaContainer button");
 
         function createImage() {
             const img = document.createElement( "img" );
@@ -126,6 +122,10 @@ function mediaFactory(asset) {
     }
 
     return { 
-        id, price, likes, getMediaDOM
+        id, title, price, likes, getMediaDOM
     };
-}
+
+};
+
+export default mediaFactory;
+
