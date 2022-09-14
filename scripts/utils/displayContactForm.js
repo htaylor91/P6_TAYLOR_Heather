@@ -3,6 +3,7 @@ import addGlobalEventListener from "./globalEvent.js";
 
 const body = document.getElementById("body");
 const modalDialog = document.getElementById("contact_modal");
+const form = document.getElementById("form");
 const closeModalBtn = document.getElementById("closeModal");
 
 addGlobalEventListener("click", "#displayModal", (event) => {
@@ -22,4 +23,4 @@ function closeModal() {
 
 closeModalBtn.addEventListener("click", closeModal);
 
-export {body};
+export {body, form, closeModal};
