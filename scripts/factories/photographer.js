@@ -1,5 +1,6 @@
-// eslint-disable-next-line no-unused-vars
-function photographerFactory(data) {
+
+const photographerFactory = data => {
+
     const { name, id, city, country, tagline, price, portrait} = data;
 
     const profilePicture = `assets/images/photographers/${portrait}`;
@@ -85,8 +86,6 @@ function photographerFactory(data) {
         contactButton.setAttribute("id", "displayModal");
         contactButton.textContent = "Contactez-moi";
         contactButton.setAttribute("lang", "fr");
-        // eslint-disable-next-line no-undef
-        contactButton.addEventListener("click", displayModal);
         
         const img = document.createElement( "img" );
         img.setAttribute("src", profilePicture);
@@ -127,10 +126,6 @@ function photographerFactory(data) {
         contactName.textContent = profileName;
         contactName.setAttribute("class", "modal__header__text__heading");
 
-        const closeModalButton = document.getElementById("closeModal");
-        // eslint-disable-next-line no-undef
-        closeModalButton.addEventListener("click", closeModal);
-        
         return(contactName);
     }
 
@@ -138,4 +133,6 @@ function photographerFactory(data) {
         data, getUserCardDOM, getPageDOM, getModalDOM
     };
     
-}
+};
+
+export default photographerFactory;
