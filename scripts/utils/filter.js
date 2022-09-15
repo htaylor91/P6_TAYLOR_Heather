@@ -1,11 +1,12 @@
 
 import {displayMedia, mainMedia} from "../pages/photographer.js";
 
+const listbox = document.getElementById("listbox");
 const filterArrow = document.getElementById("filterArrow");
 
-const popularityLabel = document.getElementById("listbox-1");
-const dateLabel = document.getElementById("listbox-2");
-const titleLabel = document.getElementById("listbox-3");
+const firstLabel = document.getElementById("listbox-1");
+const secondLabel = document.getElementById("listbox-2");
+const thirdLabel = document.getElementById("listbox-3");
 
 const popularityBtn = document.getElementById("popularityBtn");
 const dateBtn = document.getElementById("dateBtn");
@@ -14,38 +15,37 @@ const titleBtn = document.getElementById("titleBtn");
 const toggleArrow = document.getElementById("toggleArrow");
 
 function displayDropdown() {
-    popularityBtn.style.display = "flex";
-    popularityLabel.style.display = "flex";
-    dateBtn.style.display = "flex";
-    dateLabel.style.display = "flex";
-    titleBtn.style.display = "flex";
-    titleLabel.style.display = "flex";
+
+    listbox.setAttribute("aria-expanded", true);
+
+    secondLabel.classList.remove("hide");
+    thirdLabel.classList.remove("hide");
+
+    secondLabel.classList.add("show");
+    thirdLabel.classList.add("show");
+
+    toggleArrow.src = "assets/icons/arrow-up.svg";
+    filterArrow.removeEventListener("click", displayDropdown);
+    filterArrow.addEventListener("click", hideDropdown );
+    
 }
 
 function hideDropdown() {
-    dateBtn.style.display = "none";
-    dateLabel.style.display = "none";
-    titleBtn.style.display = "none";
-    titleLabel.style.display = "none";
+
+    listbox.setAttribute("aria-expanded", false);
+
+    secondLabel.classList.remove("show");
+    thirdLabel.classList.remove("show");
+    
+    secondLabel.classList.add("hide");
+    thirdLabel.classList.add("hide");
+
+    toggleArrow.src = "assets/icons/arrow-down.svg";
+    filterArrow.removeEventListener("click", hideDropdown);
+    filterArrow.addEventListener("click", displayDropdown);
 }
 
-hideDropdown();
-
-//Filter dropdown toggle 
-let toggle = true;
-
-filterArrow.addEventListener("click", function() {
-
-    toggle = !toggle;
-
-    if(toggle){
-        toggleArrow.src = "assets/icons/arrow-down.svg";
-        hideDropdown();
-    }else {
-        toggleArrow.src = "assets/icons/arrow-up.svg";
-        displayDropdown();
-    }
-});
+filterArrow.addEventListener("click", displayDropdown);
 
 //Delete media assets from the gallery section
 const clearGallery = () => {
@@ -59,25 +59,83 @@ const clearGallery = () => {
     removeAllChildNodes(gallerySection);
 };
 
+//Clear all filterSection list item children 
+//to make room to append new children to them
+//when a filter option is selected
+const clearLabel = () => {
+    function removeAllChildNodes(parent) {
+        while (parent.firstChild) {
+            parent.removeChild(parent.firstChild);
+        }
+    }
+    removeAllChildNodes(firstLabel);
+    removeAllChildNodes(secondLabel);
+    removeAllChildNodes(thirdLabel);
+
+};
+
+function popularityDropdown() {
+    clearLabel();
+
+    firstLabel.removeAttribute("aria-selected", false);
+    firstLabel.appendChild(popularityBtn);
+    firstLabel.setAttribute("aria-selected", true);
+    
+    secondLabel.appendChild(dateBtn);
+    thirdLabel.appendChild(titleBtn);
+
+    hideDropdown();
+    listbox.focus();
+
+    sortByLikes();
+    
+}
+
+function dateDropdown() {
+    clearLabel();
+
+    firstLabel.removeAttribute("aria-selected", false);
+    firstLabel.appendChild(dateBtn);
+    firstLabel.setAttribute("aria-selected", true);
+    
+    secondLabel.appendChild(titleBtn);
+    thirdLabel.appendChild(popularityBtn);
+
+    hideDropdown();
+    listbox.focus();
+    sortByDate();
+}
+
+function titleDropdown() {
+    clearLabel();
+
+    firstLabel.removeAttribute("aria-selected", false);
+    firstLabel.appendChild(titleBtn);
+    firstLabel.setAttribute("aria-selected", true);
+
+    secondLabel.appendChild(popularityBtn);
+    thirdLabel.appendChild(dateBtn);
+
+    hideDropdown();
+    listbox.focus();
+    sortByTitle();
+    
+}
+
 //Sort by Likes
 async function sortByLikes() {
     clearGallery();
-    // eslint-disable-next-line no-undef
     const mediaAssets = await mainMedia();
     const sortedLikes = mediaAssets.sort(function (a, b) {
         return b.likes - a.likes;
     });
-  
-    //console.log(sortedLikes);
-    //console.table(sortedLikes);
-    // eslint-disable-next-line no-undef
+    
     displayMedia(sortedLikes);
 }
 
 //Sort by Title
 async function sortByTitle() {
     clearGallery();
-    // eslint-disable-next-line no-undef
     const mediaAssets = await mainMedia();
     const sortedTitles = mediaAssets.sort(function(a, b) {
         let x = a.title.toLowerCase();
@@ -86,28 +144,21 @@ async function sortByTitle() {
         if (x > y) {return 1;}
         return 0;
     });
- 
-    //console.log(sortedTitles);
-    //console.table(sortedTitles);
-    // eslint-disable-next-line no-undef
+
     displayMedia(sortedTitles);
 }
 
 //Sort by Date
 async function sortByDate() {
     clearGallery();
-    // eslint-disable-next-line no-undef
     const mediaAssets = await mainMedia();
     const sortedDates= mediaAssets.sort(function(a, b) {
         return new Date(b.date) - new Date(a.date);
     });
 
-    //console.log(sortedDates);
-    //console.table(sortedDates);
-    // eslint-disable-next-line no-undef
     displayMedia(sortedDates);
 }
 
-popularityBtn.addEventListener("click", sortByLikes);
-dateBtn.addEventListener("click", sortByDate);
-titleBtn.addEventListener("click", sortByTitle);
+popularityBtn.addEventListener("click", popularityDropdown);
+dateBtn.addEventListener("click", dateDropdown);
+titleBtn.addEventListener("click", titleDropdown);
