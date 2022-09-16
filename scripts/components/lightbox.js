@@ -1,8 +1,9 @@
 
-import {body} from "./displayContactForm.js";
-import addGlobalEventListener from "./globalEvent.js";
+import {body} from "../helpers/displayContactForm.js";
+import addGlobalEventListener from "../helpers/globalEvent.js";
 
 const lightboxDialog = document.getElementById("lightboxModal");
+//const lightboxFrame = document.getElementById("lightboxFrame");
 const lightboxFrameMedia = document.getElementById("lightboxFrame__media");
 const lightboxFrameTitle = document.getElementById("lightboxFrame__text");
 
