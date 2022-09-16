@@ -1,5 +1,5 @@
 
-import getPhotographers from "../utils/getPhotographers.js";
+import getPhotographers from "../helpers/getPhotographers.js";
 import photographerFactory from "../factories/photographer.js";
 
 getPhotographers;

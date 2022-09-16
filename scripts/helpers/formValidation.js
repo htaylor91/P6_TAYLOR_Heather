@@ -40,7 +40,6 @@ function validTextArea() {
     return false;
 }
 
-// eslint-disable-next-line no-unused-vars
 function validate(event){
     event.preventDefault();
     let valid = false;
