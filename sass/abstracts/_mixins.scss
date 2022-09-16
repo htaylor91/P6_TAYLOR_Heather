@@ -1,1 +1,48 @@
 @use "../abstracts/functions" as *;
+
+//Breakpoints mixins
+//If an additional breakpoint is needed, 
+//first add the breakpoint to the breakpoints map in the _function.scss file.
+//Then, add a new mixin here, using the new map key.
+
+@mixin fold-phone {
+    @media screen and (min-width: map-get($breakpoints, fold-phone)){
+        @content;
+    }
+}
+
+@mixin small-phone {
+    @media screen and (min-width: map-get($breakpoints, small-phone)){
+        @content;
+    }
+}
+
+@mixin small-tablet {
+    @media screen and (min-width: map-get($breakpoints, small-tablet)){
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media screen and (min-width: map-get($breakpoints, tablet)){
+        @content;
+    }
+}
+
+@mixin laptop {
+    @media screen and (min-width: map-get($breakpoints, laptop)){
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media screen and (min-width: map-get($breakpoints, desktop)){
+        @content;
+    }
+}
+
+@mixin large-desktop {
+    @media screen and (min-width: map-get($breakpoints, large-desktop)){
+        @content;
+    }
+}
