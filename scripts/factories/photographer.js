@@ -3,7 +3,7 @@ const photographerFactory = data => {
 
     const { name, id, city, country, tagline, price, portrait} = data;
 
-    const profilePicture = `assets/images/photographers/${portrait}`;
+    const profilePicture = `assets/media/photographers/${portrait}`;
     const profileAlt = `Portrait de ${name}`;
     //eslint-disable-next-line quotes
     const heartIcon = `assets/icons/heart.svg`;
@@ -35,7 +35,6 @@ const photographerFactory = data => {
         const photographerLocation = document.createElement( "p" );
         photographerLocation.textContent = `${city}, ${country}`;
         photographerLocation.setAttribute("class", "photographerLocation photographerLocation--homepage");
-        
     
         const photographerTagline = document.createElement( "p" );
         photographerTagline.textContent = tagline;
