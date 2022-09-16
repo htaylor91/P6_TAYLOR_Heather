@@ -6,14 +6,14 @@
     <meta name="description" content="Fisheye photographer">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Fisheye Photographer</title>
-    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="icon" type="image/png" href="assets/icons/favicon.png">
     <link href="css/style.css" rel="stylesheet" type="text/css"/>
   </head>
   <body id="body">
     <header class="header">
       <nav aria-label="Main" class="nav">
         <a href="index.html" target="_parent" class="nav__anchor">
-          <img src="assets/images/logo.png" alt="Fisheye Home page" class="nav__anchor__logo"/>
+          <img src="assets/media/logo.png" alt="Fisheye Home page" class="nav__anchor__logo"/>
         </a>
       </nav>
     </header>
@@ -22,7 +22,7 @@
       </section>
       <section class="filterSection">
         <h2 id="listboxlabel" role="label" class="filterSection__label" lang="fr">Trier par</h2>
-        <ul role="listbox" tabindex="0" id="listbox" class="filterSection__select" 
+        <ul role="listbox" tabindex="0" id="listbox" class="filterSection__select"
           aria-labelledby="listboxlabel"
           aria-expanded="false"
           aria-haspopup="true">
@@ -42,7 +42,6 @@
             <button id="titleBtn" class="button filterSection__select__option" lang="fr">Titre</button>
           </li>
         </ul>
-        
       </section>
       <section class="gallerySection" id="gallerySection">
       </section>
@@ -117,9 +116,9 @@
       </div>
     </dialog>
     <script type="module" src="scripts/pages/photographer.js"></script>
-    <script type="module" src="scripts/utils/displayContactForm.js"></script>
-    <script type="module" src="scripts/utils/formValidation.js"></script>
-    <script type="module" src="scripts/utils/filter.js"></script>
-    <script type="module" src="scripts/utils/lightbox.js"></script>
+    <script type="module" src="scripts/helpers/displayContactForm.js"></script>
+    <script type="module" src="scripts/helpers/formValidation.js"></script>
+    <script type="module" src="scripts/helpers/filter.js"></script>
+    <script type="module" src="scripts/components/lightbox.js"></script>
   </body>
 </html>
