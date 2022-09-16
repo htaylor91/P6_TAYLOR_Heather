@@ -12,20 +12,20 @@
         font-size: 18px;
     }
     &__select {
-        background: #901C1C;
-        color: white;
+        background: $primary-color;
+        color: $white;
         border-radius: 5px;
         position: absolute;
         top: 5px;
         left: 100px;
         z-index: 10;
-        border: 10px solid #901C1C;
+        border: 10px solid $primary-color;
         border-left-width: 10px;
         border-right-width: 10px;
         &__option {
             font-weight: 600;
             font-size: 18px;
-            color: white;
+            color: $white;
             line-height: 23.44px;
             border-radius: 5px;
             padding: 5px;
@@ -36,12 +36,12 @@
 }
 
 .hide {
-    color:white;
+    color: $white;
     display: none;
 }
 
 .show {
-    color: white;
+    color: $white;
     display: flex;
 }
 
@@ -63,7 +63,7 @@
 }
 
 #listbox-2, #listbox-3 {
-    border-top: 1px solid white;
+    border-top: 1px solid $white;
     border-radius: 0%;
     padding-top: 10px;
     align-self: center;

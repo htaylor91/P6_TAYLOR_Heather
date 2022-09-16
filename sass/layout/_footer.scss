@@ -2,11 +2,12 @@
 
 .photographerFooter {
     position: fixed;
+    z-index: 3;
     right: 36px;
     bottom: -16px;
     width: 376px;
     height: 89px;
-    background-color: #DB8876;
+    background-color: $secondary-color;
     border-radius: 5px;
     display: flex;
     justify-content: space-between;

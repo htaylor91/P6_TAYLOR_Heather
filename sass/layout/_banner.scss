@@ -1,7 +1,7 @@
 @use "../abstracts" as *;
 
 .photographBanner {
-    background-color: #FAFAFA;
+    background-color: $white--tint;
     height: 300px;
     margin: 0 100px;
     display: flex;

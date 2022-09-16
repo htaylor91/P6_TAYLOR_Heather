@@ -3,7 +3,7 @@
 .infoContainer {
     display: flex;
     justify-content: space-between;
-    color: #901C1C;
+    color: $primary-color;
     padding-top: 10px;
     width: 350px;
     &__textContainer {

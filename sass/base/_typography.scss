@@ -1,19 +1,19 @@
 @use "../abstracts/" as *;
 
-a {
+a:any-link, button {
     text-decoration: none;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: $transparent;
 }
 
 .heading--home {
-    color: #901C1C;
+    color: $primary-color;
     font-size: 36px;
     line-height: 46.87px;
     margin-right: 100px;
 }
 
 .photographerName {
-    color: #D3573C;
+    color: $orange;
     &--homepage{
         font-size: 36px;
         line-height: 46.87px;
@@ -25,7 +25,7 @@ a {
 }
 
 .photographerLocation {
-    color: #901C1C;
+    color: $primary-color;
     &--homepage {
         font-size: 13px;
         line-height: 16.93px;
@@ -38,25 +38,25 @@ a {
 
 .photographerTagline {
     &--homepage {
-        color: #000000;
+        color: $black;
         font-size: 10px;
         line-height: 13.02px;
     }
     &--profile {
         font-size: 18px;
         line-height: 23.44px;
-        color: #525252;
+        color: $gray;
     }
 }
 
 .photographerPrice {
     &--homepage {
-        color: #757575;
+        color: $gray;
         font-size: 9px;
         line-height: 11.72px;
     }
     &--profile {
-        color: #000000;
+        color: $black;
         font-weight: 500;
         font-size: 24px;
         line-height: 31.25px;

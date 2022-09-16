@@ -7,7 +7,7 @@
 }
 
 #lightboxModal::backdrop {
-    background-color: white;
+    background-color: $white;
 }
 
 .lightbox {
@@ -19,13 +19,13 @@
     padding: 35px;
     margin: auto;
     margin-top: 50px;
-    background-color: white;
+    background-color: $white;
     border-radius: 5px;
     position: relative;
 }
 
 .lightboxFrame {
-    background-color: white;
+    background-color: $white;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
@@ -45,7 +45,7 @@
         }
     }
     &__text {
-        color: #901C1C;
+        color: $primary-color;
         font-weight: 700;
         height: 30px; //60px
         padding-top: 1.5rem;

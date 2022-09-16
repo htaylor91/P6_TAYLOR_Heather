@@ -3,17 +3,17 @@
 #contact_modal {
     height: 100vh;
     width: 100vw;
-    background-color: rgba(196, 196, 196, 0.4);
+    background-color: $gray--transparent;
     border: none;
 }
 
 #contact_modal::backdrop {
-    background-color: rgba(196, 196, 196, 0.4);
+    background-color: $gray--transparent;
 }
 
 .modal {
     border-radius: 5px;
-    background-color: #DB8876;
+    background-color: $secondary-color;
     width: 50%;
     display: flex;
     flex-direction: column;
