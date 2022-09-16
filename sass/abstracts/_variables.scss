@@ -1,2 +1,22 @@
 //Font variables
 $body-font: 'DM Sans', sans-serif;
+
+//Colors
+//These variables are used in the color-palette map in the _functions.scss file.
+//Changing the hexadecimal color values of these 
+//variables will change the values of the color-palette map.
+
+$primary-color: #901C1C;
+$secondary-color: #DB8876; //RBG (219, 136, 118)
+
+$orange: #D3573C; //RBG (211, 87, 60)
+
+$transparent: rgba(0,0,0,0);
+
+$white: #FFFFFF;
+$white--tint: #FAFAFA;
+
+$gray: #525252;
+$gray--transparent: rgba(196, 196, 196, 0.4);
+$gray--dark: #312E2E; //form text for labels
+$black: #000000;
