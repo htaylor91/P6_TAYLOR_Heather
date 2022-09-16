@@ -3,14 +3,17 @@ import {body} from "../helpers/displayContactForm.js";
 import addGlobalEventListener from "../helpers/globalEvent.js";
 
 const lightboxDialog = document.getElementById("lightboxModal");
-//const lightboxFrame = document.getElementById("lightboxFrame");
+const lightboxFrame = document.getElementById("lightboxFrame");
 const lightboxFrameMedia = document.getElementById("lightboxFrame__media");
 const lightboxFrameTitle = document.getElementById("lightboxFrame__text");
+
+lightboxFrame.setAttribute("lang", "en");
+lightboxFrameMedia.setAttribute("lang", "en");
+lightboxFrameTitle.setAttribute("lang", "en");
 
 const closeLightboxBtn = document.getElementById("closeLightbox");
 const next = document.getElementById("next");
 const previous = document.getElementById("previous");
-
 
 //const gallerySection = document.getElementById("gallerySection");
 //const mediaArticles = gallerySection.children; 
