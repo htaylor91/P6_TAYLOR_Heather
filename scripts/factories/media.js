@@ -3,9 +3,9 @@ const mediaFactory = asset => {
   
     const { id, photographerId, title, image, video, likes, date, price } = asset;
     
-    
-    const galleryImage = `assets/images/${photographerId}/${image}`;
-    const galleryVideo = `assets/images/${photographerId}/${video}`;
+    const galleryImage = `assets/media/${photographerId}/avif/${image}.avif`;
+    const galleryVideo = `assets/media/${photographerId}/videos/${video}`;
+
     const galleryAlt = `${title}`;
 
     //eslint-disable-next-line quotes
@@ -50,11 +50,11 @@ const mediaFactory = asset => {
             video.appendChild(source);
         }
 
-        if (galleryVideo !== `assets/images/${photographerId}/undefined`) {
+        if (galleryVideo !== `assets/media/${photographerId}/videos/undefined`) {
             createVideo();
         }
         
-        if (galleryImage !== `assets/images/${photographerId}/undefined`) {
+        if (galleryImage !== `assets/media/${photographerId}/avif/undefined.avif`) {
             createImage(); 
         } 
 
