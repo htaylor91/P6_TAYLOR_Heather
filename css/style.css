@@ -280,6 +280,7 @@ a {
 
 .photographerFooter {
   position: fixed;
+  z-index: 3;
   right: 36px;
   bottom: -16px;
   width: 376px;
