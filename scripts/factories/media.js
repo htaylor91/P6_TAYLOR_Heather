@@ -63,10 +63,12 @@ const mediaFactory = asset => {
 
         const mediaTextContainer = document.createElement("div");
         mediaTextContainer.setAttribute("class", "infoContainer__textContainer");
+        mediaTextContainer.setAttribute("lang", "en");
 
         const mediaTitle = document.createElement( "h2" );
         mediaTitle.textContent = title;
         mediaTitle.setAttribute("class", "infoContainer__textContainer__title");
+        mediaTitle.setAttribute("lang", "en");
 
         const mediaDate = document.createElement("p");
         mediaDate.textContent = date;
