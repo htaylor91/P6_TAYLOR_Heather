@@ -5,7 +5,7 @@ const mediaFactory = asset => {
     
     const galleryImage = `assets/media/${photographerId}/avif/${image}.avif`;
     const galleryVideo = `assets/media/${photographerId}/videos/${video}`;
-
+    const galleryVideoTranscript = `assets/media/${photographerId}/videos/${id}.vtt`;
     const galleryAlt = `${title}`;
 
     //eslint-disable-next-line quotes
@@ -46,8 +46,15 @@ const mediaFactory = asset => {
             source.setAttribute("alt", galleryAlt);
             source.setAttribute("type", "video/mp4");
 
+            const track = document.createElement("track");
+            track.setAttribute("kind", "descriptions");
+            track.setAttribute("src", galleryVideoTranscript);
+            track.setAttribute("srclang", "en");
+            track.setAttribute("label", galleryAlt);
+
             mediaAssetButton.appendChild(video);
-            video.appendChild(source);
+            video.append(source, track);
+            
         }
 
         if (galleryVideo !== `assets/media/${photographerId}/videos/undefined`) {
