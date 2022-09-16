@@ -1,1 +1,15 @@
 @use "./variables" as *;
+
+// Breakpoints Map - min-width //
+//If an additional breakpoint is needed, add the breakpoint to this map.
+//Then, create a mixin using the new map key in the _mixins.scss file.
+
+$breakpoints: (
+    fold-phone: 280px,
+    small-phone: 320px,
+    small-tablet: 481px,
+    tablet: 768px,
+    laptop: 992px,
+    desktop: 1024px,
+    large-desktop: 1200px,
+);
