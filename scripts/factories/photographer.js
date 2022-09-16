@@ -35,6 +35,8 @@ const photographerFactory = data => {
         const photographerLocation = document.createElement( "p" );
         photographerLocation.textContent = `${city}, ${country}`;
         photographerLocation.setAttribute("class", "photographerLocation photographerLocation--homepage");
+        photographerLocation.setAttribute("lang", "en");
+        photographerLocation.setAttribute("translate", "yes");
     
         const photographerTagline = document.createElement( "p" );
         photographerTagline.textContent = tagline;
