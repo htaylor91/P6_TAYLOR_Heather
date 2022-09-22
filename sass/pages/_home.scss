@@ -25,6 +25,7 @@
     margin: 20px;
     @include smallerThanTablet {
         flex-direction: column;
+        margin: 15px;
     }
 }
 
@@ -33,8 +34,12 @@
     font-size: 36px;
     line-height: 46.87px;
     align-self: flex-end;
+    margin-bottom: auto;
     @include smallerThanTablet {
         align-self: center;
+    }
+    @include smallerThanLargePhone {
+        font-size: 34px;
     }
 }
 
