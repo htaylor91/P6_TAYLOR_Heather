@@ -1,0 +1,11 @@
+@use "../abstracts" as *;
+
+#descriptionModal {
+    background-color: $white;
+    display: flex;
+    flex-direction: column;
+}
+
+#closeDescription {
+    margin-left: auto;
+}
