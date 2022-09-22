@@ -468,13 +468,20 @@ a:any-link, button {
   display: flex;
   flex-direction: column;
   margin: 10px;
+  justify-content: center;
 }
 .lightboxFrame__media {
   border-radius: 5px;
   display: flex;
   flex-direction: column;
+  flex-basis: max-content;
   width: 100%;
   height: 90%;
+}
+@media screen and (width < 768px) {
+  .lightboxFrame__media {
+    flex-basis: auto;
+  }
 }
 .lightboxFrame__media__asset {
   width: 100%;
