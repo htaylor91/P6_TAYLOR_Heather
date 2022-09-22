@@ -20,16 +20,20 @@
     </header>
     <main id="mainSection">
       <section class="photographBanner">
+        <h2 class="hidden">Profil du photographe</h2>
       </section>
       <section id="filterSection" class="filterSection">
+        <h2 class="hidden">Tri des médias</h2>
         <label for="select" class="filterSection__label">Trier par</label>
           <select id="select" class="filterSection__select">
-            <option value="popularité" class="filterSection__select__option"><p id="ops">Popularité</p></option>
+            <option value="popularité" class="filterSection__select__option">Popularité</option>
             <option value="date" class="filterSection__select__option">Date</option>
             <option value="titre" class="filterSection__select__option" translate="yes">Titre</option>
           </select>
-      </section>
-      <section class="gallerySection" id="gallerySection">
+        </section>
+      <section>
+        <h2 class="hidden">Galerie de médias</h2>
+        <div class="gallerySection" id="gallerySection"></div>
       </section>
     </main>
     <dialog id="contact_modal" aria-label="Contact form" aria-describedby="modalTitle">
@@ -72,7 +76,6 @@
               required/>
             <label for="textarea">Votre Message</label>
             <textarea
-              type="text"
               id="textarea"
               name="textarea"
               required>
