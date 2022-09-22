@@ -1,11 +1,21 @@
 @use "../abstracts" as *;
 
-.photographer_section {
+.photographerSection {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 70px;
-    margin-top: 70px;
-    margin-bottom: 70px;
+    margin: 70px 20px;
+    @include smallerThanTablet {
+        margin: 30px 10px;
+        grid-template-columns: 1fr;
+    }
+    @include tabletToLaptop {
+        grid-template-columns: 1fr 1fr;
+    }
+    @include laptopToLargeDesktop {
+        grid-template-columns: 1fr 1fr;
+    }
+}
 }
 
 .photographer_section article, .photographer_section a {
