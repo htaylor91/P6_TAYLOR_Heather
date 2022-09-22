@@ -49,6 +49,15 @@
         font-weight: 700;
         height: 30px; //60px
         padding-top: 1.5rem;
+    &__description {
+        display: flex;
+        position: relative;
+        &__button {
+            align-self: flex-end;
+            position: absolute;
+            right: 5px;
+            bottom: 5px;
+        }
     }
 }
 
