@@ -14,6 +14,13 @@ a:any-link, button {
     &--profile {
         font-size: 64px;
         line-height: 83.33px;
+        @include smallerThanTablet {
+            text-align: center;
+        }
+        @include smallerThanLargePhone {
+            font-size: 40px;
+            line-height: 46.87px;
+        }
     }
 }
 
@@ -39,6 +46,9 @@ a:any-link, button {
         font-size: 18px;
         line-height: 23.44px;
         color: $gray;
+        @include smallerThanTablet {
+            text-align: center;
+        }
     }
 }
 
