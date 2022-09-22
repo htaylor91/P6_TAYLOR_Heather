@@ -243,15 +243,25 @@ a:any-link, button {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  height: 90px;
+  padding: 20px 0px;
+}
+@media screen and (width < 768px) {
+  .header--photographer {
+    justify-content: center;
+  }
 }
 
 .nav {
-  margin-left: 100px;
+  padding-left: 100px;
+}
+@media screen and (768px <= width < 992px) {
+  .nav {
+    padding-left: 30px;
+  }
 }
 @media screen and (width < 768px) {
   .nav {
-    margin: auto;
+    padding-left: 0px;
   }
 }
 .nav__anchor {
@@ -552,7 +562,7 @@ form input, form textarea {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 70px;
-  margin: 70px 20px;
+  padding: 0px 20px 70px;
 }
 @media screen and (width < 768px) {
   .photographerSection {
@@ -573,15 +583,13 @@ form input, form textarea {
 
 .header--home {
   display: flex;
-  height: auto;
+  padding: 20px 0px;
   justify-content: space-between;
   align-items: center;
-  margin: 20px;
 }
 @media screen and (width < 768px) {
   .header--home {
     flex-direction: column;
-    margin: 15px;
   }
 }
 
@@ -591,9 +599,16 @@ form input, form textarea {
   line-height: 46.87px;
   align-self: flex-end;
   margin-bottom: auto;
+  padding-right: 100px;
+}
+@media screen and (768px <= width < 992px) {
+  .heading--home {
+    padding-right: 30px;
+  }
 }
 @media screen and (width < 768px) {
   .heading--home {
+    padding-right: 0px;
     align-self: center;
   }
 }
