@@ -22,6 +22,18 @@ const mediaFactory = asset => {
         mediaAssetButton.setAttribute("class", "mediaContainer button");
         mediaAssetButton.setAttribute("aria-label", title);
         mediaAssetButton.setAttribute("type", "button");
+
+        article.append(mediaAssetButton);
+
+        const infoContainer = document.createElement( "div" );
+        infoContainer.setAttribute("class", "infoContainer");
+
+        const mediaTextContainer = document.createElement("div");
+        mediaTextContainer.setAttribute("class", "infoContainer__textContainer");
+
+        const mediaTitle = document.createElement( "h2" );
+        mediaTitle.textContent = title;
+        mediaTitle.setAttribute("class", "infoContainer__textContainer__title");
         mediaLikesButtonImage.setAttribute("height", "18.35");
         mediaLikesButtonImage.setAttribute("width", "17.5");
 
@@ -59,6 +71,7 @@ const mediaFactory = asset => {
             img.setAttribute("width", img.width);
             
             mediaAssetButton.appendChild(img);
+            article.classList.add("imageArticle");
             infoContainer.append(mediaTextContainer, mediaLikesContainer);
         }
 
