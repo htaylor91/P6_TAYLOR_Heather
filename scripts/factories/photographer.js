@@ -98,19 +98,20 @@ const photographerFactory = data => {
         const photographerFooter = document.createElement( "div" );
         photographerFooter.setAttribute("class", "photographerFooter");
 
+        photographerFooterLikesContainer.setAttribute("aria-label", "nombre total de likes");
         const photographerFooterLikes = document.createElement( "div" );
         
         photographerFooterLikes.setAttribute("class", "photographerFooter__likes");
 
         const photographerFooterIcon = document.createElement("img");
         photographerFooterIcon.setAttribute("src", heartIcon);
-        photographerFooterIcon.setAttribute("alt", "heart icon");
+        photographerFooterIcon.setAttribute("alt", "");
         photographerFooterIcon.setAttribute("class", "photographerFooter__icon");
 
         const photographerFooterPrice = document.createElement( "p" );
         photographerFooterPrice.textContent = `${price}€ / jour`;
         photographerFooterPrice.setAttribute("class", "photographerPrice--profile photographerFooter__price");
-        photographerFooterPrice.setAttribute("lang", "fr");
+        photographerFooterPrice.setAttribute("aria-label", "prix");
         
         article.append(textContainer, contactButton, img, photographerFooter);
 
