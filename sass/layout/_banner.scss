@@ -2,22 +2,47 @@
 
 .photographBanner {
     background-color: $white--tint;
-    height: 300px;
-    margin: 0 100px;
-    display: flex;
-    align-items: center;
     &__article {
-        display: flex;
-        padding: 0px 20px;
+        display: grid;
+        grid-template-columns: minmax(0, 1.5fr) (0, 1fr) (0,1fr);
+        grid-template-areas: 
+        "text contact image"
+        "text contact image"
+        "text contact image";
+        padding: 0px 100px;
         width: 100%;
         justify-content: space-between;
+        align-items: center;
+        margin: auto 0;
+        gap: 10px;
+        column-gap: 20px;
+        
+        @include tabletToLaptop {
+            padding: 0px 30px;
+        }
+
+        @include smallerThanTablet {
+            padding: 0px 20px;
+            grid-template-columns: minmax(0, 1fr);
+            grid-template-areas: 
+            "text"
+            "contact"
+            "image";
+            padding: 20px;
+            justify-content: center;
+        }
     }
 }
 
 .textContainer--profile {
+    grid-area: text;
     display: flex;
     flex-direction: column;
     align-items: start;
     justify-content: center;
+    @include smallerThanTablet {
+        align-items: center;
+        gap: 15px;
+    }
 }
 
