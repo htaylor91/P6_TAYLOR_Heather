@@ -7,6 +7,8 @@ const mediaFactory = asset => {
     const galleryVideo = `assets/media/${photographerId}/videos/${video}`;
     const galleryVideoTranscript = `assets/media/${photographerId}/videos/${id}.vtt`;
     const galleryAlt = `${title}`;
+    // eslint-disable-next-line quotes
+    const transcriptIcon = `assets/icons/file-lines.svg`;
 
     //eslint-disable-next-line quotes
     const heartIcon = `assets/icons/heart.svg`;
