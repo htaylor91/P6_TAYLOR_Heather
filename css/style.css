@@ -277,9 +277,9 @@ a:any-link, button {
 }
 .photographBanner__article {
   display: grid;
-  grid-template-columns: minmax(0, 1.5fr) 0, 1fr 0, 1fr;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) minmax(0, 1fr);
   grid-template-areas: "text contact image" "text contact image" "text contact image";
-  padding: 0px 100px;
+  padding: 20px 100px;
   width: 100%;
   justify-content: space-between;
   align-items: center;
@@ -289,7 +289,7 @@ a:any-link, button {
 }
 @media screen and (768px <= width < 992px) {
   .photographBanner__article {
-    padding: 0px 30px;
+    padding: 20px 30px;
   }
 }
 @media screen and (width < 768px) {
