@@ -34,6 +34,9 @@ const mediaFactory = asset => {
         const mediaTitle = document.createElement( "h2" );
         mediaTitle.textContent = title;
         mediaTitle.setAttribute("class", "infoContainer__textContainer__title");
+        mediaTitle.setAttribute("lang", "en");
+        mediaTitle.setAttribute("translate", "yes");
+
         mediaLikesButtonImage.setAttribute("height", "18.35");
         mediaLikesButtonImage.setAttribute("width", "17.5");
 
