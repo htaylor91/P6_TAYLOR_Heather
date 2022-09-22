@@ -4,7 +4,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 70px;
-    margin: 70px 20px;
+    padding: 0px 20px 70px;
     @include smallerThanTablet {
         margin: 30px 10px;
         grid-template-columns: 1fr;
@@ -19,13 +19,11 @@
 
 .header--home {
     display: flex;
-    height: auto;
+    padding: 20px 0px;
     justify-content: space-between;
     align-items: center;
-    margin: 20px;
     @include smallerThanTablet {
         flex-direction: column;
-        margin: 15px;
     }
 }
 
@@ -35,7 +33,12 @@
     line-height: 46.87px;
     align-self: flex-end;
     margin-bottom: auto;
+    padding-right: 100px;
+    @include tabletToLaptop {
+        padding-right: 30px;
+    }
     @include smallerThanTablet {
+        padding-right: 0px;
         align-self: center;
     }
     @include smallerThanLargePhone {
