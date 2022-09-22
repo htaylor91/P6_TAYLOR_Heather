@@ -18,6 +18,28 @@ const mediaFactory = asset => {
 
         const mediaAssetButton = document.createElement( "button" );
         mediaAssetButton.setAttribute("class", "mediaContainer button");
+        const mediaDescriptionButtonContainer = document.createElement("div");
+        mediaDescriptionButtonContainer.setAttribute("class", "infoContainer__descriptionContainer");
+
+        const mediaDescriptionButton = document.createElement("button");
+        mediaDescriptionButton.setAttribute("class", "button descriptionButton infoContainer__descriptionContainer__button");
+        mediaDescriptionButton.setAttribute("type", "button");
+        mediaDescriptionButton.setAttribute("aria-label", "open video description");
+
+        const mediaDescriptionButtonImage = document.createElement("img");
+        mediaDescriptionButtonImage.setAttribute("src", transcriptIcon);
+        mediaDescriptionButtonImage.setAttribute("alt", "");
+        mediaDescriptionButtonImage.setAttribute("class", "infoContainer__descriptionContainer__button__image");
+        mediaDescriptionButtonImage.setAttribute("height", "18.35");
+        mediaDescriptionButtonImage.setAttribute("width", "17.5");
+
+        mediaDescriptionButtonContainer.append(mediaDescriptionButton);
+        mediaDescriptionButton.appendChild(mediaDescriptionButtonImage);
+
+        const descriptionDialog = document.getElementById("descriptionDialog");
+        function displayDescriptionModal() {
+            descriptionDialog.showModal();
+        }
 
         function createImage() {
             const img = document.createElement( "img" );
@@ -29,6 +51,7 @@ const mediaFactory = asset => {
             img.setAttribute("id", id);
             
             mediaAssetButton.appendChild(img);
+            infoContainer.append(mediaTextContainer, mediaLikesContainer);
         }
 
         function createVideo() {
@@ -52,9 +75,17 @@ const mediaFactory = asset => {
             track.setAttribute("srclang", "en");
             track.setAttribute("label", galleryAlt);
 
-            mediaAssetButton.appendChild(video);
+            const embed = document.getElementById("descriptionEmbed");
+            embed.setAttribute("src", galleryVideoTranscript);
+
+            mediaAssetButton.append(video);
             video.append(source, track);
-            
+
+            article.classList.add("videoArticle");
+            mediaAssetButton.classList.add("videoButton");
+
+            infoContainer.append(mediaTextContainer, mediaDescriptionButtonContainer, mediaLikesContainer);
+            mediaDescriptionButton.addEventListener("click", displayDescriptionModal);
         }
 
         if (galleryVideo !== `assets/media/${photographerId}/videos/undefined`) {
