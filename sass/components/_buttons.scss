@@ -15,13 +15,15 @@
         border-radius: 5px;
         &--contact {
             align-self: center;
+            justify-self: center;
+            grid-area: contact;
+            @include smallerThanTablet {
+                margin: 20px;
+            }
             &:hover, &:focus {
                 color: $black;
                 background-color: $secondary-color;
             }
         }
-    }
-    &--close {
-        align-self: flex-start;
     }
 }
