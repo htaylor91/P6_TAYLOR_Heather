@@ -10,6 +10,9 @@ a:any-link, button {
     &--homepage{
         font-size: 36px;
         line-height: 46.87px;
+        @include smallerThanLargePhone {
+            font-size: 32px;
+        }
     }
     &--profile {
         font-size: 64px;
