@@ -5,44 +5,77 @@
 //first add the breakpoint to the breakpoints map in the _function.scss file.
 //Then, add a new mixin here, using the new map key.
 
-@mixin fold-phone {
-    @media screen and (min-width: map-get($breakpoints, fold-phone)){
+@mixin fold-phone { //fold-phone: 280px
+    @media screen and (max-width: map-get($breakpoints, fold-phone)){
         @content;
     }
 }
 
-@mixin small-phone {
-    @media screen and (min-width: map-get($breakpoints, small-phone)){
+@mixin small-phone { // small-phone: 320px
+    @media screen and (max-width: map-get($breakpoints, small-phone)){
         @content;
     }
 }
 
-@mixin small-tablet {
-    @media screen and (min-width: map-get($breakpoints, small-tablet)){
+@mixin large-phone { //large-phone: 481px
+    @media screen and (max-width: map-get($breakpoints, large-phone)){
         @content;
     }
 }
 
-@mixin tablet {
-    @media screen and (min-width: map-get($breakpoints, tablet)){
+@mixin tablet { //tablet: 768px
+    @media screen and (max-width: map-get($breakpoints, large-phone)){
         @content;
     }
 }
 
-@mixin laptop {
-    @media screen and (min-width: map-get($breakpoints, laptop)){
+@mixin laptop { //laptop: 992px
+    @media screen and (max-width: map-get($breakpoints, laptop)){
         @content;
     }
 }
 
-@mixin desktop {
-    @media screen and (min-width: map-get($breakpoints, desktop)){
+@mixin desktop { //desktop: 1024px
+    @media screen and (max-width: map-get($breakpoints, desktop)){
         @content;
     }
 }
 
-@mixin large-desktop {
-    @media screen and (min-width: map-get($breakpoints, large-desktop)){
+@mixin large-desktop { //large-desktop: 1200px
+    @media screen and (max-width: map-get($breakpoints, large-desktop)){
+        @content;
+    }
+}
+
+//Media Queries Level 4 specification adds a range context
+//https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries
+
+@mixin smallerThanLargePhone {
+    @media screen and (width < map-get($breakpoints, large-phone)){
+        @content;
+    }
+}
+
+@mixin smallerThanTablet {
+    @media screen and (width < map-get($breakpoints, tablet)){
+        @content;
+    }
+}
+
+@mixin tabletToLaptop {
+    @media screen and (map-get($breakpoints, tablet) <= width < map-get($breakpoints, laptop)){
+        @content;
+    }
+}
+
+@mixin tabletToLargeDesktop { 
+    @media screen and (map-get($breakpoints, tablet) <= width < map-get($breakpoints, large-desktop)){
+        @content;
+    }
+}
+
+@mixin laptopToLargeDesktop {
+    @media screen and (map-get($breakpoints, laptop) <= width < map-get($breakpoints, large-desktop)){
         @content;
     }
 }
