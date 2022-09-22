@@ -164,7 +164,7 @@ const mediaFactory = asset => {
     }
 
     return { 
-        id, title, price, likes, getMediaDOM
+        id, title, date, price, likes, getMediaDOM
     };
 
 };
