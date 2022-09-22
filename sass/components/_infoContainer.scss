@@ -12,9 +12,18 @@
             font-size: 24px;
             line-height: 31.25px;
         }
-        &__date {
-            visibility: hidden;
-            font-size: 0px;
+    }
+    &__descriptionContainer {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        line-height: 31.25px;
+        &__button {
+            padding: 5px;
+            &__image {
+                align-self: center;
+                padding-left: 3px;
+            }
         }
     }
     &__likesContainer {
@@ -26,7 +35,7 @@
             line-height: 31.25px;
         }
         &__button {
-            margin-right: 1.75px;
+            padding: 5px;
         }
     }
 }
