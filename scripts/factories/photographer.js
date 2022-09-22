@@ -107,6 +107,8 @@ const photographerFactory = data => {
         photographerFooterIcon.setAttribute("src", heartIcon);
         photographerFooterIcon.setAttribute("alt", "");
         photographerFooterIcon.setAttribute("class", "photographerFooter__icon");
+        photographerFooterIcon.setAttribute("width", photographerFooterIcon.width);
+        photographerFooterIcon.setAttribute("height", photographerFooterIcon.height);
 
         const photographerFooterPrice = document.createElement( "p" );
         photographerFooterPrice.textContent = `${price}€ / jour`;
