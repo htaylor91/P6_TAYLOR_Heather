@@ -37,8 +37,27 @@ const mediaFactory = asset => {
         mediaTitle.setAttribute("lang", "en");
         mediaTitle.setAttribute("translate", "yes");
 
+        const mediaLikesContainer = document.createElement("div");
+        mediaLikesContainer.setAttribute("class", "infoContainer__likesContainer");
+
+        const mediaLikes = document.createElement("div");
+        mediaLikes.textContent = likes;
+        mediaLikes.setAttribute("class", "infoContainer__likesContainer__likes");
+        mediaLikes.setAttribute("aria-label", "nombre de likes");
+
+        const mediaLikesButton = document.createElement("button");
+        mediaLikesButton.setAttribute("class", "infoContainer__likesContainer__button button button--like");
+        mediaLikesButton.setAttribute("type", "button");
+        mediaLikesButton.setAttribute("aria-label", "like");
+
+        const mediaLikesButtonImage = document.createElement("img");
+        mediaLikesButtonImage.setAttribute("src", heartIcon);
+        mediaLikesButtonImage.setAttribute("alt", "");
+        mediaLikesButtonImage.setAttribute("class", "infoContainer__likesContainer__button__image");
         mediaLikesButtonImage.setAttribute("height", "18.35");
         mediaLikesButtonImage.setAttribute("width", "17.5");
+
+        article.append(infoContainer);
 
         const mediaDescriptionButtonContainer = document.createElement("div");
         mediaDescriptionButtonContainer.setAttribute("class", "infoContainer__descriptionContainer");
@@ -75,6 +94,7 @@ const mediaFactory = asset => {
             
             mediaAssetButton.appendChild(img);
             article.classList.add("imageArticle");
+
             infoContainer.append(mediaTextContainer, mediaLikesContainer);
         }
 
@@ -120,41 +140,11 @@ const mediaFactory = asset => {
             createImage(); 
         } 
 
-        const infoContainer = document.createElement( "div" );
-        infoContainer.setAttribute("class", "infoContainer");
+        
+        mediaTextContainer.append(mediaTitle);
 
-        const mediaTextContainer = document.createElement("div");
-        mediaTextContainer.setAttribute("class", "infoContainer__textContainer");
-        mediaTextContainer.setAttribute("lang", "en");
+       
 
-        const mediaTitle = document.createElement( "h2" );
-        mediaTitle.textContent = title;
-        mediaTitle.setAttribute("class", "infoContainer__textContainer__title");
-        mediaTitle.setAttribute("lang", "en");
-
-        const mediaDate = document.createElement("p");
-        mediaDate.textContent = date;
-        mediaDate.setAttribute("class", "infoContainer__textContainer__date");
-
-        const mediaLikesContainer = document.createElement("div");
-        mediaLikesContainer.setAttribute("class", "infoContainer__likesContainer");
-
-        const mediaLikes = document.createElement("div");
-        mediaLikes.textContent = likes;
-        mediaLikes.setAttribute("class", "infoContainer__likesContainer__likes");
-
-        const mediaLikesButton = document.createElement("button");
-        mediaLikesButton.setAttribute("class", "infoContainer__likesContainer__button button button--like");
-        mediaLikesButton.setAttribute("type", "button");
-
-        const mediaLikesButtonImage = document.createElement("img");
-        mediaLikesButtonImage.setAttribute("src", heartIcon);
-        mediaLikesButtonImage.setAttribute("alt", "likes");
-        mediaLikesButtonImage.setAttribute("class", "infoContainer__likesContainer__button__image");
-
-        article.append(mediaAssetButton, infoContainer);
-        infoContainer.append(mediaTextContainer, mediaLikesContainer);
-        mediaTextContainer.append(mediaTitle, mediaDate);
         mediaLikesContainer.append(mediaLikes, mediaLikesButton);
         mediaLikesButton.appendChild(mediaLikesButtonImage);
 
