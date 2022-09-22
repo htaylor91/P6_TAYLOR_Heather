@@ -2,8 +2,6 @@
 
 .filterSection {
     display: flex;
-    position: relative;
-    max-width: 100vw;
     margin: 0 100px 50px 100px;
     padding: 20px 0;
     gap: 30px;
@@ -21,61 +19,17 @@
     &__select {
         background: $primary-color;
         color: $white;
-        border-radius: 5px;
-        position: absolute;
-        top: 5px;
-        left: 100px;
-        z-index: 10;
         border: 10px solid $primary-color;
-        border-left-width: 10px;
-        border-right-width: 10px;
+        font-size: 20px;
+        width: 150px;
+        border-radius: 5px;
         &__option {
-            font-weight: 600;
-            font-size: 18px;
+            background: $primary-color;
+            font-weight: 500;
+            font-size: 22px;
             color: $white;
-            line-height: 23.44px;
+            line-height: 43.44px;
             border-radius: 5px;
-            padding: 5px;
-            display: flex;
-            justify-content: flex-start;
         }
     }
-}
-
-.hide {
-    color: $white;
-    display: none;
-}
-
-.show {
-    color: $white;
-    display: flex;
-}
-
-#listboxlabel {
-    margin-right: 30px;
-}
-
-#dropdown {
-    display: flex;
-    width: 150px;
-    justify-content: space-around;
-    border-radius: 5px;
-}
-
-#filterArrow {
-    align-self: center;
-    margin-left: auto;
-    padding-right: 5px;
-}
-
-#listbox-2, #listbox-3 {
-    border-top: 1px solid $white;
-    border-radius: 0%;
-    padding-top: 10px;
-    align-self: center;
-}
-
-#listbox-3 {
-    padding-bottom: 0px;
 }
