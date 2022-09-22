@@ -10,6 +10,9 @@ form {
 form label {
     color: $gray--dark;
     font-size: 36px;
+    @include smallerThanLargePhone {
+        font-size: 20px;
+    }
 }
 
 form div {
