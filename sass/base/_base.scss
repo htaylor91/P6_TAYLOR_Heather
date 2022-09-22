@@ -17,3 +17,9 @@ body {
 .noScroll {
     overflow: hidden;
 }
+
+.hidden {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
