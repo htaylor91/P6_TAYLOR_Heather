@@ -5,13 +5,19 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    height: 90px;
+    padding: 20px 0px;
+    @include smallerThanTablet {
+        justify-content: center;
+    }
 }
 
 .nav {
-    margin-left: 100px;
+    padding-left: 100px;
+    @include tabletToLaptop {
+        padding-left: 30px;
+    }
     @include smallerThanTablet {
-        margin: auto;
+        padding-left: 0px;
     }
     &__anchor {
         display: block;
