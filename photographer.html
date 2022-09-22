@@ -107,12 +107,19 @@
         </button>
         <div id="lightboxFrame" class="lightboxFrame">
           <div id="lightboxFrame__media" class="lightboxFrame__media"></div>
-          <h3 id="lightboxFrame__text" class="lightboxFrame__text"></h3>
+            <div id="lightboxFrame__text" class="lightboxFrame__text" aria-hidden="true"></div>
+            <div id="lightboxFrame__description" class="lightboxFrame__description" aria-hidden="true"></div>
         </div>
         <button id="next" class="next button">
           <img src="assets/icons/arrow-right.svg" alt="Next"/>
         </button>
       </div>
+    </dialog>
+    <dialog id="descriptionDialog" aria-label="video description">
+      <button id="closeDescription" type="button">
+        <img class="closeLightbox__img" src="assets/icons/close.svg" alt="close video description">
+      </button>
+      <embed id="descriptionEmbed" src="">
     </dialog>
     <script type="module" src="scripts/pages/photographer.js"></script>
     <script type="module" src="scripts/helpers/displayContactForm.js"></script>
