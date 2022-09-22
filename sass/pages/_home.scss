@@ -16,6 +16,26 @@
         grid-template-columns: 1fr 1fr;
     }
 }
+
+.header--home {
+    display: flex;
+    height: auto;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px;
+    @include smallerThanTablet {
+        flex-direction: column;
+    }
+}
+
+.heading--home {
+    color: $primary-color;
+    font-size: 36px;
+    line-height: 46.87px;
+    align-self: flex-end;
+    @include smallerThanTablet {
+        align-self: center;
+    }
 }
 
 .photographer_section article, .photographer_section a {
