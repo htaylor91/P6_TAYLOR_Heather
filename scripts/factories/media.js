@@ -20,6 +20,9 @@ const mediaFactory = asset => {
 
         const mediaAssetButton = document.createElement( "button" );
         mediaAssetButton.setAttribute("class", "mediaContainer button");
+        mediaLikesButtonImage.setAttribute("height", "18.35");
+        mediaLikesButtonImage.setAttribute("width", "17.5");
+
         const mediaDescriptionButtonContainer = document.createElement("div");
         mediaDescriptionButtonContainer.setAttribute("class", "infoContainer__descriptionContainer");
 
@@ -51,6 +54,8 @@ const mediaFactory = asset => {
             img.setAttribute("aria-label", galleryAlt);
             img.setAttribute("data-title", galleryAlt);
             img.setAttribute("id", id);
+            img.setAttribute("height", img.height);
+            img.setAttribute("width", img.width);
             
             mediaAssetButton.appendChild(img);
             infoContainer.append(mediaTextContainer, mediaLikesContainer);
