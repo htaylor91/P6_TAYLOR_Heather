@@ -15,14 +15,16 @@ const photographerFactory = data => {
     function getUserCardDOM() {
         
         const article = document.createElement( "article" );
+        article.setAttribute("class", "photographerSection__article");
 
         const anchor = document.createElement( "a" );
         anchor.setAttribute("href", `./photographer.html?id=${id}`);
+        anchor.setAttribute("class", "photographerSection__article__anchor");
 
         const img = document.createElement( "img" );
         img.setAttribute("src", profilePicture);
         img.setAttribute("alt", profileAlt);
-        img.setAttribute("class", "img--profile");
+        img.setAttribute("class", "photographerImg");
 
         const photographerName = document.createElement( "h2" );
         photographerName.textContent = name;
@@ -46,7 +48,6 @@ const photographerFactory = data => {
         const photographerPrice = document.createElement( "p" );
         photographerPrice.textContent = `${price}€/jour`;
         photographerPrice.setAttribute("class", "photographerPrice photographerPrice--homepage");
-        photographerPrice.setAttribute("lang", "fr");
 
         article.append(anchor, textContainer);
 
@@ -93,15 +94,18 @@ const photographerFactory = data => {
         img.setAttribute("alt", profileAlt);
         img.setAttribute("width", img.width);
         img.setAttribute("height", img.height);
-        img.setAttribute("class", "img--profile");
+        img.setAttribute("class", "photographerImg photographerImg--profile");
 
         const photographerFooter = document.createElement( "div" );
         photographerFooter.setAttribute("class", "photographerFooter");
 
+        const photographerFooterLikesContainer = document.createElement( "div" );
+        photographerFooterLikesContainer.setAttribute("class", "photographerFooter__likesContainer");
         photographerFooterLikesContainer.setAttribute("aria-label", "nombre total de likes");
+
         const photographerFooterLikes = document.createElement( "div" );
-        
         photographerFooterLikes.setAttribute("class", "photographerFooter__likes");
+        
 
         const photographerFooterIcon = document.createElement("img");
         photographerFooterIcon.setAttribute("src", heartIcon);
@@ -119,8 +123,9 @@ const photographerFactory = data => {
 
         textContainer.append(photographerName, photographerLocation, photographerTagline);
 
-        photographerFooter.append(photographerFooterLikes, photographerFooterIcon, photographerFooterPrice);
-        
+        photographerFooter.append(photographerFooterLikesContainer, photographerFooterPrice);
+        photographerFooterLikesContainer.append(photographerFooterLikes, photographerFooterIcon);
+
         return (article);
     }
 
