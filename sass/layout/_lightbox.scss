@@ -27,12 +27,17 @@
     display: flex;
     flex-direction: column;
     margin: 10px;
+    justify-content: center;
     &__media {
         border-radius: 5px;
         display: flex;
         flex-direction: column;
+        flex-basis: max-content;
         width: 100%;
         height: 90%;
+        @include smallerThanTablet {
+            flex-basis: auto;
+        }
         &__asset {
             width: 100%;
             height: 100%;
