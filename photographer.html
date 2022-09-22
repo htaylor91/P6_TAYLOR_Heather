@@ -20,28 +20,13 @@
     <main id="mainSection">
       <section class="photographBanner">
       </section>
-      <section class="filterSection">
-        <h2 id="listboxlabel" role="label" class="filterSection__label" lang="fr">Trier par</h2>
-        <ul role="listbox" tabindex="0" id="listbox" class="filterSection__select"
-          aria-labelledby="listboxlabel"
-          aria-expanded="false"
-          aria-haspopup="true">
-          <div id="dropdown">
-            <li role="option" id="listbox-1" class="selected filterSection__select__option show">
-              <button id="popularityBtn" class="button filterSection__select__option" lang="fr">Popularité
-              </button>
-            </li>
-            <button role="button" class="button" id="filterArrow" aria-controls="listbox">
-              <img src="assets/icons/arrow-down.svg" id="toggleArrow" alt="expand selection options"/>
-            </button>
-          </div>
-          <li role="option" id="listbox-2" class="filterSection__select__option hide">
-            <button id="dateBtn" class="button filterSection__select__option" lang="fr">Date</button>
-          </li>
-          <li role="option" id="listbox-3" class="filterSection__select__option hide">
-            <button id="titleBtn" class="button filterSection__select__option" lang="fr">Titre</button>
-          </li>
-        </ul>
+      <section id="filterSection" class="filterSection">
+        <label for="select" class="filterSection__label">Trier par</label>
+          <select id="select" class="filterSection__select">
+            <option value="popularité" class="filterSection__select__option"><p id="ops">Popularité</p></option>
+            <option value="date" class="filterSection__select__option">Date</option>
+            <option value="titre" class="filterSection__select__option" translate="yes">Titre</option>
+          </select>
       </section>
       <section class="gallerySection" id="gallerySection">
       </section>
