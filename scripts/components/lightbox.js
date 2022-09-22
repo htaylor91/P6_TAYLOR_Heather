@@ -6,6 +6,12 @@ const lightboxDialog = document.getElementById("lightboxModal");
 const lightboxFrame = document.getElementById("lightboxFrame");
 const lightboxFrameMedia = document.getElementById("lightboxFrame__media");
 const lightboxFrameTitle = document.getElementById("lightboxFrame__text");
+const lightboxFrameDescription = document.getElementById("lightboxFrame__description");
+
+const descriptionDialog = document.getElementById("descriptionDialog");
+function displayDescriptionModal() {
+    descriptionDialog.showModal();
+}
 
 lightboxFrame.setAttribute("lang", "en");
 lightboxFrameMedia.setAttribute("lang", "en");
@@ -35,6 +41,7 @@ const clearLightbox = () => {
     }
     removeAllChildNodes(lightboxFrameMedia);
     removeAllChildNodes(lightboxFrameTitle);
+    removeAllChildNodes(lightboxFrameDescription);
 };
 
 //Add a click event listener to all buttons with the class .mediaContainer
@@ -94,6 +101,26 @@ const displayLightboxContent = (event) => {
                 let lightboxMedia = element;
                 //let lightboxMediaIndex = index;
 
+                const cloneVideoDescription = () => {
+                    if (lightboxMedia.tagName == "VIDEO") {
+                        let lightboxMediaInfo = lightboxMedia.parentElement.nextElementSibling;
+                        let lightboxMediaDescriptionContainer = lightboxMediaInfo.firstElementChild.nextElementSibling;
+                        let lightboxMediaDescriptionButton = lightboxMediaDescriptionContainer.firstChild;
+                        console.dir(lightboxMediaDescriptionButton);
+                        let lightboxMediaCloneDescriptionButton = lightboxMediaDescriptionButton.cloneNode(true);
+                        lightboxMediaCloneDescriptionButton.classList.add("lightboxFrame__description__button");
+                        lightboxFrame.appendChild(lightboxFrameDescription);
+                        lightboxFrameDescription.append(lightboxMediaCloneDescriptionButton);
+                        lightboxFrameDescription.setAttribute("aria-hidden", "false");
+                        lightboxMediaCloneDescriptionButton.addEventListener("click", displayDescriptionModal);
+
+                    }
+                    if (lightboxMedia.tagName === "IMG") {
+                        console.log("I am only a picture, I do not have a video description.");
+                    }
+                };
+                cloneVideoDescription();
+
                 //Clone the selected element lightboxMedia
                 //Set the parameter "deep" to "true"
                 //The cloneNode(true) method copies the node and its subtree
@@ -123,6 +150,7 @@ const displayLightboxContent = (event) => {
 
                 //Append the cloned element and its title into their parent containers
                 lightboxFrameMedia.append(lightboxMediaClone);
+                lightboxFrameTitle.setAttribute("aria-hidden", "false");
                 lightboxFrameTitle.append(lightboxMediaCloneTitle);
             }
         });
