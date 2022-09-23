@@ -68,6 +68,12 @@
     }
 }
 
+@mixin smallerThanLaptop {
+    @media screen and (width < map-get($breakpoints, laptop)){
+        @content;
+    }
+}
+
 @mixin tabletToLargeDesktop { 
     @media screen and (map-get($breakpoints, tablet) <= width < map-get($breakpoints, large-desktop)){
         @content;
