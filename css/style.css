@@ -326,7 +326,7 @@ a:any-link, button {
   justify-content: center;
   padding-bottom: 100px;
 }
-@media screen and (768px <= width < 992px) {
+@media screen and (width < 992px) {
   .gallerySection {
     gap: 75px;
   }
@@ -348,11 +348,11 @@ a:any-link, button {
 }
 @media screen and (width < 768px) {
   .photographerFooter {
-    flex-direction: column;
     bottom: 0;
     right: 16px;
-    width: 250px;
+    width: 276px;
     height: 70px;
+    padding: 0 20px;
   }
 }
 .photographerFooter__likesContainer {
