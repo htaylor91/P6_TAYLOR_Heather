@@ -7,6 +7,7 @@ const mediaFactory = asset => {
     const galleryVideo = `assets/media/${photographerId}/videos/${video}`;
     const galleryVideoTranscript = `assets/media/${photographerId}/videos/${id}.vtt`;
     const galleryAlt = `${title}`;
+    const galleryHeadingIdentifier = `${id}--label`;
     // eslint-disable-next-line quotes
     const transcriptIcon = `assets/icons/file-lines.svg`;
 
@@ -20,8 +21,9 @@ const mediaFactory = asset => {
 
         const mediaAssetButton = document.createElement( "button" );
         mediaAssetButton.setAttribute("class", "mediaContainer button");
-        mediaAssetButton.setAttribute("aria-label", title);
+        mediaAssetButton.setAttribute("aria-label", "ouvrir la lightbox");
         mediaAssetButton.setAttribute("type", "button");
+        mediaAssetButton.setAttribute("aria-haspopup", true);
 
         article.append(mediaAssetButton);
 
@@ -36,6 +38,7 @@ const mediaFactory = asset => {
         mediaTitle.setAttribute("class", "infoContainer__textContainer__title");
         mediaTitle.setAttribute("lang", "en");
         mediaTitle.setAttribute("translate", "yes");
+        mediaTitle.setAttribute("id", galleryHeadingIdentifier);
 
         const mediaLikesContainer = document.createElement("div");
         mediaLikesContainer.setAttribute("class", "infoContainer__likesContainer");
@@ -48,7 +51,7 @@ const mediaFactory = asset => {
         const mediaLikesButton = document.createElement("button");
         mediaLikesButton.setAttribute("class", "infoContainer__likesContainer__button button button--like");
         mediaLikesButton.setAttribute("type", "button");
-        mediaLikesButton.setAttribute("aria-label", "like");
+        mediaLikesButton.setAttribute("aria-label", "ajouter un like");
 
         const mediaLikesButtonImage = document.createElement("img");
         mediaLikesButtonImage.setAttribute("src", heartIcon);
@@ -56,16 +59,20 @@ const mediaFactory = asset => {
         mediaLikesButtonImage.setAttribute("class", "infoContainer__likesContainer__button__image");
         mediaLikesButtonImage.setAttribute("height", "18.35");
         mediaLikesButtonImage.setAttribute("width", "17.5");
+        mediaLikesButtonImage.setAttribute("aria-hidden", true);
 
         article.append(infoContainer);
 
         const mediaDescriptionButtonContainer = document.createElement("div");
-        mediaDescriptionButtonContainer.setAttribute("class", "infoContainer__descriptionContainer");
+        mediaDescriptionButtonContainer.setAttribute("class", "infoContainer__descriptionContainer hidden");
+        mediaDescriptionButtonContainer.setAttribute("aria-hidden", true);
 
         const mediaDescriptionButton = document.createElement("button");
         mediaDescriptionButton.setAttribute("class", "button descriptionButton infoContainer__descriptionContainer__button");
         mediaDescriptionButton.setAttribute("type", "button");
-        mediaDescriptionButton.setAttribute("aria-label", "open video description");
+        mediaDescriptionButton.setAttribute("aria-label", "ouvrir la description de la vidéo");
+        mediaDescriptionButton.setAttribute("disabled", "");
+        mediaDescriptionButton.setAttribute("aria-haspopup", true);
 
         const mediaDescriptionButtonImage = document.createElement("img");
         mediaDescriptionButtonImage.setAttribute("src", transcriptIcon);
@@ -73,6 +80,7 @@ const mediaFactory = asset => {
         mediaDescriptionButtonImage.setAttribute("class", "infoContainer__descriptionContainer__button__image");
         mediaDescriptionButtonImage.setAttribute("height", "18.35");
         mediaDescriptionButtonImage.setAttribute("width", "17.5");
+        mediaDescriptionButtonImage.setAttribute("aria-hidden", true);
 
         mediaDescriptionButtonContainer.append(mediaDescriptionButton);
         mediaDescriptionButton.appendChild(mediaDescriptionButtonImage);
@@ -102,9 +110,9 @@ const mediaFactory = asset => {
             const video = document.createElement( "video" );
             video.setAttribute("src", galleryVideo + "#t=0.01");
             video.setAttribute("class", "mediaContainer__video mediaAsset");
-            video.setAttribute("controls", "controls");
+            //video.setAttribute("controls", "controls");
             video.setAttribute("preload", "metadata");
-            video.setAttribute("aria-label", galleryAlt);
+            video.setAttribute("aria-labelledby", galleryHeadingIdentifier);
             video.setAttribute("data-title", galleryAlt);
             video.setAttribute("id", id);
 
@@ -142,8 +150,6 @@ const mediaFactory = asset => {
 
         
         mediaTextContainer.append(mediaTitle);
-
-       
 
         mediaLikesContainer.append(mediaLikes, mediaLikesButton);
         mediaLikesButton.appendChild(mediaLikesButtonImage);

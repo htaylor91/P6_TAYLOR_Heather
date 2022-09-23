@@ -10,6 +10,7 @@ const lightboxFrameDescription = document.getElementById("lightboxFrame__descrip
 
 const descriptionDialog = document.getElementById("descriptionDialog");
 function displayDescriptionModal() {
+    descriptionDialog.setAttribute("aria-hidden", false);
     descriptionDialog.showModal();
 }
 
@@ -112,6 +113,7 @@ const displayLightboxContent = (event) => {
                         lightboxFrame.appendChild(lightboxFrameDescription);
                         lightboxFrameDescription.append(lightboxMediaCloneDescriptionButton);
                         lightboxFrameDescription.setAttribute("aria-hidden", "false");
+                        lightboxMediaCloneDescriptionButton.removeAttribute("disabled");
                         lightboxMediaCloneDescriptionButton.addEventListener("click", displayDescriptionModal);
 
                     }
@@ -152,6 +154,14 @@ const displayLightboxContent = (event) => {
                 lightboxFrameMedia.append(lightboxMediaClone);
                 lightboxFrameTitle.setAttribute("aria-hidden", "false");
                 lightboxFrameTitle.append(lightboxMediaCloneTitle);
+
+                const lightboxVideoControls = () => {
+                    if (lightboxMediaClone.tagName == "VIDEO") {
+                        lightboxMediaClone.setAttribute("controls", "controls");
+                    }
+                };
+
+                lightboxVideoControls();
             }
         });
     }
@@ -203,6 +213,7 @@ const displayLightboxContent = (event) => {
 
 //Display the lightbox modal
 function displayLightbox() {
+    lightboxDialog.setAttribute("aria-hidden", false);
     lightboxDialog.showModal();
     body.setAttribute("class", "noScroll");
 }
@@ -211,6 +222,7 @@ function displayLightbox() {
 //Call clearLightbox() to reset the modal's contents
 function closeLightbox() {
     lightboxDialog.close();
+    lightboxDialog.setAttribute("aria-hidden", true);
     clearLightbox();
     body.removeAttribute("class", "noScroll");
 }

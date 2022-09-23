@@ -12,12 +12,14 @@ addGlobalEventListener("click", "#displayModal", (event) => {
 });
 
 function displayModal() {
+    modalDialog.setAttribute("aria-hidden", false);
     modalDialog.showModal();
     body.setAttribute("class", "noScroll");
 }
 
 function closeModal() {
     modalDialog.close();
+    modalDialog.setAttribute("aria-hidden", true);
     body.removeAttribute("class", "noScroll");
 }
 
