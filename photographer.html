@@ -14,7 +14,7 @@
       <nav aria-label="Main" class="nav">
         <a href="index.html" target="_parent" class="nav__anchor">
           <p class="hidden">Retour à la page d'accueil</p>
-          <img src="assets/media/logo.png" alt="Fisheye Home" class="nav__anchor__logo"/>
+          <img src="assets/media/logo.png" alt="Fisheye accueil" class="nav__anchor__logo"/>
         </a>
       </nav>
     </header>
@@ -36,14 +36,14 @@
         <div class="gallerySection" id="gallerySection"></div>
       </section>
     </main>
-    <dialog id="contact_modal" aria-label="Contact form" aria-describedby="modalTitle">
+    <dialog id="contact_modal" aria-label="formulaire de contact" aria-describedby="modalTitle" aria-hidden="true">
       <div class="modal">
         <header class="modal__header" aria-labelledby="modalTitle">
             <div class="modal__header__text">
               <h2 id="modalTitle" class="modal__header__text__heading">Contactez-moi</h2>
             </div>
-            <button id="closeModal" class="button button--close">
-              <img class="modal__header__img" src="assets/icons/close.svg" alt="Close the form modal"/>
+            <button id="closeModal" class="button button--close" aria-label="fermer la formulaire">
+              <img class="modal__header__img" src="assets/icons/close.svg" alt="" aria-hidden="true"/>
             </button>
             <div class="modal__header__text" id="uniqueHeading" translate="no">
             </div>
@@ -85,27 +85,27 @@
         </form>
       </div>
     </dialog>
-    <dialog id="lightboxModal" aria-label="Lightbox" lang="en">
+    <dialog id="lightboxModal" aria-label="lightbox" lang="en" aria-hidden="true">
       <div class="lightbox" lang="en">
-        <button id="closeLightbox" class="button">
-          <img class="closeLightbox__img" src="assets/icons/close.svg" alt="Close the lightbox"/>
+        <button id="closeLightbox" class="button" aria-label="fermer la lightbox">
+          <img class="closeLightbox__img" src="assets/icons/close.svg" alt="" aria-hidden="true"/>
         </button>
-        <button id="previous" class="previous button">
-          <img src="assets/icons/arrow-left.svg" alt="Previous"/>
+        <button id="previous" class="previous button" aria-label="précédent">
+          <img src="assets/icons/arrow-left.svg" alt="" aria-hidden="true"/>
         </button>
         <div id="lightboxFrame" class="lightboxFrame">
           <div id="lightboxFrame__media" class="lightboxFrame__media"></div>
             <div id="lightboxFrame__text" class="lightboxFrame__text" aria-hidden="true"></div>
             <div id="lightboxFrame__description" class="lightboxFrame__description" aria-hidden="true"></div>
         </div>
-        <button id="next" class="next button">
-          <img src="assets/icons/arrow-right.svg" alt="Next"/>
+        <button id="next" class="next button" aria-label="suivant">
+          <img src="assets/icons/arrow-right.svg" alt="" aria-hidden="true"/>
         </button>
       </div>
     </dialog>
-    <dialog id="descriptionDialog" aria-label="video description">
-      <button id="closeDescription" type="button">
-        <img class="closeLightbox__img" src="assets/icons/close.svg" alt="close video description">
+    <dialog id="descriptionDialog" aria-label="description de la vidéo" aria-hidden="true">
+      <button id="closeDescription" type="button" aria-label="fermer la description de la vidéo">
+        <img class="closeLightbox__img" src="assets/icons/close.svg" alt="" aria-hidden="true">
       </button>
       <embed id="descriptionEmbed">
     </dialog>
