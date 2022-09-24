@@ -32,51 +32,26 @@
       <output id="gallerySection" class="gallerySection" aria-live="polite" form="filterSection" for="select">
       </output>
     </main>
-    <dialog id="contact_modal" aria-label="formulaire de contact" aria-describedby="modalTitle" aria-hidden="true">
+    <dialog id="contact_modal" aria-label="formulaire de contact" aria-hidden="true">
       <div class="modal">
-        <header class="modal__header" aria-labelledby="modalTitle">
-            <div class="modal__header__text">
-              <h2 id="modalTitle" class="modal__header__text__heading">Contactez-moi</h2>
-            </div>
-            <button id="closeModal" class="button button--close" aria-label="fermer la formulaire">
-              <img class="modal__header__img" src="assets/icons/close.svg" alt="" aria-hidden="true"/>
-            </button>
-            <div class="modal__header__text" id="uniqueHeading" translate="no">
-            </div>
-        </header>
-        <form
-          id="form"
-          name="contact"
-          action="photographer.html"
-          method="get">
-          <div>
-            <label for="first">Prénom</label>
-            <input 
-              type="text"
-              id="first"
-              name="first"
-              minlength="2"
-              required/>
-            <label for="last">Nom</label>
-            <input 
-              type="text"
-              id="last"
-              name="last"
-              minlength="2"
-              required/>
-            <label for="email">Email</label>
-            <input 
-              type="email"
-              id="email"
-              name="email"
-              required/>
-            <label for="textarea">Votre Message</label>
-            <textarea
-              id="textarea"
-              name="textarea"
-              required>
-            </textarea>
-          </div>
+        <button id="closeModal" class="button button--close" aria-label="fermer">
+          <img class="modal__header__img" src="assets/icons/close.svg" alt="" aria-hidden="true"/>
+        </button>
+        <form id="form" name="contact" class="contactForm" aria-labelledby="modalHeader">
+          <fieldset class="contactForm__container">
+            <legend class="modal__header" id="modalHeader">
+              <h2 id="modalTitle" class="modal__header__text">Contactez-moi</h2>
+              <h3 class="modal__header__text" id="uniqueHeading" translate="no"></h3>
+            </legend>
+            <label for="first" class="contactForm__label">Prénom</label>
+            <input id="first" name="first" type="text" class="contactForm__input" minlength="2" required/>
+            <label for="last" class="contactForm__label">Nom</label>
+            <input id="last" name="last" type="text" class="contactForm__input" minlength="2" required/>
+            <label for="email" class="contactForm__label" class="contactForm__label">Email</label>
+            <input id="email" name="email" type="email" class="contactForm__input" required/>
+            <label for="textarea" class="contactForm__label">Votre Message</label>
+            <textarea id="textarea" name="textarea" class="contactForm__input" required></textarea>
+          </fieldset>
           <button type="submit" class="button button--form">Envoyer</button>
         </form>
       </div>
