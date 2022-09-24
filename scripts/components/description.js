@@ -1,4 +1,4 @@
-
+//Function to close the video description dialog
 const descriptionDialog = document.getElementById("descriptionDialog");
 const closeDescription = document.getElementById("closeDescription");
 
