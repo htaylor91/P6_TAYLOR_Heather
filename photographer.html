@@ -17,23 +17,18 @@
         </a>
       </nav>
     </header>
-    <main id="mainSection">
-      <section class="photographBanner">
-        <h2 class="hidden">Profil du photographe</h2>
-      </section>
-      <section id="filterSection" class="filterSection">
-        <h2 class="hidden">Tri des médias</h2>
-        <label for="select" class="filterSection__label">Trier par</label>
-          <select id="select" class="filterSection__select">
-            <option value="popularité" class="filterSection__select__option">Popularité</option>
-            <option value="date" class="filterSection__select__option">Date</option>
-            <option value="titre" class="filterSection__select__option" translate="yes">Titre</option>
-          </select>
-        </section>
-      <section>
-        <h2 class="hidden">Galerie de médias</h2>
-        <div class="gallerySection" id="gallerySection"></div>
-      </section>
+    <main id="mainSection" aria-hidden="false">
+      <div class="photographBanner">
+      </div>
+      <form id="filterSection" class="filterSection" aria-label="Trier les médias">
+        <label id="selectLabel" for="select" class="filterSection__label">Trier par</label>
+        <select id="select" class="filterSection__select arrowDown" aria-controls="gallerySection">
+          <option value="" selected disabled hidden>Popularité</option>
+          <option value="popularité" class="filterSection__select__option">Popularité</option>
+          <option value="date" class="filterSection__select__option">Date</option>
+          <option value="titre" class="filterSection__select__option" translate="yes">Titre</option>
+        </select>
+      </form>
     </main>
     <dialog id="contact_modal" aria-label="formulaire de contact" aria-describedby="modalTitle" aria-hidden="true">
       <div class="modal">
