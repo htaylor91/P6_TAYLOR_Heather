@@ -1,5 +1,5 @@
 
-import {body} from "../helpers/displayContactForm.js";
+import {body, headerSection, mainSection} from "../helpers/displayContactForm.js";
 import addGlobalEventListener from "../helpers/globalEvent.js";
 
 const lightboxDialog = document.getElementById("lightboxModal");
@@ -108,12 +108,15 @@ const displayLightboxContent = (event) => {
                         let lightboxMediaDescriptionContainer = lightboxMediaInfo.firstElementChild.nextElementSibling;
                         let lightboxMediaDescriptionButton = lightboxMediaDescriptionContainer.firstChild;
                         console.dir(lightboxMediaDescriptionButton);
+                        
                         let lightboxMediaCloneDescriptionButton = lightboxMediaDescriptionButton.cloneNode(true);
                         lightboxMediaCloneDescriptionButton.classList.add("lightboxFrame__description__button");
                         lightboxFrame.appendChild(lightboxFrameDescription);
                         lightboxFrameDescription.append(lightboxMediaCloneDescriptionButton);
                         lightboxFrameDescription.setAttribute("aria-hidden", "false");
+
                         lightboxMediaCloneDescriptionButton.removeAttribute("disabled");
+                        lightboxMediaCloneDescriptionButton.setAttribute("aria-hidden", false);
                         lightboxMediaCloneDescriptionButton.addEventListener("click", displayDescriptionModal);
 
                     }
@@ -126,7 +129,7 @@ const displayLightboxContent = (event) => {
                 //Clone the selected element lightboxMedia
                 //Set the parameter "deep" to "true"
                 //The cloneNode(true) method copies the node and its subtree
-                //The <source> tags inside of the <video> tags will be cloned
+                //The <source> and <track> tags inside of the <video> tags will be cloned
                 //https://developer.mozilla.org/en-US/docs/Web/API/Node/cloneNode
                 let lightboxMediaClone = lightboxMedia.cloneNode(true);
 
@@ -213,6 +216,8 @@ const displayLightboxContent = (event) => {
 
 //Display the lightbox modal
 function displayLightbox() {
+    headerSection.setAttribute("aria-hidden", true);
+    mainSection.setAttribute("aria-hidden", true);
     lightboxDialog.setAttribute("aria-hidden", false);
     lightboxDialog.showModal();
     body.setAttribute("class", "noScroll");
@@ -223,6 +228,8 @@ function displayLightbox() {
 function closeLightbox() {
     lightboxDialog.close();
     lightboxDialog.setAttribute("aria-hidden", true);
+    headerSection.setAttribute("aria-hidden", false);
+    mainSection.setAttribute("aria-hidden", false);
     clearLightbox();
     body.removeAttribute("class", "noScroll");
 }
