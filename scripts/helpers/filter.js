@@ -1,7 +1,10 @@
-
+//Import functions to display the unique photographer's media assets
 import {displayMedia, mainMedia} from "../pages/photographer.js";
 
-//Delete media assets from the gallery section
+//Import function to change the direction of the select dropdown arrow
+import { flipArrowDown } from "../helpers/select.js";
+
+//Delete media assets from the gallery section to clear space for sort output
 const clearGallery = () => {
     const gallerySection = document.querySelector(".gallerySection");
     function removeAllChildNodes(parent) {
@@ -20,7 +23,8 @@ export const sortByLikes = async () => {
     const sortedLikes = mediaAssets.sort(function (a, b) {
         return b.likes - a.likes;
     });
-    
+
+    flipArrowDown();
     displayMedia(sortedLikes);
 };
 
@@ -36,6 +40,7 @@ export const sortByTitle = async () => {
         return 0;
     });
 
+    flipArrowDown();
     displayMedia(sortedTitles);
 };
 
@@ -47,6 +52,6 @@ export const sortByDate = async () => {
         return new Date(b.date) - new Date(a.date);
     });
 
-    console.table(sortedDates);
+    flipArrowDown();
     displayMedia(sortedDates);
 };
