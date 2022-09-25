@@ -10,7 +10,8 @@
     <link href="css/style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <header class="header header--home">
+    <div id="pageLoader"></div>
+    <header class="header header--home loaderReset" id="headerHome">
         <nav aria-label="Main" class="nav">
           <a href="index.html" aria-current="page" class="nav__anchor">
             <img src="assets/media/logo.png" alt="Fisheye Accueil" class="nav__anchor__logo"/>
@@ -18,7 +19,8 @@
         </nav>
         <h1 class="heading--home" lang="fr">Nos photographes</h1>
     </header>
-    <main class="photographerSection"></main>
+    <main class="photographerSection loaderReset" id="mainHome"></main>
     <script type="module" src="scripts/pages/index.js"></script>
+    <script type="module" src="scripts/components/loaderHome.js"></script>
   </body>
 </html>
