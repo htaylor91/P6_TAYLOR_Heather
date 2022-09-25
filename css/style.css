@@ -158,7 +158,7 @@ a:any-link, button {
 }
 @media screen and (width < 768px) {
   .filterSection {
-    margin: 0 50px 25px 50px;
+    margin: 0 20px 25px 20px;
     justify-content: center;
   }
 }
@@ -172,12 +172,16 @@ a:any-link, button {
   font-size: 18px;
 }
 .filterSection__select {
+  padding-left: 5px;
   background: #901C1C;
   color: #FFFFFF;
   border: 10px solid #901C1C;
   font-size: 20px;
   width: 150px;
   border-radius: 5px;
+  appearance: none;
+  background-repeat: no-repeat;
+  background-position: 95%;
 }
 .filterSection__select__option {
   background: #901C1C;
@@ -186,6 +190,14 @@ a:any-link, button {
   color: #FFFFFF;
   line-height: 43.44px;
   border-radius: 5px;
+}
+
+.arrowDown {
+  background-image: url(../../assets/icons/arrow-down.svg);
+}
+
+.arrowUp {
+  background-image: url(../../assets/icons/arrow-up.svg);
 }
 
 #descriptionModal {
@@ -227,7 +239,7 @@ a:any-link, button {
 }
 .infoContainer__likesContainer {
   display: flex;
-  align-items: center;
+  align-items: start;
   gap: 6px;
 }
 .infoContainer__likesContainer__likes {
@@ -384,10 +396,7 @@ a:any-link, button {
 .modal {
   border-radius: 5px;
   background-color: #DB8876;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
+  position: relative;
   padding: 35px;
 }
 @media screen and (width < 481px) {
@@ -395,31 +404,23 @@ a:any-link, button {
     padding: 25px;
   }
 }
-.modal__header {
-  display: grid;
-  grid-template-areas: "heading closeForm" "unique unique";
-  grid-template-columns: 1fr 50px;
-  align-content: center;
-  width: 100%;
-  gap: 10px;
-}
 @media screen and (width < 768px) {
   .modal__header {
     margin-block-end: 15px;
   }
 }
-.modal__header__text__heading {
+.modal__header__text {
   font-size: 64px;
   text-align: left;
 }
 @media screen and (width < 768px) {
-  .modal__header__text__heading {
+  .modal__header__text {
     font-size: 40px;
     font-weight: 600;
   }
 }
 @media screen and (width < 481px) {
-  .modal__header__text__heading {
+  .modal__header__text {
     font-size: 24px;
   }
 }
@@ -429,16 +430,22 @@ a:any-link, button {
 }
 
 #modalTitle {
-  grid-area: modalTitle;
-  align-self: center;
+  padding-right: 70px;
 }
 
 #closeModal {
-  grid-area: closeForm;
+  position: absolute;
+  top: 50px;
+  right: 35px;
+}
+@media screen and (width < 481px) {
+  #closeModal {
+    top: 25px;
+  }
 }
 
-#uniqueHeading {
-  grid-area: unique;
+.contactForm {
+  grid-area: form;
 }
 
 #lightboxModal {
@@ -521,48 +528,51 @@ a:any-link, button {
 .next {
   right: 0;
   margin-left: 3%;
+  height: 50%;
+  align-self: center;
 }
 
 .previous {
   left: 0;
   margin-right: 3%;
+  height: 50%;
+  align-self: center;
 }
 
 .active {
   display: flex;
 }
 
-form {
+.contactForm {
   display: flex;
   width: 100%;
   flex-direction: column;
   align-items: flex-start;
 }
-
-form label {
-  color: #312E2E;
-  font-size: 36px;
-}
-@media screen and (width < 481px) {
-  form label {
-    font-size: 20px;
-  }
-}
-
-form div {
+.contactForm__container {
   display: flex;
   flex-direction: column;
   width: 100%;
   align-items: self-start;
   margin-bottom: 26px;
+  border: none;
 }
-
-form input, form textarea {
+.contactForm__label {
+  color: #312E2E;
+  font-size: 36px;
+}
+@media screen and (width < 481px) {
+  .contactForm__label {
+    font-size: 20px;
+  }
+}
+.contactForm__input {
   width: 100%;
   height: 68px;
   border: none;
   border-radius: 5px;
   font-size: 36px;
+  margin-bottom: 5px;
 }
 
 .photographerSection {
