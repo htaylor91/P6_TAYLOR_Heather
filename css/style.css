@@ -264,6 +264,7 @@ a:any-link, button {
 }
 
 .nav {
+  background: blueviolet;
   padding-left: 100px;
 }
 @media screen and (768px <= width < 992px) {

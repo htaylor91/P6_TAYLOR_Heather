@@ -12,6 +12,7 @@
 }
 
 .nav {
+    background: blueviolet;
     padding-left: 100px;
     @include tabletToLaptop {
         padding-left: 30px;
