@@ -110,6 +110,10 @@ a:any-link, button {
   object-fit: cover;
   border-radius: 5px;
   z-index: -1;
+  border: 0px solid transparent;
+}
+.mediaContainer:hover .mediaContainer__image {
+  border: 5px solid #901C1C;
 }
 .mediaContainer__video {
   display: block;
@@ -118,6 +122,10 @@ a:any-link, button {
   object-fit: cover;
   border-radius: 5px;
   z-index: -1;
+  border: 0px solid transparent;
+}
+.mediaContainer:hover .mediaContainer__video {
+  border: 5px solid #901C1C;
 }
 
 .button {
@@ -248,6 +256,10 @@ a:any-link, button {
 }
 .infoContainer__likesContainer__button {
   padding: 5px;
+}
+.infoContainer__likesContainer__button:hover > img {
+  outline: 1px solid #DB8876;
+  border-radius: 2px;
 }
 
 .header--photographer {
