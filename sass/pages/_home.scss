@@ -3,14 +3,16 @@
 .photographerSection {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 70px;
-    padding: 20px 70px;
+    gap: 50px;
+    padding: 20px 50px;
     @include smallerThanTablet {
         margin: 30px 10px;
         grid-template-columns: 1fr;
+        padding: 20px 70px;
     }
     @include tabletToLaptop {
         grid-template-columns: 1fr 1fr;
+        padding: 20px 20px;
     }
     @include laptopToLargeDesktop {
         grid-template-columns: 1fr 1fr;
@@ -60,8 +62,15 @@
     object-fit: cover;
     border-radius: 50%;
     justify-self: center;
+    box-shadow: -3px 3px 20px 8px $gray--transparent;
+    &:hover {
+        box-shadow: -5px 5px 10px 8px $gray--transparent; 
+    } 
     &--profile {
         grid-area: image;
+        &:hover {
+            box-shadow: -3px 3px 20px 8px $gray--transparent; 
+        } 
     }
 }
 
@@ -69,5 +78,5 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 3px;
+    gap: 10px;
 }

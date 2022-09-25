@@ -10,6 +10,7 @@ a:any-link, button {
     &--homepage{
         font-size: 36px;
         line-height: 46.87px;
+        margin: 3px 0px 10px 0px;
         @include smallerThanLargePhone {
             font-size: 32px;
         }
@@ -31,7 +32,7 @@ a:any-link, button {
 .photographerLocation {
     color: $primary-color;
     &--homepage {
-        font-size: 13px;
+        font-size: 22px;
         line-height: 16.93px;
     }
     &--profile {
@@ -43,8 +44,8 @@ a:any-link, button {
 .photographerTagline {
     &--homepage {
         color: $black;
-        font-size: 10px;
-        line-height: 13.02px;
+        font-size: 18px;
+        line-height: 20.02px;
     }
     &--profile {
         font-size: 18px;
@@ -59,7 +60,7 @@ a:any-link, button {
 .photographerPrice {
     &--homepage {
         color: $gray;
-        font-size: 9px;
+        font-size: 16px;
         line-height: 11.72px;
     }
     &--profile {
