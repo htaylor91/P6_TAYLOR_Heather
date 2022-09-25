@@ -360,8 +360,8 @@ a:any-link, button {
 }
 @media screen and (width < 768px) {
   .photographerFooter {
-    bottom: 0;
-    right: 16px;
+    bottom: -2px;
+    right: -2px;
     width: 276px;
     height: 70px;
     padding: 0 20px;
