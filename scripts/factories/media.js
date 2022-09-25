@@ -21,9 +21,8 @@ const mediaFactory = asset => {
 
         const mediaAssetButton = document.createElement( "button" );
         mediaAssetButton.setAttribute("class", "mediaContainer button");
-        mediaAssetButton.setAttribute("aria-label", "ouvrir la lightbox");
+        mediaAssetButton.setAttribute("aria-label", title); ///
         mediaAssetButton.setAttribute("type", "button");
-        mediaAssetButton.setAttribute("aria-haspopup", true);
 
         article.append(mediaAssetButton);
 
@@ -39,14 +38,18 @@ const mediaFactory = asset => {
         mediaTitle.setAttribute("lang", "en");
         mediaTitle.setAttribute("translate", "yes");
         mediaTitle.setAttribute("id", galleryHeadingIdentifier);
+        mediaTitle.setAttribute("aria-hidden", "true"); ///
 
         const mediaLikesContainer = document.createElement("div");
         mediaLikesContainer.setAttribute("class", "infoContainer__likesContainer");
 
-        const mediaLikes = document.createElement("div");
+        const mediaLikes = document.createElement("p");
         mediaLikes.textContent = likes;
         mediaLikes.setAttribute("class", "infoContainer__likesContainer__likes");
-        mediaLikes.setAttribute("aria-label", "nombre de likes");
+        
+        const mediaLikesLabel = document.createElement("p");
+        mediaLikesLabel.setAttribute("class", "hidden");
+        mediaLikesLabel.textContent = "likes";
 
         const mediaLikesButton = document.createElement("button");
         mediaLikesButton.setAttribute("class", "infoContainer__likesContainer__button button button--like");
@@ -72,7 +75,7 @@ const mediaFactory = asset => {
         mediaDescriptionButton.setAttribute("type", "button");
         mediaDescriptionButton.setAttribute("aria-label", "ouvrir la description de la vidéo");
         mediaDescriptionButton.setAttribute("disabled", "");
-        mediaDescriptionButton.setAttribute("aria-haspopup", true);
+        mediaDescriptionButton.setAttribute("aria-hidden", true);
 
         const mediaDescriptionButtonImage = document.createElement("img");
         mediaDescriptionButtonImage.setAttribute("src", transcriptIcon);
@@ -110,11 +113,11 @@ const mediaFactory = asset => {
             const video = document.createElement( "video" );
             video.setAttribute("src", galleryVideo + "#t=0.01");
             video.setAttribute("class", "mediaContainer__video mediaAsset");
-            //video.setAttribute("controls", "controls");
             video.setAttribute("preload", "metadata");
             video.setAttribute("aria-labelledby", galleryHeadingIdentifier);
             video.setAttribute("data-title", galleryAlt);
             video.setAttribute("id", id);
+            video.setAttribute("muted", "muted");
 
             const source = document.createElement("source");
             source.setAttribute("src", galleryVideo + "#t=0.01");
@@ -129,6 +132,7 @@ const mediaFactory = asset => {
 
             const embed = document.getElementById("descriptionEmbed");
             embed.setAttribute("src", galleryVideoTranscript);
+            embed.setAttribute("id", "embed");
 
             mediaAssetButton.append(video);
             video.append(source, track);
@@ -151,11 +155,10 @@ const mediaFactory = asset => {
         
         mediaTextContainer.append(mediaTitle);
 
-        mediaLikesContainer.append(mediaLikes, mediaLikesButton);
+        mediaLikesContainer.append(mediaLikes, mediaLikesLabel, mediaLikesButton);
         mediaLikesButton.appendChild(mediaLikesButtonImage);
 
         //Add up to 1 like per media asset with a click event
-       
         function addLike() {
             let likesCount = likes;
             likesCount++;
@@ -166,7 +169,6 @@ const mediaFactory = asset => {
         mediaLikesButton.addEventListener("click", addLike);
         
         //Add new likes to likes total in the footer
-
         function addLikeToTotal() {
             const photographerFooterLikes = document.getElementById("totalLikes");
             let totalLikesCount = photographerFooterLikes.innerText;
