@@ -17,6 +17,7 @@ a:any-link, button {
     &--profile {
         font-size: 64px;
         line-height: 83.33px;
+        text-align: left;
         @include smallerThanTablet {
             text-align: center;
         }
