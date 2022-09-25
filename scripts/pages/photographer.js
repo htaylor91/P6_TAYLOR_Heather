@@ -54,10 +54,16 @@ const customModal = async (photographer) => {
 const footer = async (totalLikes) => {
     const photographerFooterLikes = document.querySelector(".photographerFooter__likes");
     const photographerFooterLikesTotal = document.createElement ("p");
+    const photographerFooterLikesLabel = document.createElement ("p");
 
     photographerFooterLikesTotal.setAttribute("id", "totalLikes");
     photographerFooterLikesTotal.textContent = totalLikes;
-    photographerFooterLikes.appendChild(photographerFooterLikesTotal);
+
+    photographerFooterLikesLabel.setAttribute("id", "totalLikesLabel");
+    photographerFooterLikesLabel.setAttribute("class", "hidden");
+    photographerFooterLikesLabel.textContent = "likes";
+
+    photographerFooterLikes.append(photographerFooterLikesTotal, photographerFooterLikesLabel);
 
     return totalLikes;
 };
