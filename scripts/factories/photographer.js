@@ -4,7 +4,6 @@ const photographerFactory = data => {
     const { name, id, city, country, tagline, price, portrait} = data;
 
     const profilePicture = `assets/media/photographers/${portrait}`;
-    const profileAlt = `Portrait de ${name}`;
     //eslint-disable-next-line quotes
     const heartIcon = `assets/icons/heart.svg`;
     const profileName = `${name}`;
@@ -23,13 +22,15 @@ const photographerFactory = data => {
 
         const img = document.createElement( "img" );
         img.setAttribute("src", profilePicture);
-        img.setAttribute("alt", profileAlt);
+        img.setAttribute("alt", "");
+        img.setAttribute("aria-hidden", true);
         img.setAttribute("class", "photographerImg");
 
         const photographerName = document.createElement( "h2" );
         photographerName.textContent = name;
         photographerName.setAttribute("class", "photographerName photographerName--homepage");
         photographerName.setAttribute("translate", "no");
+        img.setAttribute("aria-hidden", true);
 
         const textContainer = document.createElement( "div" );
         textContainer.setAttribute("class", "textContainer--homepage");
@@ -91,7 +92,8 @@ const photographerFactory = data => {
         
         const img = document.createElement( "img" );
         img.setAttribute("src", profilePicture);
-        img.setAttribute("alt", profileAlt);
+        img.setAttribute("alt", "");
+        img.setAttribute("aria-hidden", true);
         img.setAttribute("width", img.width);
         img.setAttribute("height", img.height);
         img.setAttribute("class", "photographerImg photographerImg--profile");
@@ -111,6 +113,7 @@ const photographerFactory = data => {
         photographerFooterIcon.setAttribute("class", "photographerFooter__icon");
         photographerFooterIcon.setAttribute("width", "17.5");
         photographerFooterIcon.setAttribute("height", "18.35");
+        photographerFooterIcon.setAttribute("aria-hidden", true);
 
         const photographerFooterPriceLabel = document.createElement ("p");
         photographerFooterPriceLabel.setAttribute("id", "priceLabel");
