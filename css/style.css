@@ -44,6 +44,7 @@ a:any-link, button {
 .photographerName--profile {
   font-size: 64px;
   line-height: 83.33px;
+  text-align: left;
 }
 @media screen and (width < 768px) {
   .photographerName--profile {
@@ -95,6 +96,49 @@ a:any-link, button {
   font-weight: 500;
   font-size: 24px;
   line-height: 31.25px;
+}
+
+#pageLoader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 120px;
+  height: 120px;
+  margin: -76px 0 0 -76px;
+  border: 16px solid #DB8876;
+  border-radius: 50%;
+  border-top: 16px solid #901C1C;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    rotate: 0deg;
+  }
+  100% {
+    rotate: 360deg;
+  }
+}
+.loaderReset {
+  position: relative;
+  animation-name: loader;
+  animation-duration: 1s;
+}
+
+@keyframes loader {
+  from {
+    bottom: -100px;
+    opacity: 0;
+  }
+  to {
+    bottom: 0;
+    opacity: 1;
+  }
+}
+#headerSection, #mainSection, #headerHome, #mainHome {
+  display: none;
+  text-align: center;
 }
 
 .mediaContainer {
@@ -591,7 +635,7 @@ a:any-link, button {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 70px;
-  padding: 0px 20px 70px;
+  padding: 20px 70px;
 }
 @media screen and (width < 768px) {
   .photographerSection {
