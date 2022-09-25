@@ -1,0 +1,46 @@
+@use "../abstracts" as *;
+
+#pageLoader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    width: 120px;
+    height: 120px;
+    margin: -76px 0 0 -76px;
+    border: 16px solid $secondary-color;
+    border-radius: 50%;
+    border-top: 16px solid $primary-color;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { 
+        rotate: (0deg); 
+    }
+    100% { 
+        rotate: (360deg); 
+    }
+}
+  
+.loaderReset {
+    position: relative;
+    animation-name: loader;
+    animation-duration: 1s
+}
+  
+@keyframes loader { 
+    from { 
+        bottom: -100px; 
+        opacity: 0 
+    } 
+    to { 
+        bottom: 0; 
+        opacity: 1 
+    }
+}
+  
+#headerSection, #mainSection, #headerHome, #mainHome {
+    display: none;
+    text-align: center;
+}
