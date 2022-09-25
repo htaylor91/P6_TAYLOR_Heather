@@ -132,7 +132,6 @@ const mediaFactory = asset => {
 
             const embed = document.getElementById("descriptionEmbed");
             embed.setAttribute("src", galleryVideoTranscript);
-            embed.setAttribute("id", "embed");
 
             mediaAssetButton.append(video);
             video.append(source, track);
