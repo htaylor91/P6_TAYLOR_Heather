@@ -14,38 +14,24 @@
 .modal {
     border-radius: 5px;
     background-color: $secondary-color;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
+    position: relative;
     padding: 35px;
     @include smallerThanLargePhone {
         padding: 25px;
     }
     &__header {
-        display: grid;
-        grid-template-areas:
-        "heading closeForm"
-        "unique unique";
-        grid-template-columns: 1fr 50px;
-        align-content: center;
-        width: 100%;
-        gap: 10px;
         @include smallerThanTablet {
             margin-block-end: 15px;
         }
         &__text {
-            //line-height: 83.33px;
-            &__heading {
-                font-size: 64px;
-                text-align: left;
-                @include smallerThanTablet {
-                    font-size: 40px;
-                    font-weight: 600;
-                }
-                @include smallerThanLargePhone {
-                    font-size: 24px;
-                }
+            font-size: 64px;
+            text-align: left;
+            @include smallerThanTablet {
+                font-size: 40px;
+                font-weight: 600;
+            }
+            @include smallerThanLargePhone {
+                font-size: 24px;
             }
         }
         &__img {
@@ -56,14 +42,18 @@
 }
 
 #modalTitle {
-    grid-area: modalTitle;
-    align-self: center;
+    padding-right: 70px;
 }
 
 #closeModal {
-    grid-area: closeForm;
+    position: absolute;
+    top: 50px;
+    right: 35px;
+    @include smallerThanLargePhone {
+        top: 25px;
+    }
 }
 
-#uniqueHeading {
-    grid-area: unique;
+.contactForm {
+    grid-area: form;
 }
