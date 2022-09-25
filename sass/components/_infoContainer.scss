@@ -36,6 +36,10 @@
         }
         &__button {
             padding: 5px;
+            &:hover > img {
+                outline: 1px solid $secondary-color;
+                border-radius: 2px;
+            }
         }
     }
 }
