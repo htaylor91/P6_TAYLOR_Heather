@@ -12,6 +12,10 @@
         object-fit: cover;
         border-radius: 5px;
         z-index: -1;
+        border: 0px solid transparent;
+    }
+    &:hover .mediaContainer__image {
+        border: 5px solid $primary-color;
     }
     &__video {
         display: block;
@@ -20,5 +24,9 @@
         object-fit: cover;
         border-radius: 5px;
         z-index: -1;
+        border: 0px solid transparent;
+    }
+    &:hover .mediaContainer__video {
+        border: 5px solid $primary-color;
     }
 }
