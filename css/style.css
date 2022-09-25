@@ -193,11 +193,11 @@ a:any-link, button {
 }
 
 .arrowDown {
-  background-image: url("../../assets/icons/arrow-down.svg");
+  background-image: url(./../assets/icons/arrow-down.svg);
 }
 
 .arrowUp {
-  background-image: url("../../assets/icons/arrow-up.svg");
+  background-image: url(./../assets/icons/arrow-up.svg);
 }
 
 #descriptionModal {
