@@ -44,11 +44,11 @@ export const displayMedia = async (mediaAssets) => {
 
 //Function to display the specific photographer's name in their contact form
 const customModal = async (photographer) => {
-    const modalHeaderText = document.getElementById("uniqueHeading");
+    const modalHeaderText = document.getElementById("modalHeader");
     const photographerModel = photographerFactory(photographer);
     const modalDOM = photographerModel.getModalDOM();
 
-    modalHeaderText.appendChild(modalDOM);
+    modalHeaderText.append(modalDOM);
 };
 
 const footer = async (totalLikes) => {
