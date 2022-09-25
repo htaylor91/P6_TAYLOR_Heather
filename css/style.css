@@ -275,6 +275,7 @@ a:any-link, button {
 .infoContainer__textContainer__title {
   font-size: 24px;
   line-height: 31.25px;
+  text-align: left;
 }
 .infoContainer__descriptionContainer {
   display: flex;
