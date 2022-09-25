@@ -11,6 +11,7 @@
         width: 100%;
         align-items: self-start;
         margin-bottom: 26px;
+        border: none;
     }
     &__label {
         color: $gray--dark;
@@ -25,5 +26,6 @@
         border: none;
         border-radius: 5px;
         font-size: 36px;
+        margin-bottom: 5px;
     }
 }
