@@ -193,11 +193,11 @@ a:any-link, button {
 }
 
 .arrowDown {
-  background-image: url(../../assets/icons/arrow-down.svg);
+  background-image: url("../../assets/icons/arrow-down.svg");
 }
 
 .arrowUp {
-  background-image: url(../../assets/icons/arrow-up.svg);
+  background-image: url("../../assets/icons/arrow-up.svg");
 }
 
 #descriptionModal {
@@ -264,7 +264,6 @@ a:any-link, button {
 }
 
 .nav {
-  background: blueviolet;
   padding-left: 100px;
 }
 @media screen and (768px <= width < 992px) {
