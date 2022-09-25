@@ -69,6 +69,7 @@ const photographerFactory = data => {
         const photographerName = document.createElement( "h1" );
         photographerName.textContent = name;
         photographerName.setAttribute("class", "photographerName photographerName--profile");
+        photographerName.setAttribute("id", "photographerName");
         photographerName.setAttribute("translate", "no");
 
         const textContainer = document.createElement( "div" );
@@ -87,7 +88,6 @@ const photographerFactory = data => {
         contactButton.setAttribute("class", "button button--form button--form--contact");
         contactButton.setAttribute("id", "displayModal");
         contactButton.textContent = "Contactez-moi";
-        contactButton.setAttribute("lang", "fr");
         
         const img = document.createElement( "img" );
         img.setAttribute("src", profilePicture);
@@ -101,12 +101,10 @@ const photographerFactory = data => {
 
         const photographerFooterLikesContainer = document.createElement( "div" );
         photographerFooterLikesContainer.setAttribute("class", "photographerFooter__likesContainer");
-        photographerFooterLikesContainer.setAttribute("aria-label", "nombre total de likes");
 
         const photographerFooterLikes = document.createElement( "div" );
         photographerFooterLikes.setAttribute("class", "photographerFooter__likes");
         
-
         const photographerFooterIcon = document.createElement("img");
         photographerFooterIcon.setAttribute("src", heartIcon);
         photographerFooterIcon.setAttribute("alt", "");
@@ -114,26 +112,28 @@ const photographerFactory = data => {
         photographerFooterIcon.setAttribute("width", "17.5");
         photographerFooterIcon.setAttribute("height", "18.35");
 
+        const photographerFooterPriceLabel = document.createElement ("p");
+        photographerFooterPriceLabel.setAttribute("id", "priceLabel");
+        photographerFooterPriceLabel.setAttribute("class", "hidden");
+        photographerFooterPriceLabel.textContent = "prix";
+
         const photographerFooterPrice = document.createElement( "p" );
         photographerFooterPrice.textContent = `${price}€ / jour`;
         photographerFooterPrice.setAttribute("class", "photographerPrice--profile photographerFooter__price");
-        photographerFooterPrice.setAttribute("aria-label", "prix");
         
         article.append(textContainer, contactButton, img, photographerFooter);
 
         textContainer.append(photographerName, photographerLocation, photographerTagline);
 
-        photographerFooter.append(photographerFooterLikesContainer, photographerFooterPrice);
+        photographerFooter.append(photographerFooterLikesContainer, photographerFooterPriceLabel, photographerFooterPrice);
         photographerFooterLikesContainer.append(photographerFooterLikes, photographerFooterIcon);
 
         return (article);
     }
 
     function getModalDOM() {
-        
-        const contactName = document.createElement ("h2");
+        let contactName = document.getElementById("uniqueHeading");
         contactName.textContent = profileName;
-        contactName.setAttribute("class", "modal__header__text__heading");
 
         return(contactName);
     }
