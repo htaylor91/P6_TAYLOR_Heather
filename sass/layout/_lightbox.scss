@@ -76,11 +76,15 @@
 .next {
     right: 0;
     margin-left: 3%;
+    height: 50%;
+    align-self: center;
 }
 
 .previous {
     left: 0;
     margin-right: 3%;
+    height: 50%;
+    align-self: center;
 }
 
 .active {
