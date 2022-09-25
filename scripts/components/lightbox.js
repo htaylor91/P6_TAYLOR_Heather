@@ -113,7 +113,7 @@ const displayLightboxContent = (event) => {
                         lightboxMediaCloneDescriptionButton.classList.add("lightboxFrame__description__button");
                         lightboxFrame.appendChild(lightboxFrameDescription);
                         lightboxFrameDescription.append(lightboxMediaCloneDescriptionButton);
-                        lightboxFrameDescription.setAttribute("aria-hidden", "false");
+                        lightboxFrameDescription.setAttribute("aria-hidden", false);
 
                         lightboxMediaCloneDescriptionButton.removeAttribute("disabled");
                         lightboxMediaCloneDescriptionButton.setAttribute("aria-hidden", false);
@@ -155,7 +155,6 @@ const displayLightboxContent = (event) => {
 
                 //Append the cloned element and its title into their parent containers
                 lightboxFrameMedia.append(lightboxMediaClone);
-                lightboxFrameTitle.setAttribute("aria-hidden", "false");
                 lightboxFrameTitle.append(lightboxMediaCloneTitle);
 
                 const lightboxVideoControls = () => {
