@@ -58,7 +58,7 @@
       </div>
     </dialog>
     <dialog id="lightboxModal" aria-label="lightbox" lang="en" aria-hidden="true">
-      <div class="lightbox" lang="en">
+      <div class="lightbox" lang="en" aria-roledescription="carousel">
         <button id="closeLightbox" class="button" aria-label="fermer la lightbox">
           <img class="closeLightbox__img" src="assets/icons/close.svg" alt="" aria-hidden="true"/>
         </button>
@@ -66,8 +66,9 @@
           <img src="assets/icons/arrow-left.svg" alt="" aria-hidden="true"/>
         </button>
         <div id="lightboxFrame" class="lightboxFrame">
-          <div id="lightboxFrame__media" class="lightboxFrame__media"></div>
-            <div id="lightboxFrame__text" class="lightboxFrame__text"></div>
+          <div id="lightboxFrame__media" class="lightboxFrame__media" aria-labelledby="lightboxFrame__text"
+          aria-roledescription="slide" aria-atomic="false" aria-live="polite"></div>
+            <div id="lightboxFrame__text" class="lightboxFrame__text" aria-hidden="true"></div>
             <div id="lightboxFrame__description" class="lightboxFrame__description"></div>
         </div>
         <button id="next" class="next button" aria-label="suivant">
