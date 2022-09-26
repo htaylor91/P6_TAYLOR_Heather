@@ -130,9 +130,13 @@ const mediaFactory = asset => {
             track.setAttribute("srclang", "en");
             track.setAttribute("label", galleryAlt);
 
-            const embed = document.getElementById("descriptionEmbed");
-            embed.setAttribute("src", galleryVideoTranscript);
-
+            //Display the text of the track
+            fetch(galleryVideoTranscript).then(function(response) {
+                response.text().then(function(text) {
+                    document.getElementById("descriptionText").textContent = text; 
+                });
+            });
+         
             mediaAssetButton.append(video);
             video.append(source, track);
 

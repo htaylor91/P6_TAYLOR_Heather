@@ -76,10 +76,12 @@
       </div>
     </dialog>
     <dialog id="descriptionDialog" aria-label="description de la vidéo" aria-hidden="true">
-      <button id="closeDescription" type="button" aria-label="fermer la description de la vidéo">
-        <img class="closeLightbox__img" src="assets/icons/close.svg" alt="" aria-hidden="true">
-      </button>
-      <embed id="descriptionEmbed">
+      <div class="descriptionDialogWrapper">
+        <button id="closeDescription" type="button" aria-label="fermer">
+          <img class="closeLightbox__img" src="assets/icons/close.svg" alt="" aria-hidden="true">
+        </button>
+        <div id="descriptionText"></div>
+      </div>
     </dialog>
     <script type="module" src="scripts/pages/photographer.js"></script>
     <script type="module" src="scripts/components/loader.js"></script>
