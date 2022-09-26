@@ -118,6 +118,7 @@ const mediaFactory = asset => {
             video.setAttribute("data-title", galleryAlt);
             video.setAttribute("id", id);
             video.setAttribute("muted", "muted");
+            video.setAttribute("tabIndex", "-1");
 
             const source = document.createElement("source");
             source.setAttribute("src", galleryVideo + "#t=0.01");

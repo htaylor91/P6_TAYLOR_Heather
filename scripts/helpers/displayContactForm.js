@@ -32,4 +32,4 @@ function closeModal() {
 
 closeModalBtn.addEventListener("click", closeModal);
 
-export {body, headerSection, mainSection, form, closeModal};
+export {body, headerSection, mainSection, modalDialog, form, closeModal};

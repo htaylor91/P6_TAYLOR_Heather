@@ -1,5 +1,6 @@
 
 import {body, headerSection, mainSection} from "../helpers/displayContactForm.js";
+import {descriptionDialog} from "../components/description.js";
 import addGlobalEventListener from "../helpers/globalEvent.js";
 
 const lightboxDialog = document.getElementById("lightboxModal");
@@ -8,7 +9,6 @@ const lightboxFrameMedia = document.getElementById("lightboxFrame__media");
 const lightboxFrameTitle = document.getElementById("lightboxFrame__text");
 const lightboxFrameDescription = document.getElementById("lightboxFrame__description");
 
-const descriptionDialog = document.getElementById("descriptionDialog");
 function displayDescriptionModal() {
     descriptionDialog.setAttribute("aria-hidden", false);
     descriptionDialog.showModal();
@@ -107,7 +107,6 @@ const displayLightboxContent = (event) => {
                         let lightboxMediaInfo = lightboxMedia.parentElement.nextElementSibling;
                         let lightboxMediaDescriptionContainer = lightboxMediaInfo.firstElementChild.nextElementSibling;
                         let lightboxMediaDescriptionButton = lightboxMediaDescriptionContainer.firstChild;
-                        console.dir(lightboxMediaDescriptionButton);
                         
                         let lightboxMediaCloneDescriptionButton = lightboxMediaDescriptionButton.cloneNode(true);
                         lightboxMediaCloneDescriptionButton.classList.add("lightboxFrame__description__button");
@@ -119,6 +118,8 @@ const displayLightboxContent = (event) => {
                         lightboxMediaCloneDescriptionButton.setAttribute("aria-hidden", false);
                         lightboxMediaCloneDescriptionButton.addEventListener("click", displayDescriptionModal);
 
+                        lightboxMedia.setAttribute("tabIndex", "0");
+                        console.log(lightboxMedia);
                     }
                     if (lightboxMedia.tagName === "IMG") {
                         console.log("I am only a picture, I do not have a video description.");
@@ -184,7 +185,7 @@ const displayLightboxContent = (event) => {
             clearLightbox();
         }else {
             // eslint-disable-next-line no-self-assign
-            currentIndex = currentIndex;
+            currentIndex = 0;
             clearLightbox();
         }
         getLightboxContent();
@@ -200,7 +201,7 @@ const displayLightboxContent = (event) => {
         console.log("previous was clicked");
         if (currentIndex <= 0) {
             // eslint-disable-next-line no-self-assign
-            currentIndex = currentIndex;
+            currentIndex = (mediaAssetsArray.length - 1);
             clearLightbox();
         }else {
             currentIndex = (currentIndex - 1);
@@ -242,3 +243,5 @@ document.addEventListener("keydown", function(event){
 
 //Close the lightbox modal when the close button is clicked
 closeLightboxBtn.addEventListener("click", closeLightbox);
+
+export {lightboxDialog};

@@ -8,3 +8,5 @@ function closeDescriptionModal() {
 }
 
 closeDescription.addEventListener("click", closeDescriptionModal);
+
+export { descriptionDialog };
