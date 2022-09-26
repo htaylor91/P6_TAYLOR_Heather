@@ -255,12 +255,17 @@ a:any-link, button {
 
 #descriptionModal {
   background-color: #FFFFFF;
+}
+
+.descriptionDialogWrapper {
+  font-size: 24px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
 }
 
 #closeDescription {
-  margin-left: auto;
+  margin: 0px 0px 100px 50px;
 }
 
 .infoContainer {
