@@ -2,7 +2,7 @@
 
 Fisheye
 
-[Fisheye GitHub Page](https://htaylor91.github.io/P6_TAYLOR_Heather/)
+[Fisheye GitHub Page](https://taylorfullstack.github.io/P6_TAYLOR_Heather/)
 
 ## Description
 
@@ -15,7 +15,7 @@ Fisheye
 Clonez la source localement
 
 ```sh
-$ git clone https://github.com/htaylor91/P6_TAYLOR_Heather.git
+$ git clone https://github.com/taylorfullstack/P6_TAYLOR_Heather.git
 $ cd P6_TAYLOR_Heather
 ```
 
